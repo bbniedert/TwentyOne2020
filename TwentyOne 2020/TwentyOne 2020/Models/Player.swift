@@ -27,8 +27,11 @@ class Player {
             let updatedTargets = self.isLeftSidePlayer ? MatchManager.instance.rightCupsAvailable : MatchManager.instance.leftCupsAvailable
             if updatedTargets.contains(target) && result == 1 {
                 MatchManager.instance.removeCup(leftShooter: self.isLeftSidePlayer, target: target)
+                self.delegate?.playerDidThrow(success: true, target: target)
+            } else {
+                self.delegate?.playerDidThrow(success: false, target: target)
             }
-            self.delegate?.playerDidThrow(success: result == 1, target: target)
+
         }
     }
 }
