@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 protocol PlayerDelegate: class {
-    func playerDidThrow(success: Bool)
+    func playerDidThrow(success: Bool, target: Int)
 }
 
 enum BallState {
@@ -22,12 +22,20 @@ struct PairUI {
     let rightLabel: UILabel
     let leftScoreLabel: UILabel
     let rightScoreLabel: UILabel
+    let rightBall: UIImageView
+    let leftBall: UIImageView
+    let leftRack: RackView
+    let rightRack: RackView
 
-    init(leftLabel: UILabel, rightLabel: UILabel, leftScore: UILabel, rightScore: UILabel) {
+    init(leftLabel: UILabel, rightLabel: UILabel, leftScore: UILabel, rightScore: UILabel, leftBall: UIImageView, rightBall: UIImageView, leftRack: RackView, rightRack: RackView) {
         self.leftLabel = leftLabel
         self.rightLabel = rightLabel
         leftScoreLabel = leftScore
         rightScoreLabel = rightScore
+        self.leftBall = leftBall
+        self.rightBall = rightBall
+        self.leftRack = leftRack
+        self.rightRack = rightRack
     }
 }
 
@@ -42,7 +50,7 @@ class Pair {
     weak var delegate: PairDelegate?
 
     var randomWaitValue: Double {
-        return Double.random(in: 0.25 ... 1.5)
+        return Double.random(in: 0.25 ... 1.0)
     }
 
     init(leftPlayer: Player, rightPlayer: Player, ballState: BallState, ui: PairUI, delegate: PairDelegate) {
@@ -69,9 +77,14 @@ class Pair {
         if !shouldStop {
             let thrower = self.ballState == .leftPlayer ? self.leftPlayer : self.rightPlayer
             let label = self.ballState == .leftPlayer ? self.ui.leftLabel : self.ui.rightLabel
+            let ball = self.ballState == .leftPlayer ? self.ui.leftBall : self.ui.rightBall
+            let availableTargets = self.ballState == .leftPlayer ? MatchManager.instance.rightCupsAvailable : MatchManager.instance.leftCupsAvailable
+            let rack = self.ballState == .leftPlayer ? self.ui.rightRack : self.ui.leftRack
+//            ball.isHidden = false
             DispatchQueue.global().asyncAfter(deadline: .now() + randomWaitValue) {
-                thrower.throwBall()
                 DispatchQueue.main.async {
+                    guard let target = availableTargets.randomElement() else { return }
+                    thrower.throwBall(target: target, location: rack.getCupCenter(cupNumber: target), ball: ball)
                     label.text = "THROWING..."
                 }
             }
@@ -80,7 +93,7 @@ class Pair {
 }
 
 extension Pair: PlayerDelegate {
-    func playerDidThrow(success: Bool) {
+    func playerDidThrow(success: Bool, target: Int) {
         if !shouldStop {
             let throwerSide = ballState
             ballState = ballState == .leftPlayer ? .rightPlayer : .leftPlayer
@@ -93,6 +106,7 @@ extension Pair: PlayerDelegate {
                 if success, let currentScore = Int(scoreLabel.text ?? "") {
                     let newScore = currentScore - 1
                     scoreLabel.text = "\(newScore)"
+                    self.delegate?.didMakeCup(leftSide: throwerSide == .leftPlayer, cupNumber: target)
                     if newScore == 0 {
                         self.delegate?.endMatch(leftSideWon: throwerSide == .leftPlayer)
                     }
