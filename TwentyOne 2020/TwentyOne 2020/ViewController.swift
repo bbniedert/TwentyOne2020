@@ -26,6 +26,12 @@ class ViewController: UIViewController {
     @IBOutlet weak var tableView: UIView!
     @IBOutlet weak var leftRackView: RackView!
     @IBOutlet weak var rightRackView: RackView!
+    @IBOutlet weak var leftLeftBall: UIImageView!
+    @IBOutlet weak var leftCenterBall: UIImageView!
+    @IBOutlet weak var leftRightBall: UIImageView!
+    @IBOutlet weak var rightRightBall: UIImageView!
+    @IBOutlet weak var rightCenterBall: UIImageView!
+    @IBOutlet weak var rightLeftBall: UIImageView!
 
     var currentMatch: Match?
 
@@ -53,7 +59,11 @@ class ViewController: UIViewController {
         let pairOneUi = PairUI(leftLabel: leftLeftLabel,
                                rightLabel: rightRightLabel,
                                leftScore: leftScoreLabel,
-                               rightScore: rightScoreLabel)
+                               rightScore: rightScoreLabel,
+                               leftBall: leftLeftBall,
+                               rightBall: rightRightBall,
+                               leftRack: leftRackView,
+                               rightRack: rightRackView)
 
         pairOne = Pair(leftPlayer: leftLeftPlayer,
                            rightPlayer: rightRightPlayer,
@@ -65,7 +75,12 @@ class ViewController: UIViewController {
         let pairTwoUi = PairUI(leftLabel: leftCenterLabel,
                                rightLabel: rightCenterLabel,
                                leftScore: leftScoreLabel,
-                               rightScore: rightScoreLabel)
+                               rightScore: rightScoreLabel,
+                               leftBall: leftCenterBall,
+                               rightBall: rightCenterBall,
+                               leftRack: leftRackView,
+                               rightRack: rightRackView)
+
 
         pairTwo = Pair(leftPlayer: leftCenterPlayer,
                            rightPlayer: rightCenterPlayer,
@@ -76,7 +91,12 @@ class ViewController: UIViewController {
         let pairThreeUi = PairUI(leftLabel: leftRightLabel,
                                rightLabel: rightLeftLabel,
                                leftScore: leftScoreLabel,
-                               rightScore: rightScoreLabel)
+                               rightScore: rightScoreLabel,
+                               leftBall: leftRightBall,
+                               rightBall: rightLeftBall,
+                               leftRack: leftRackView,
+                               rightRack: rightRackView)
+
 
         pairThree = Pair(leftPlayer: leftRightPlayer,
                              rightPlayer: rightLeftPlayer,

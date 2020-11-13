@@ -61,6 +61,55 @@ class RackView: UIView {
         self.view = view
     }
 
+    func getCupCenter(cupNumber: Int) -> CGPoint {
+        switch cupNumber {
+        case 1:
+            return convert(CGPoint(x: cup1.center.x, y: cup1.center.y + 60), to: superview?.superview)
+        case 2:
+            return convert(CGPoint(x: cup2.center.x, y: cup2.center.y + 60), to: superview?.superview)
+        case 3:
+            return convert(CGPoint(x: cup3.center.x, y: cup3.center.y + 60), to: superview?.superview)
+        case 4:
+            return convert(CGPoint(x: cup4.center.x, y: cup4.center.y + 60), to: superview?.superview)
+        case 5:
+            return convert(CGPoint(x: cup5.center.x, y: cup5.center.y + 60), to: superview?.superview)
+        case 6:
+            return convert(CGPoint(x: cup6.center.x, y: cup6.center.y + 60), to: superview?.superview)
+        case 7:
+            return convert(CGPoint(x: cup7.center.x, y: cup7.center.y + 60), to: superview?.superview)
+        case 8:
+            return convert(CGPoint(x: cup8.center.x, y: cup8.center.y + 60), to: superview?.superview)
+        case 9:
+            return convert(CGPoint(x: cup9.center.x, y: cup9.center.y + 60), to: superview?.superview)
+        case 10:
+            return convert(CGPoint(x: cup10.center.x, y: cup10.center.y + 60), to: superview?.superview)
+        case 11:
+            return convert(CGPoint(x: cup11.center.x, y: cup11.center.y + 60), to: superview?.superview)
+        case 12:
+            return convert(CGPoint(x: cup12.center.x, y: cup12.center.y + 60), to: superview?.superview)
+        case 13:
+            return convert(CGPoint(x: cup13.center.x, y: cup13.center.y + 60), to: superview?.superview)
+        case 14:
+            return convert(CGPoint(x: cup14.center.x, y: cup14.center.y + 60), to: superview?.superview)
+        case 15:
+            return convert(CGPoint(x: cup15.center.x, y: cup15.center.y + 60), to: superview?.superview)
+        case 16:
+            return convert(CGPoint(x: cup16.center.x, y: cup16.center.y + 60), to: superview?.superview)
+        case 17:
+            return convert(CGPoint(x: cup17.center.x, y: cup17.center.y + 60), to: superview?.superview)
+        case 18:
+            return convert(CGPoint(x: cup18.center.x, y: cup18.center.y + 60), to: superview?.superview)
+        case 19:
+            return convert(CGPoint(x: cup19.center.x, y: cup19.center.y + 60), to: superview?.superview)
+        case 20:
+            return convert(CGPoint(x: cup20.center.x, y: cup20.center.y + 60), to: superview?.superview)
+        case 21:
+            return convert(CGPoint(x: cup21.center.x, y: cup21.center.y + 60), to: superview?.superview)
+        default:
+            return CGPoint(x: 0, y: 0)
+        }
+    }
+
     func cupMade(cupNumber: Int) {
         switch cupNumber {
         case 1:
