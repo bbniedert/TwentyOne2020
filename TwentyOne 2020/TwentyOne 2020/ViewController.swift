@@ -19,6 +19,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var rightRightLabel: UILabel!
     @IBOutlet weak var rightCenterLabel: UILabel!
     @IBOutlet weak var rightLeftLabel: UILabel!
+    @IBOutlet weak var leftScoreLabel: UILabel!
+    @IBOutlet weak var rightScoreLabel: UILabel!
 
     var currentMatch: Match?
 
@@ -37,25 +39,38 @@ class ViewController: UIViewController {
         let rightCenterPlayer = Player()
         let rightLeftPlayer = Player()
 
+        let pairOneUi = PairUI(leftLabel: leftLeftLabel,
+                               rightLabel: rightRightLabel,
+                               leftScore: leftScoreLabel,
+                               rightScore: rightScoreLabel)
+
         let pairOne = Pair(leftPlayer: leftLeftPlayer,
                            rightPlayer: rightRightPlayer,
                            ballState: .leftPlayer,
-                           leftLabel: leftLeftLabel,
-                           rightLabel: rightRightLabel,
+                           ui: pairOneUi,
                            delegate: self)
+
+
+        let pairTwoUi = PairUI(leftLabel: leftCenterLabel,
+                               rightLabel: rightCenterLabel,
+                               leftScore: leftScoreLabel,
+                               rightScore: rightScoreLabel)
 
         let pairTwo = Pair(leftPlayer: leftCenterPlayer,
                            rightPlayer: rightCenterPlayer,
                            ballState: .rightPlayer,
-                           leftLabel: leftCenterLabel,
-                           rightLabel: rightCenterLabel,
+                           ui: pairTwoUi,
                            delegate: self)
+
+        let pairThreeUi = PairUI(leftLabel: leftRightLabel,
+                               rightLabel: rightLeftLabel,
+                               leftScore: leftScoreLabel,
+                               rightScore: rightScoreLabel)
 
         let pairThree = Pair(leftPlayer: leftRightPlayer,
                              rightPlayer: rightLeftPlayer,
                              ballState: .leftPlayer,
-                             leftLabel: leftRightLabel,
-                             rightLabel: rightLeftLabel,
+                             ui: pairThreeUi,
                              delegate: self)
 
         currentMatch = Match(leftPair: pairOne, centerPair: pairTwo, rightPair: pairThree)
@@ -73,10 +88,12 @@ class ViewController: UIViewController {
         rightRightLabel.isHidden = false
         rightCenterLabel.isHidden = false
         rightLeftLabel.isHidden = false
+        rightScoreLabel.isHidden = false
+        leftScoreLabel.isHidden = false
 
         pairOne.start()
-        pairTwo.start()
-        pairThree.start()
+//        pairTwo.start()
+//        pairThree.start()
     }
 }
 

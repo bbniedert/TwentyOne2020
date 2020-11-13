@@ -17,12 +17,25 @@ enum BallState {
     case rightPlayer
 }
 
+struct PairUI {
+    let leftLabel: UILabel
+    let rightLabel: UILabel
+    let leftScoreLabel: UILabel
+    let rightScoreLabel: UILabel
+
+    init(leftLabel: UILabel, rightLabel: UILabel, leftScore: UILabel, rightScore: UILabel) {
+        self.leftLabel = leftLabel
+        self.rightLabel = rightLabel
+        leftScoreLabel = leftScore
+        rightScoreLabel = rightScore
+    }
+}
+
 class Pair {
     let leftPlayer: Player
     let rightPlayer: Player
     var ballState: BallState
-    let leftLabel: UILabel
-    let rightLabel: UILabel
+    let ui: PairUI
 
     weak var delegate: PairDelegate?
 
@@ -30,12 +43,11 @@ class Pair {
         return Double.random(in: 0.25 ... 1.5)
     }
 
-    init(leftPlayer: Player, rightPlayer: Player, ballState: BallState, leftLabel: UILabel, rightLabel: UILabel, delegate: PairDelegate) {
+    init(leftPlayer: Player, rightPlayer: Player, ballState: BallState, ui: PairUI, delegate: PairDelegate) {
         self.leftPlayer = leftPlayer
         self.rightPlayer = rightPlayer
         self.ballState = ballState
-        self.leftLabel = leftLabel
-        self.rightLabel = rightLabel
+        self.ui = ui
         self.delegate = delegate
     }
 
@@ -49,7 +61,7 @@ class Pair {
 
     private func progressGame() {
         let thrower = self.ballState == .leftPlayer ? self.leftPlayer : self.rightPlayer
-        let label = self.ballState == .leftPlayer ? self.leftLabel : self.rightLabel
+        let label = self.ballState == .leftPlayer ? self.ui.leftLabel : self.ui.rightLabel
         DispatchQueue.global().asyncAfter(deadline: .now() + randomWaitValue) {
             thrower.throwBall()
             DispatchQueue.main.async {
@@ -62,12 +74,15 @@ class Pair {
 extension Pair: PlayerDelegate {
     func playerDidThrow(success: Bool) {
         delegate?.ballWasThrown(success: success)
-        let throwerLabel = ballState == .leftPlayer ? leftLabel : rightLabel
-        let receiverLabel = ballState == .leftPlayer ? rightLabel : leftLabel
-        ballState = ballState == .leftPlayer ? .rightPlayer : .leftPlayer
+        let throwerLabel = ballState == .leftPlayer ? ui.leftLabel : ui.rightLabel
+        let receiverLabel = ballState == .leftPlayer ? ui.rightLabel : ui.leftLabel
+        let scoreLabel = ballState == .leftPlayer ? ui.rightScoreLabel : ui.leftScoreLabel
         DispatchQueue.main.async {
             throwerLabel.text = success ? "MAKE!" : "MISS!"
             receiverLabel.text = success ? "DRINKING!" : "HAS BALL"
+            if success, let currentScore = Int(scoreLabel.text ?? "") {
+                scoreLabel.text = "\(currentScore - 1)"
+            }
         }
 
         progressGame()
