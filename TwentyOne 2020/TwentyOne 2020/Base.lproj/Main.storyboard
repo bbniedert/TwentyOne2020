@@ -13,12 +13,50 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="TwentyOne_2020" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="1366" height="1024"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="21 Tournament 2020" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="meu-hz-hI7">
-                                <rect key="frame" x="466" y="473" width="434.5" height="58.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="49"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7f0-xH-12x">
+                                <rect key="frame" x="856" y="481" width="208" height="98"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="72"/>
+                                <state key="normal" title="START"/>
+                                <connections>
+                                    <action selector="startMatch:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ECc-iP-T6P"/>
+                                </connections>
+                            </button>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Player" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bl6-b0-hct">
+                                <rect key="frame" x="200" y="508.5" width="95" height="43"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="36"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Player" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uox-cY-u5r">
+                                <rect key="frame" x="200" y="265.5" width="95" height="43"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="36"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Player" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PO0-2s-RRU">
+                                <rect key="frame" x="200" y="751.5" width="95" height="43"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="36"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Player" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i0H-Ab-l2Y">
+                                <rect key="frame" x="1625" y="508.5" width="95" height="43"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="36"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Player" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HLV-iQ-CIV">
+                                <rect key="frame" x="1625" y="265.5" width="95" height="43"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="36"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Player" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xsx-Aa-olO">
+                                <rect key="frame" x="1625" y="751.5" width="95" height="43"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="36"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -26,14 +64,35 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="meu-hz-hI7" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="EVU-q4-avY"/>
-                            <constraint firstItem="meu-hz-hI7" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="Wnq-Cf-T5N"/>
+                            <constraint firstItem="7f0-xH-12x" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="4iB-og-h21"/>
+                            <constraint firstItem="Xsx-Aa-olO" firstAttribute="top" secondItem="i0H-Ab-l2Y" secondAttribute="bottom" constant="200" id="9dj-B7-Lmn"/>
+                            <constraint firstItem="PO0-2s-RRU" firstAttribute="leading" secondItem="Bl6-b0-hct" secondAttribute="leading" id="BVo-9c-E7c"/>
+                            <constraint firstItem="uox-cY-u5r" firstAttribute="leading" secondItem="Bl6-b0-hct" secondAttribute="leading" id="FVK-BR-lph"/>
+                            <constraint firstItem="HLV-iQ-CIV" firstAttribute="trailing" secondItem="i0H-Ab-l2Y" secondAttribute="trailing" id="IV9-MU-3Vf"/>
+                            <constraint firstItem="Bl6-b0-hct" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="N9y-cR-COg"/>
+                            <constraint firstItem="Bl6-b0-hct" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="200" id="NBi-XJ-ky3"/>
+                            <constraint firstItem="7f0-xH-12x" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="XQl-UW-BYd"/>
+                            <constraint firstItem="i0H-Ab-l2Y" firstAttribute="top" secondItem="HLV-iQ-CIV" secondAttribute="bottom" constant="200" id="bi4-ZA-DMs"/>
+                            <constraint firstItem="Bl6-b0-hct" firstAttribute="top" secondItem="uox-cY-u5r" secondAttribute="bottom" constant="200" id="ckZ-rS-SS6"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="i0H-Ab-l2Y" secondAttribute="trailing" constant="200" id="deq-jN-yI0"/>
+                            <constraint firstItem="PO0-2s-RRU" firstAttribute="top" secondItem="Bl6-b0-hct" secondAttribute="bottom" constant="200" id="edy-b1-ZyE"/>
+                            <constraint firstItem="Xsx-Aa-olO" firstAttribute="trailing" secondItem="i0H-Ab-l2Y" secondAttribute="trailing" id="lYl-Q6-OUE"/>
+                            <constraint firstItem="i0H-Ab-l2Y" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="p6D-B9-AJF"/>
                         </constraints>
                     </view>
+                    <size key="freeformSize" width="1920" height="1080"/>
+                    <connections>
+                        <outlet property="leftCenterLabel" destination="Bl6-b0-hct" id="BY7-1d-ENJ"/>
+                        <outlet property="leftLeftLabel" destination="uox-cY-u5r" id="B2R-u3-RR1"/>
+                        <outlet property="leftRightLabel" destination="PO0-2s-RRU" id="aSF-nX-7Gn"/>
+                        <outlet property="rightCenterLabel" destination="i0H-Ab-l2Y" id="PjI-Ru-qnG"/>
+                        <outlet property="rightLeftLabel" destination="Xsx-Aa-olO" id="nb0-vG-x58"/>
+                        <outlet property="rightRightLabel" destination="HLV-iQ-CIV" id="9Fg-bx-peE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-213" y="106"/>
+            <point key="canvasLocation" x="-213.03074670571007" y="105.46875"/>
         </scene>
     </scenes>
     <resources>
