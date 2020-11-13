@@ -8,11 +8,12 @@
 import UIKit
 
 protocol PairDelegate: class {
-    func ballWasThrown(success: Bool)
+    func endMatch(leftSideWon: Bool)
 }
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var winnerLabel: UILabel!
     @IBOutlet weak var leftLeftLabel: UILabel!
     @IBOutlet weak var leftCenterLabel: UILabel!
     @IBOutlet weak var leftRightLabel: UILabel!
@@ -23,6 +24,10 @@ class ViewController: UIViewController {
     @IBOutlet weak var rightScoreLabel: UILabel!
 
     var currentMatch: Match?
+
+    var pairOne: Pair?
+    var pairTwo: Pair?
+    var pairThree: Pair?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,7 +49,7 @@ class ViewController: UIViewController {
                                leftScore: leftScoreLabel,
                                rightScore: rightScoreLabel)
 
-        let pairOne = Pair(leftPlayer: leftLeftPlayer,
+        pairOne = Pair(leftPlayer: leftLeftPlayer,
                            rightPlayer: rightRightPlayer,
                            ballState: .leftPlayer,
                            ui: pairOneUi,
@@ -56,7 +61,7 @@ class ViewController: UIViewController {
                                leftScore: leftScoreLabel,
                                rightScore: rightScoreLabel)
 
-        let pairTwo = Pair(leftPlayer: leftCenterPlayer,
+        pairTwo = Pair(leftPlayer: leftCenterPlayer,
                            rightPlayer: rightCenterPlayer,
                            ballState: .rightPlayer,
                            ui: pairTwoUi,
@@ -67,13 +72,15 @@ class ViewController: UIViewController {
                                leftScore: leftScoreLabel,
                                rightScore: rightScoreLabel)
 
-        let pairThree = Pair(leftPlayer: leftRightPlayer,
+        pairThree = Pair(leftPlayer: leftRightPlayer,
                              rightPlayer: rightLeftPlayer,
                              ballState: .leftPlayer,
                              ui: pairThreeUi,
                              delegate: self)
 
-        currentMatch = Match(leftPair: pairOne, centerPair: pairTwo, rightPair: pairThree)
+        guard let leftPair = pairOne, let centerPair = pairTwo, let rightPair = pairThree else { return }
+
+        currentMatch = Match(leftPair: leftPair, centerPair: centerPair, rightPair: rightPair)
 
         leftLeftLabel.text = "HAS BALL"
         leftCenterLabel.text = "WAITING"
@@ -91,15 +98,22 @@ class ViewController: UIViewController {
         rightScoreLabel.isHidden = false
         leftScoreLabel.isHidden = false
 
-        pairOne.start()
-//        pairTwo.start()
-//        pairThree.start()
+
+        pairOne?.start()
+        pairTwo?.start()
+        pairThree?.start()
     }
 }
 
 extension ViewController: PairDelegate {
-    func ballWasThrown(success: Bool) {
-        print()
+    func endMatch(leftSideWon: Bool) {
+        let winner = leftSideWon ? "LEFT" : "RIGHT"
+        winnerLabel.text = "\(winner) WINS!"
+        winnerLabel.isHidden = false
+
+        pairOne?.stop()
+        pairTwo?.stop()
+        pairThree?.stop()
     }
 }
 

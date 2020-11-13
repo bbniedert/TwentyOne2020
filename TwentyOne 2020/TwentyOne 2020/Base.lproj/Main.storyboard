@@ -72,6 +72,12 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Winner" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jOz-Df-U16">
+                                <rect key="frame" x="816" y="472.5" width="288.5" height="115"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="96"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -88,10 +94,12 @@
                             <constraint firstItem="VjV-qt-h9g" firstAttribute="trailing" secondItem="HLV-iQ-CIV" secondAttribute="trailing" id="PGk-ny-oim"/>
                             <constraint firstItem="x9x-Fy-Nsl" firstAttribute="leading" secondItem="uox-cY-u5r" secondAttribute="leading" id="WJe-fF-gzO"/>
                             <constraint firstItem="7f0-xH-12x" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="XQl-UW-BYd"/>
+                            <constraint firstItem="jOz-Df-U16" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="Y0l-YT-ENr"/>
                             <constraint firstItem="i0H-Ab-l2Y" firstAttribute="top" secondItem="HLV-iQ-CIV" secondAttribute="bottom" constant="200" id="bi4-ZA-DMs"/>
                             <constraint firstItem="Bl6-b0-hct" firstAttribute="top" secondItem="uox-cY-u5r" secondAttribute="bottom" constant="200" id="ckZ-rS-SS6"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="i0H-Ab-l2Y" secondAttribute="trailing" constant="200" id="deq-jN-yI0"/>
                             <constraint firstItem="PO0-2s-RRU" firstAttribute="top" secondItem="Bl6-b0-hct" secondAttribute="bottom" constant="200" id="edy-b1-ZyE"/>
+                            <constraint firstItem="jOz-Df-U16" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="hdi-Rb-zSF"/>
                             <constraint firstItem="Xsx-Aa-olO" firstAttribute="trailing" secondItem="i0H-Ab-l2Y" secondAttribute="trailing" id="lYl-Q6-OUE"/>
                             <constraint firstItem="i0H-Ab-l2Y" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="p6D-B9-AJF"/>
                         </constraints>
@@ -106,6 +114,7 @@
                         <outlet property="rightLeftLabel" destination="Xsx-Aa-olO" id="nb0-vG-x58"/>
                         <outlet property="rightRightLabel" destination="HLV-iQ-CIV" id="9Fg-bx-peE"/>
                         <outlet property="rightScoreLabel" destination="VjV-qt-h9g" id="UqS-25-6WX"/>
+                        <outlet property="winnerLabel" destination="jOz-Df-U16" id="aoo-VA-lhD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
