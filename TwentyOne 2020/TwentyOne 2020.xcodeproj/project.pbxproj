@@ -13,6 +13,9 @@
 		13AB4D9B255EE40100BAD620 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13AB4D99255EE40100BAD620 /* Main.storyboard */; };
 		13AB4D9D255EE40300BAD620 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13AB4D9C255EE40300BAD620 /* Assets.xcassets */; };
 		13AB4DA0255EE40300BAD620 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13AB4D9E255EE40300BAD620 /* LaunchScreen.storyboard */; };
+		13AB4DAC255EE84900BAD620 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13AB4DAB255EE84900BAD620 /* Player.swift */; };
+		13AB4DB0255EE96600BAD620 /* Pair.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13AB4DAF255EE96600BAD620 /* Pair.swift */; };
+		13AB4DB3255EE97C00BAD620 /* Match.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13AB4DB2255EE97C00BAD620 /* Match.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +28,9 @@
 		13AB4D9F255EE40300BAD620 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		13AB4DA1255EE40300BAD620 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		13AB4DA8255EE45B00BAD620 /* TwentyOne 2020.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "TwentyOne 2020.entitlements"; sourceTree = "<group>"; };
+		13AB4DAB255EE84900BAD620 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		13AB4DAF255EE96600BAD620 /* Pair.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pair.swift; sourceTree = "<group>"; };
+		13AB4DB2255EE97C00BAD620 /* Match.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Match.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +63,7 @@
 		13AB4D92255EE40100BAD620 /* TwentyOne 2020 */ = {
 			isa = PBXGroup;
 			children = (
+				13AB4DAA255EE83B00BAD620 /* Models */,
 				13AB4DA8255EE45B00BAD620 /* TwentyOne 2020.entitlements */,
 				13AB4D93255EE40100BAD620 /* AppDelegate.swift */,
 				13AB4D95255EE40100BAD620 /* SceneDelegate.swift */,
@@ -67,6 +74,16 @@
 				13AB4DA1255EE40300BAD620 /* Info.plist */,
 			);
 			path = "TwentyOne 2020";
+			sourceTree = "<group>";
+		};
+		13AB4DAA255EE83B00BAD620 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				13AB4DAB255EE84900BAD620 /* Player.swift */,
+				13AB4DAF255EE96600BAD620 /* Pair.swift */,
+				13AB4DB2255EE97C00BAD620 /* Match.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -139,9 +156,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				13AB4DAC255EE84900BAD620 /* Player.swift in Sources */,
 				13AB4D98255EE40100BAD620 /* ViewController.swift in Sources */,
 				13AB4D94255EE40100BAD620 /* AppDelegate.swift in Sources */,
 				13AB4D96255EE40100BAD620 /* SceneDelegate.swift in Sources */,
+				13AB4DB0255EE96600BAD620 /* Pair.swift in Sources */,
+				13AB4DB3255EE97C00BAD620 /* Match.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
