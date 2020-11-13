@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 protocol PlayerDelegate: class {
-    func playerDidThrow(success: Bool)
+    func playerDidThrow(success: Bool, target: Int)
 }
 
 enum BallState {
@@ -42,7 +42,7 @@ class Pair {
     weak var delegate: PairDelegate?
 
     var randomWaitValue: Double {
-        return Double.random(in: 0.25 ... 1.5)
+        return Double.random(in: 0.25 ... 1.0)
     }
 
     init(leftPlayer: Player, rightPlayer: Player, ballState: BallState, ui: PairUI, delegate: PairDelegate) {
@@ -80,7 +80,7 @@ class Pair {
 }
 
 extension Pair: PlayerDelegate {
-    func playerDidThrow(success: Bool) {
+    func playerDidThrow(success: Bool, target: Int) {
         if !shouldStop {
             let throwerSide = ballState
             ballState = ballState == .leftPlayer ? .rightPlayer : .leftPlayer
@@ -93,6 +93,7 @@ extension Pair: PlayerDelegate {
                 if success, let currentScore = Int(scoreLabel.text ?? "") {
                     let newScore = currentScore - 1
                     scoreLabel.text = "\(newScore)"
+                    self.delegate?.didMakeCup(leftSide: throwerSide == .leftPlayer, cupNumber: target)
                     if newScore == 0 {
                         self.delegate?.endMatch(leftSideWon: throwerSide == .leftPlayer)
                     }
