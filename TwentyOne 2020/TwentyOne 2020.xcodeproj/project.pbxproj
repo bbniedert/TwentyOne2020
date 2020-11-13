@@ -24,6 +24,7 @@
 		13AB4D9C255EE40300BAD620 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		13AB4D9F255EE40300BAD620 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		13AB4DA1255EE40300BAD620 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		13AB4DA8255EE45B00BAD620 /* TwentyOne 2020.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "TwentyOne 2020.entitlements"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +57,7 @@
 		13AB4D92255EE40100BAD620 /* TwentyOne 2020 */ = {
 			isa = PBXGroup;
 			children = (
+				13AB4DA8255EE45B00BAD620 /* TwentyOne 2020.entitlements */,
 				13AB4D93255EE40100BAD620 /* AppDelegate.swift */,
 				13AB4D95255EE40100BAD620 /* SceneDelegate.swift */,
 				13AB4D97255EE40100BAD620 /* ViewController.swift */,
@@ -286,6 +288,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "TwentyOne 2020/TwentyOne 2020.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9DQ6SL245T;
 				INFOPLIST_FILE = "TwentyOne 2020/Info.plist";
@@ -295,8 +298,9 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.twentyone.TwentyOne-2020";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Debug;
 		};
@@ -305,6 +309,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "TwentyOne 2020/TwentyOne 2020.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9DQ6SL245T;
 				INFOPLIST_FILE = "TwentyOne 2020/Info.plist";
@@ -314,8 +319,9 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.twentyone.TwentyOne-2020";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Release;
 		};
