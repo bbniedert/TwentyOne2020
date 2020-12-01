@@ -80,7 +80,7 @@ class Pair {
             let ball = self.ballState == .leftPlayer ? self.ui.leftBall : self.ui.rightBall
             let availableTargets = self.ballState == .leftPlayer ? MatchManager.instance.rightCupsAvailable : MatchManager.instance.leftCupsAvailable
             let rack = self.ballState == .leftPlayer ? self.ui.rightRack : self.ui.leftRack
-//            ball.isHidden = false
+            ball.isHidden = false
             DispatchQueue.global().asyncAfter(deadline: .now() + randomWaitValue) {
                 DispatchQueue.main.async {
                     guard let target = availableTargets.randomElement() else { return }

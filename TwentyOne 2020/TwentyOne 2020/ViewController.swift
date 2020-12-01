@@ -126,8 +126,8 @@ class ViewController: UIViewController {
         tableView.isHidden = false
 
         pairOne?.start()
-        pairTwo?.start()
-        pairThree?.start()
+//        pairTwo?.start()
+//        pairThree?.start()
     }
 }
 
