@@ -74,54 +74,61 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bg1-we-oFW">
-                                <rect key="frame" x="1570" y="413" width="0.0" height="20"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bg1-we-oFW">
+                                <rect key="frame" x="1570" y="413" width="200" height="20"/>
+                                <color key="backgroundColor" systemColor="systemYellowColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" id="dpY-Eb-hLV"/>
+                                    <constraint firstAttribute="width" constant="200" id="dpY-Eb-hLV"/>
                                     <constraint firstAttribute="height" constant="20" id="hQT-w6-y1X"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Of-kn-0qW">
-                                <rect key="frame" x="1570" y="542.5" width="0.0" height="20"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Of-kn-0qW">
+                                <rect key="frame" x="1570" y="542.5" width="200" height="20"/>
+                                <color key="backgroundColor" systemColor="systemYellowColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" id="bDS-2F-0dv"/>
+                                    <constraint firstAttribute="width" constant="200" id="bDS-2F-0dv"/>
                                     <constraint firstAttribute="height" constant="20" id="f8G-jE-a21"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vdb-bS-9QU">
-                                <rect key="frame" x="1570" y="672" width="0.0" height="20"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vdb-bS-9QU">
+                                <rect key="frame" x="1570" y="672" width="200" height="20"/>
+                                <color key="backgroundColor" systemColor="systemYellowColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" id="V3e-zc-eiw"/>
+                                    <constraint firstAttribute="width" constant="200" id="V3e-zc-eiw"/>
                                     <constraint firstAttribute="height" constant="20" id="zR3-fy-82z"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yWb-2m-1EK">
-                                <rect key="frame" x="350" y="413" width="0.0" height="20"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yWb-2m-1EK">
+                                <rect key="frame" x="150" y="413" width="200" height="20"/>
+                                <color key="backgroundColor" systemColor="systemYellowColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" id="VbM-9w-pR9"/>
+                                    <constraint firstAttribute="width" constant="200" id="VbM-9w-pR9"/>
                                     <constraint firstAttribute="height" constant="20" id="ngZ-0D-ZJe"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gdB-ND-yVJ">
-                                <rect key="frame" x="350" y="542.5" width="0.0" height="20"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gdB-ND-yVJ">
+                                <rect key="frame" x="150" y="542.5" width="200" height="20"/>
+                                <color key="backgroundColor" systemColor="systemYellowColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" id="LSm-cY-FRd"/>
+                                    <constraint firstAttribute="width" constant="200" id="LSm-cY-FRd"/>
                                     <constraint firstAttribute="height" constant="20" id="Xko-dJ-iqH"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m5F-rn-uMR">
-                                <rect key="frame" x="350" y="672" width="0.0" height="20"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m5F-rn-uMR">
+                                <rect key="frame" x="150" y="672" width="200" height="20"/>
+                                <color key="backgroundColor" systemColor="systemYellowColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" id="R1U-1P-Gfj"/>
+                                    <constraint firstAttribute="width" constant="200" id="R1U-1P-Gfj"/>
                                     <constraint firstAttribute="height" constant="20" id="rY3-u0-aSx"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bOp-dI-Nt1">
+                                <rect key="frame" x="919.5" y="130" width="81" height="30"/>
+                                <state key="normal" title="Start Match"/>
+                                <connections>
+                                    <action selector="startMatch:" destination="URa-jV-sFc" eventType="touchUpInside" id="9Jp-R3-ySM"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="hmA-3S-UeM"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -156,6 +163,8 @@
                             <constraint firstItem="adp-MJ-azI" firstAttribute="centerY" secondItem="jvz-D3-zAS" secondAttribute="centerY" id="ruX-V2-kDy"/>
                             <constraint firstItem="Evl-ZH-kmo" firstAttribute="centerY" secondItem="jvz-D3-zAS" secondAttribute="centerY" id="toC-ww-go2"/>
                             <constraint firstItem="bg1-we-oFW" firstAttribute="leading" secondItem="TpB-Ol-uWp" secondAttribute="leading" id="u8g-Hd-dST"/>
+                            <constraint firstItem="bOp-dI-Nt1" firstAttribute="centerX" secondItem="hmA-3S-UeM" secondAttribute="centerX" id="vNs-Nh-YfA"/>
+                            <constraint firstItem="bOp-dI-Nt1" firstAttribute="top" secondItem="hmA-3S-UeM" secondAttribute="top" constant="130" id="xnz-y8-og7"/>
                         </constraints>
                     </view>
                     <size key="freeformSize" width="1920" height="1080"/>
@@ -738,6 +747,9 @@
         <image name="cup" width="70" height="70"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemYellowColor">
+            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

@@ -8,10 +8,10 @@
 import UIKit
 
 protocol MatchDelegate: class {
-    func didMakeRightCup(drinker: String, completion: () -> Void)
-    func didMakeLeftCup(drinker: String, completion: () -> Void)
     func didMakeRightCup()
     func didMakeLeftCup()
+    func throwNextBall(previousThrower: Player)
+    func startDrinkCountdown(player: Player,  completion: @escaping () -> Void)
 }
 
 class HudViewController: UIViewController {
@@ -37,6 +37,13 @@ class HudViewController: UIViewController {
     var rightCupsRemaining = 21
     var matchViewController: MatchViewController?
 
+    var player1: Player?
+    var player2: Player?
+    var player3: Player?
+    var player4: Player?
+    var player5: Player?
+    var player6: Player?
+
     override func viewDidLoad() {
         super.viewDidLoad()
         if let childController = children.first as? MatchViewController {
@@ -45,9 +52,24 @@ class HudViewController: UIViewController {
         }
     }
 
-    func animateDrinkView(constraint: NSLayoutConstraint?) {
-        guard let constraint = constraint else { return }
-        constraint.constant = 200
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+        player1 = Player(position: .topLeft)
+        player2 = Player(position: .centerLeft)
+        player3 = Player(position: .bottomLeft)
+        player4 = Player(position: .topRight)
+        player5 = Player(position: .centerRight)
+        player6 = Player(position: .bottomRight)
+    }
+    
+    @IBAction func startMatch(_ sender: UIButton) {
+        sender.isHidden = true
+        if let player1 = player1, let player5 = player5, let player3 = player3, let _ = player2, let _ = player4, let _ = player6, let match = matchViewController {
+            match.throwBall(thrower: player1)
+            match.throwBall(thrower: player5)
+            match.throwBall(thrower: player3)
+        }
     }
 }
 
@@ -62,31 +84,61 @@ extension HudViewController: MatchDelegate {
         rightCupsRemainingLabel.text = "\(rightCupsRemaining)"
     }
 
-    func didMakeLeftCup(drinker: String, completion: () -> Void) {
-        leftCupsRemaining -= 1
-        leftCupsRemainingLabel.text = "\(leftCupsRemaining)"
-        var constraint: NSLayoutConstraint?
-        if drinker == "TOP" {
-            constraint = topLeftDrinkWidthConstraint
-        } else if drinker == "CENTER" {
-            constraint = centerLeftDrinkWidthConstraint
-        } else {
-            constraint = bottomLeftDrinkWidthConstraint
+    func throwNextBall(previousThrower: Player) {
+        var nextThrower: Player?
+        switch previousThrower.position {
+        case .topLeft:
+            nextThrower = player4
+        case .centerLeft:
+            nextThrower = player5
+        case .bottomLeft:
+            nextThrower = player6
+        case .topRight:
+            nextThrower = player1
+        case .centerRight:
+            nextThrower = player2
+        case .bottomRight:
+            nextThrower = player3
         }
-        animateDrinkView(constraint: constraint)
+
+        guard let match = matchViewController, let thrower = nextThrower else { return }
+        match.throwBall(thrower: thrower)
     }
 
-    func didMakeRightCup(drinker: String, completion: () -> Void) {
-        rightCupsRemaining -= 1
-        rightCupsRemainingLabel.text = "\(rightCupsRemaining)"
-        var constraint: NSLayoutConstraint?
-        if drinker == "TOP" {
-            constraint = topRightDrinkWidthConstraint
-        } else if drinker == "CENTER" {
-            constraint = centerRightDrinkWidthConstraint
-        } else {
-            constraint = bottomRightDrinkWidthConstraint
+    func startDrinkCountdown(player: Player, completion: @escaping () -> Void) {
+        var constraintToChange: NSLayoutConstraint?
+        var drinkView: UIView?
+        switch player.position {
+        case .topLeft:
+            constraintToChange = topRightDrinkWidthConstraint
+            drinkView = topRightDrinkView
+        case .centerLeft:
+            constraintToChange = centerRightDrinkWidthConstraint
+            drinkView = centerRightDrinkView
+        case .bottomLeft:
+            constraintToChange = bottomRightDrinkWidthConstraint
+            drinkView = bottomRightDrinkView
+        case .topRight:
+            constraintToChange = topLeftDrinkWidthConstraint
+            drinkView = topLeftDrinkView
+        case .centerRight:
+            constraintToChange = centerLeftDrinkWidthConstraint
+            drinkView = centerLeftDrinkView
+        case .bottomRight:
+            constraintToChange = bottomLeftDrinkWidthConstraint
+            drinkView = bottomLeftDrinkView
         }
-        animateDrinkView(constraint: constraint)
+
+        if let constraint = constraintToChange, let drinkView = drinkView {
+            drinkView.isHidden = false
+            constraint.constant = 0
+            UIView.animate(withDuration: player.drinkTiming, animations: {
+                self.view.layoutSubviews()
+            }, completion: { _ in
+                constraint.constant = 200
+                drinkView.isHidden = true
+                completion()
+            })
+        }
     }
 }

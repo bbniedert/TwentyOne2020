@@ -84,91 +84,38 @@ class MatchViewController: UIViewController {
         }
     }
 
-    override func viewDidAppear(_ animated: Bool) {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0, execute: {
-            self.ballOne()
-            self.ballTwo()
-            self.ballThree()
-        })
-    }
-
-    func ballOne() {
-        let randomWaitValue = Double.random(in: 1.01...2.00)
-        DispatchQueue.main.asyncAfter(deadline: .now() + randomWaitValue) {
-            let target = self.availableRightCups.randomElement() ?? 0
-            self.beginThrow(ball: self.topBall, at: self.getTarget(cupNumber: target, isLeftShooter: true), completion: {
-                self.makeCheck(cupNumber: target, isLeftShooter: true)
-                self.topBall.center = self.topRightHome.center
-                let randomWaitValue = Double.random(in: 1.01...2.00)
-                DispatchQueue.main.asyncAfter(deadline: .now() + randomWaitValue) {
-                    let target = self.availableLeftCups.randomElement() ?? 0
-                    self.beginThrow(ball: self.topBall, at: self.getTarget(cupNumber: target, isLeftShooter: false), completion: {
-                        self.makeCheck(cupNumber: target, isLeftShooter: false)
-                        self.topBall.center = self.topLeftHome.center
-                        self.ballOne()
-                    })
+    func throwBall(thrower: Player) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + thrower.getThrowDelay()) {
+            let targetCupNumber = thrower.chooseTarget(availableTargets: thrower.isOnLeftSide ? self.availableRightCups : self.availableLeftCups)
+            let targetCup = self.getTargetView(cupNumber: targetCupNumber, isLeftShooter: thrower.isOnLeftSide)
+            let thrownBall = self.getBallForPosition(thrower.position)
+            self.performThrowAnimation(ball: thrownBall, at: targetCup, completion: {
+                self.determineThrowOutcome(thrower: thrower, cupNumber: targetCupNumber) { success in
+                    if success {
+                        self.delegate?.startDrinkCountdown(player: thrower, completion: {
+                            self.prepareBallForNextThrow(throwerPosition: thrower.position)
+                            self.delegate?.throwNextBall(previousThrower: thrower)
+                        })
+                    } else {
+                        self.prepareBallForNextThrow(throwerPosition: thrower.position)
+                        self.delegate?.throwNextBall(previousThrower: thrower)
+                    }
                 }
             })
         }
     }
 
-    func ballTwo() {
-        let randomWaitValue = Double.random(in: 1.01...2.00)
-        DispatchQueue.main.asyncAfter(deadline: .now() + randomWaitValue) {
-            let target = self.availableLeftCups.randomElement() ?? 0
-            self.beginThrow(ball: self.centerBall, at: self.getTarget(cupNumber: target, isLeftShooter: false), completion: {
-                self.makeCheck(cupNumber: target, isLeftShooter: false)
-                self.centerBall.center = self.centerLeftHome.center
-                let randomWaitValue = Double.random(in: 1.01...2.00)
-                DispatchQueue.main.asyncAfter(deadline: .now() + randomWaitValue) {
-                    let target = self.availableRightCups.randomElement() ?? 0
-                    self.beginThrow(ball: self.centerBall, at: self.getTarget(cupNumber: target, isLeftShooter: true), completion: {
-                        self.makeCheck(cupNumber: target, isLeftShooter: true)
-                        self.centerBall.center = self.centerRightHome.center
-                        self.ballTwo()
-                    })
-                }
-            })
-        }
-    }
-
-    func ballThree() {
-        let randomWaitValue = Double.random(in: 1.01...2.00)
-        DispatchQueue.main.asyncAfter(deadline: .now() + randomWaitValue) {
-            let target = self.availableRightCups.randomElement() ?? 0
-            self.beginThrow(ball: self.bottomBall, at: self.getTarget(cupNumber: target, isLeftShooter: true), completion: {
-                self.makeCheck(cupNumber: target, isLeftShooter: true)
-                self.bottomBall.center = self.bottomRightHome.center
-                let randomWaitValue = Double.random(in: 1.01...2.00)
-                DispatchQueue.main.asyncAfter(deadline: .now() + randomWaitValue) {
-                    let target = self.availableLeftCups.randomElement() ?? 0
-                    self.beginThrow(ball: self.bottomBall, at: self.getTarget(cupNumber: target, isLeftShooter: false), completion: {
-                        self.makeCheck(cupNumber: target, isLeftShooter: false)
-                        self.bottomBall.center = self.bottomLeftHome.center
-                        self.ballThree()
-                    })
-                }
-            })
-        }
-    }
-
-    func beginThrow(ball: UIImageView, at cup: UIImageView, completion: @escaping () -> Void) {
-        UIView.animate(withDuration: 1.0, animations: {
-            ball.center = cup.center
-        }, completion: { _ in
-            completion()
-        })
-    }
-
-    func makeCheck(cupNumber: Int, isLeftShooter: Bool) {
-        if Int.random(in: 0...1) == 1 && isPlaying {
-            getTarget(cupNumber: cupNumber, isLeftShooter: isLeftShooter).isHidden = true
-            if isLeftShooter {
+    func determineThrowOutcome(thrower: Player, cupNumber: Int, completion: @escaping (_ success: Bool) -> Void) {
+        if Int.random(in: 0..<100) < thrower.makePercent && isPlaying {
+            getTargetView(cupNumber: cupNumber, isLeftShooter: thrower.isOnLeftSide).isHidden = true
+            var cupAlreadyMade = true
+            if thrower.isOnLeftSide {
                 let temp = availableRightCups.filter({ $0 != cupNumber })
                 if temp.count != availableRightCups.count {
                     availableRightCups = temp
                     delegate?.didMakeRightCup()
                     isPlaying = availableRightCups.count != 0
+                    cupAlreadyMade = false
                 }
             } else {
                 let temp = availableLeftCups.filter({ $0 != cupNumber })
@@ -176,12 +123,41 @@ class MatchViewController: UIViewController {
                     availableLeftCups = temp
                     delegate?.didMakeLeftCup()
                     isPlaying = availableLeftCups.count != 0
+                    cupAlreadyMade = false
                 }
             }
+            completion(!cupAlreadyMade)
+        } else {
+            completion(false)
         }
     }
 
-    private func getTarget(cupNumber: Int, isLeftShooter: Bool) -> UIImageView {
+    private func prepareBallForNextThrow(throwerPosition: Position) {
+        switch throwerPosition {
+        case .topLeft:
+            self.topBall.center = self.topRightHome.center
+        case .centerLeft:
+            self.centerBall.center = self.centerRightHome.center
+        case .bottomLeft:
+            self.bottomBall.center = self.bottomRightHome.center
+        case .topRight:
+            self.topBall.center = self.topLeftHome.center
+        case .centerRight:
+            self.centerBall.center = self.centerLeftHome.center
+        case .bottomRight:
+            self.bottomBall.center = self.bottomLeftHome.center
+        }
+    }
+
+    func performThrowAnimation(ball: UIImageView, at cup: UIImageView, completion: @escaping () -> Void) {
+        UIView.animate(withDuration: 1.0, animations: {
+            ball.center = cup.center
+        }, completion: { _ in
+            completion()
+        })
+    }
+
+    private func getTargetView(cupNumber: Int, isLeftShooter: Bool) -> UIImageView {
         switch cupNumber {
         case 1:
             return isLeftShooter ? rightCup1 : leftCup1
@@ -227,6 +203,17 @@ class MatchViewController: UIViewController {
             return isLeftShooter ? rightCup21 : leftCup21
         default:
             return leftCup1
+        }
+    }
+
+    private func getBallForPosition(_ position: Position) -> UIImageView {
+        switch position {
+        case .topLeft, .topRight:
+            return topBall
+        case .centerLeft, .centerRight:
+            return centerBall
+        case .bottomLeft, .bottomRight:
+            return bottomBall
         }
     }
 }
