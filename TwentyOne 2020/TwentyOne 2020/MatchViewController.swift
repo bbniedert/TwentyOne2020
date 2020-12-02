@@ -91,13 +91,12 @@ class MatchViewController: UIViewController {
             let thrownBall = self.getBallForPosition(thrower.position)
             self.performThrowAnimation(ball: thrownBall, at: targetCup, completion: {
                 self.determineThrowOutcome(thrower: thrower, cupNumber: targetCupNumber) { success in
+                    self.prepareBallForNextThrow(throwerPosition: thrower.position)
                     if success {
                         self.delegate?.startDrinkCountdown(player: thrower, completion: {
-                            self.prepareBallForNextThrow(throwerPosition: thrower.position)
                             self.delegate?.throwNextBall(previousThrower: thrower)
                         })
                     } else {
-                        self.prepareBallForNextThrow(throwerPosition: thrower.position)
                         self.delegate?.throwNextBall(previousThrower: thrower)
                     }
                 }
@@ -146,6 +145,18 @@ class MatchViewController: UIViewController {
             self.centerBall.center = self.centerLeftHome.center
         case .bottomRight:
             self.bottomBall.center = self.bottomLeftHome.center
+        }
+    }
+
+    func gotBallsBack(leftSide: Bool) {
+        if leftSide {
+            topBall.center = topLeftHome.center
+            centerBall.center = centerLeftHome.center
+            bottomBall.center = bottomLeftHome.center
+        } else {
+            topBall.center = topRightHome.center
+            centerBall.center = centerRightHome.center
+            bottomBall.center = bottomRightHome.center
         }
     }
 

@@ -13,6 +13,7 @@ class Player {
     var position: Position
     var makePercent = 50
     var drinkTiming = 3.0
+    var hasBallBack = false
     var isOnLeftSide: Bool {
         return position.rawValue < 4
     }

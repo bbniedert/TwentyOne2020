@@ -46,11 +46,7 @@ class HudViewController: UIViewController {
     var player5: Player?
     var player6: Player?
 
-    var currentDrinkers = [Player]() {
-        didSet {
-            checkForBallsBack()
-        }
-    }
+    var currentDrinkers = [Player]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -80,7 +76,7 @@ class HudViewController: UIViewController {
         }
     }
 
-    private func checkForBallsBack() {
+    private func checkForBallsBack() -> Bool {
         if currentDrinkers.count == 3 {
             if currentDrinkers.contains(where: { $0.position == .topLeft }) &&
                 currentDrinkers.contains(where: { $0.position == .centerLeft }) &&
@@ -89,6 +85,7 @@ class HudViewController: UIViewController {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 3.0, execute: {
                     self.rightBallsBackLabel.isHidden = true
                 })
+                return true
             } else if currentDrinkers.contains(where: { $0.position == .topRight }) &&
                         currentDrinkers.contains(where: { $0.position == .centerRight }) &&
                         currentDrinkers.contains(where: { $0.position == .bottomRight }) {
@@ -96,8 +93,10 @@ class HudViewController: UIViewController {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 3.0, execute: {
                     self.leftBallsBackLabel.isHidden = true
                 })
+                return true
             }
         }
+        return false
     }
 }
 
@@ -130,7 +129,12 @@ extension HudViewController: MatchDelegate {
         }
 
         guard let match = matchViewController, let thrower = nextThrower else { return }
-        match.throwBall(thrower: thrower)
+        if previousThrower.hasBallBack {
+            previousThrower.hasBallBack = false
+            match.throwBall(thrower: previousThrower)
+        } else {
+            match.throwBall(thrower: thrower)
+        }
     }
 
     func startDrinkCountdown(player: Player, completion: @escaping () -> Void) {
@@ -166,6 +170,20 @@ extension HudViewController: MatchDelegate {
 
         if let constraint = constraintToChange, let drinkView = drinkView, let currentDrinker = currentDrinker {
             currentDrinkers.append(currentDrinker)
+
+            if checkForBallsBack() {
+                matchViewController?.gotBallsBack(leftSide: player.isOnLeftSide)
+                if player.isOnLeftSide {
+                    player1?.hasBallBack = true
+                    player2?.hasBallBack = true
+                    player3?.hasBallBack = true
+                } else {
+                    player4?.hasBallBack = true
+                    player5?.hasBallBack = true
+                    player6?.hasBallBack = true
+                }
+            }
+
             drinkView.isHidden = false
             constraint.constant = 0
             UIView.animate(withDuration: player.drinkTiming, animations: {
