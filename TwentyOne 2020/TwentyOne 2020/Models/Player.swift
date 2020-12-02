@@ -10,32 +10,24 @@ import UIKit
 
 class Player {
 
-    weak var delegate: Pair?
-    let isLeftSidePlayer: Bool
-
-    var playerNumber = Int.random(in: 1...1000)
-
-    init(isLeftSidePlayer: Bool) {
-        self.isLeftSidePlayer = isLeftSidePlayer
+    var position: Position
+    var makePercent = 50
+    var drinkTiming = 3.0
+    var hasBallBack = false
+    var isOnLeftSide: Bool {
+        return position.rawValue < 4
     }
 
-    func throwBall(target: Int, location: CGPoint, ball: UIImageView) {
-        let result = Int.random(in: 0...1)
-        print("Player \(playerNumber) threw at target \(target), result: \(result)")
+    init(position: Position) {
+        self.position = position
+    }
 
-        DispatchQueue.main.async {
-            UIView.animate(withDuration: 1.0, animations: {
-                ball.center = location
-            }, completion: { _ in
-                let updatedTargets = self.isLeftSidePlayer ? MatchManager.instance.rightCupsAvailable : MatchManager.instance.leftCupsAvailable
-                if updatedTargets.contains(target) && result == 1 {
-                    MatchManager.instance.removeCup(leftShooter: self.isLeftSidePlayer, target: target)
-                    self.delegate?.playerDidThrow(success: true, target: target)
-                } else {
-                    self.delegate?.playerDidThrow(success: false, target: target)
-                }
-            })
-        }
+    func chooseTarget(availableTargets: [Int]) -> Int {
+        return availableTargets.randomElement() ?? 0
+    }
+
+    func getThrowDelay() -> Double {
+        return Double.random(in: 1.01...2.00)
     }
 }
 
