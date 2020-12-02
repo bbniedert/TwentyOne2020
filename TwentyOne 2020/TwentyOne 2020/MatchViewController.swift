@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class MatchViewController: UIViewController {
 
@@ -66,6 +67,9 @@ class MatchViewController: UIViewController {
     weak var delegate: MatchDelegate?
     var availableLeftCups = [Int]()
     var availableRightCups = [Int]()
+    var audioPlayer: AVAudioPlayer?
+
+    
     var isPlaying = true {
         didSet {
             if !isPlaying {
@@ -83,6 +87,43 @@ class MatchViewController: UIViewController {
             availableRightCups.append(i)
         }
     }
+    
+    func playSound(sound: String){
+        switch sound {
+            case "make":
+                    if let makeSound = Bundle.main.path(forResource: "make", ofType: "wav"){
+                        do{
+                            audioPlayer = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: makeSound))
+                        }
+                        catch{
+                            print(error)
+                        }
+                    }
+            case "miss":
+                if let missSound = Bundle.main.path(forResource: "miss", ofType: "wav"){
+                    do{
+                        audioPlayer = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: missSound))
+                    }
+                    catch{
+                        print(error)
+                    }
+                }
+            case "ballsBack":
+                if let ballsBackSound = Bundle.main.path(forResource: "ballsBack", ofType: "wav"){
+                    do{
+                        audioPlayer = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: ballsBackSound))
+                    }
+                    catch{
+                        print(error)
+                    }
+                }
+            default:
+                print("Didn't work")
+        }
+        
+        
+        audioPlayer?.play()
+    }
 
     func throwBall(thrower: Player) {
         DispatchQueue.main.asyncAfter(deadline: .now() + thrower.getThrowDelay()) {
@@ -93,10 +134,14 @@ class MatchViewController: UIViewController {
                 self.determineThrowOutcome(thrower: thrower, cupNumber: targetCupNumber) { success in
                     self.prepareBallForNextThrow(throwerPosition: thrower.position)
                     if success {
+                        self.audioPlayer?.prepareToPlay()
+                        self.playSound(sound: "make")
                         self.delegate?.startDrinkCountdown(player: thrower, completion: {
                             self.delegate?.throwNextBall(previousThrower: thrower)
                         })
                     } else {
+                        self.audioPlayer?.prepareToPlay()
+                        self.playSound(sound: "miss")
                         self.delegate?.throwNextBall(previousThrower: thrower)
                     }
                 }
@@ -149,6 +194,8 @@ class MatchViewController: UIViewController {
     }
 
     func gotBallsBack(leftSide: Bool) {
+        self.audioPlayer?.prepareToPlay()
+        self.playSound(sound: "ballsBack")
         if leftSide {
             topBall.center = topLeftHome.center
             centerBall.center = centerLeftHome.center
