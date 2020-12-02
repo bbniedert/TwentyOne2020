@@ -16,11 +16,11 @@ enum Position: Int {
     case bottomRight = 6
 }
 
-enum RowShootingPercentModifier: Int {
+enum RowShootingPercentModifier: Double {
     case row1 = 15
     case row2 = 10
-    case row3 = 5
-    case row4 = 0
+    case row3 = 2.5
+    case row4 = -2.5
     case row5 = -5
     case row6 = -10
 }
