@@ -59,12 +59,12 @@ class HudViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
-        player1 = Player(position: .topLeft)
-        player2 = Player(position: .centerLeft)
-        player3 = Player(position: .bottomLeft)
-        player4 = Player(position: .topRight)
-        player5 = Player(position: .centerRight)
-        player6 = Player(position: .bottomRight)
+        player1 = Player(position: .topLeft, shootingStyle: .normal, targetStrategy: .random)
+        player2 = Player(position: .centerLeft, shootingStyle: .normal, targetStrategy: .random)
+        player3 = Player(position: .bottomLeft, shootingStyle: .normal, targetStrategy: .random)
+        player4 = Player(position: .topRight, shootingStyle: .normal, targetStrategy: .random)
+        player5 = Player(position: .centerRight, shootingStyle: .normal, targetStrategy: .random)
+        player6 = Player(position: .bottomRight, shootingStyle: .normal, targetStrategy: .random)
     }
     
     @IBAction func startMatch(_ sender: UIButton) {
