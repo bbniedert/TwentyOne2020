@@ -150,7 +150,7 @@ class MatchViewController: UIViewController {
     }
 
     func determineThrowOutcome(thrower: Player, cupNumber: Int, completion: @escaping (_ success: Bool) -> Void) {
-        if Int.random(in: 0..<100) < thrower.makePercent && isPlaying {
+        if Double.random(in: 0.0..<100.0) < thrower.getShootingPercentage(target: cupNumber) && isPlaying {
             getTargetView(cupNumber: cupNumber, isLeftShooter: thrower.isOnLeftSide).isHidden = true
             var cupAlreadyMade = true
             if thrower.isOnLeftSide {
