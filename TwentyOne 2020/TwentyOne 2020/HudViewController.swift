@@ -18,7 +18,9 @@ class HudViewController: UIViewController {
 
     @IBOutlet weak var leftCupsRemainingLabel: UILabel!
     @IBOutlet weak var rightCupsRemainingLabel: UILabel!
-
+    @IBOutlet weak var leftBallsBackLabel: UILabel!
+    @IBOutlet weak var rightBallsBackLabel: UILabel!
+    
     @IBOutlet weak var topRightDrinkView: UIView!
     @IBOutlet weak var topRightDrinkWidthConstraint: NSLayoutConstraint!
     @IBOutlet weak var centerRightDrinkView: UIView!
@@ -43,6 +45,12 @@ class HudViewController: UIViewController {
     var player4: Player?
     var player5: Player?
     var player6: Player?
+
+    var currentDrinkers = [Player]() {
+        didSet {
+            checkForBallsBack()
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -69,6 +77,26 @@ class HudViewController: UIViewController {
             match.throwBall(thrower: player1)
             match.throwBall(thrower: player5)
             match.throwBall(thrower: player3)
+        }
+    }
+
+    private func checkForBallsBack() {
+        if currentDrinkers.count == 3 {
+            if currentDrinkers.contains(where: { $0.position == .topLeft }) &&
+                currentDrinkers.contains(where: { $0.position == .centerLeft }) &&
+                currentDrinkers.contains(where: { $0.position == .bottomLeft }) {
+                rightBallsBackLabel.isHidden = false
+                DispatchQueue.main.asyncAfter(deadline: .now() + 3.0, execute: {
+                    self.rightBallsBackLabel.isHidden = true
+                })
+            } else if currentDrinkers.contains(where: { $0.position == .topRight }) &&
+                        currentDrinkers.contains(where: { $0.position == .centerRight }) &&
+                        currentDrinkers.contains(where: { $0.position == .bottomRight }) {
+                leftBallsBackLabel.isHidden = false
+                DispatchQueue.main.asyncAfter(deadline: .now() + 3.0, execute: {
+                    self.leftBallsBackLabel.isHidden = true
+                })
+            }
         }
     }
 }
@@ -108,28 +136,36 @@ extension HudViewController: MatchDelegate {
     func startDrinkCountdown(player: Player, completion: @escaping () -> Void) {
         var constraintToChange: NSLayoutConstraint?
         var drinkView: UIView?
+        var currentDrinker: Player?
         switch player.position {
         case .topLeft:
+            currentDrinker = player4
             constraintToChange = topRightDrinkWidthConstraint
             drinkView = topRightDrinkView
         case .centerLeft:
+            currentDrinker = player5
             constraintToChange = centerRightDrinkWidthConstraint
             drinkView = centerRightDrinkView
         case .bottomLeft:
+            currentDrinker = player6
             constraintToChange = bottomRightDrinkWidthConstraint
             drinkView = bottomRightDrinkView
         case .topRight:
+            currentDrinker = player1
             constraintToChange = topLeftDrinkWidthConstraint
             drinkView = topLeftDrinkView
         case .centerRight:
+            currentDrinker = player2
             constraintToChange = centerLeftDrinkWidthConstraint
             drinkView = centerLeftDrinkView
         case .bottomRight:
+            currentDrinker = player3
             constraintToChange = bottomLeftDrinkWidthConstraint
             drinkView = bottomLeftDrinkView
         }
 
-        if let constraint = constraintToChange, let drinkView = drinkView {
+        if let constraint = constraintToChange, let drinkView = drinkView, let currentDrinker = currentDrinker {
+            currentDrinkers.append(currentDrinker)
             drinkView.isHidden = false
             constraint.constant = 0
             UIView.animate(withDuration: player.drinkTiming, animations: {
@@ -137,6 +173,7 @@ extension HudViewController: MatchDelegate {
             }, completion: { _ in
                 constraint.constant = 200
                 drinkView.isHidden = true
+                self.currentDrinkers = self.currentDrinkers.filter({ $0.position != currentDrinker.position })
                 completion()
             })
         }

@@ -16,16 +16,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jvz-D3-zAS">
-                                <rect key="frame" x="360" y="330" width="1200" height="400"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="400" id="0Jk-Zn-PIC"/>
-                                    <constraint firstAttribute="width" constant="1200" id="qhT-KJ-r4R"/>
-                                </constraints>
-                                <connections>
-                                    <segue destination="9GC-ay-4hq" kind="embed" id="H4K-RE-nZi"/>
-                                </connections>
-                            </containerView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="21" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vQQ-WZ-ohp">
                                 <rect key="frame" x="560" y="252" width="42" height="48"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="40"/>
@@ -129,6 +119,28 @@
                                     <action selector="startMatch:" destination="URa-jV-sFc" eventType="touchUpInside" id="9Jp-R3-ySM"/>
                                 </connections>
                             </button>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Balls Back!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BMk-Lw-6I8">
+                                <rect key="frame" x="1628.5" y="265.5" width="83" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Balls Back!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kZF-Ii-1Fe">
+                                <rect key="frame" x="208.5" y="265.5" width="83" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jvz-D3-zAS">
+                                <rect key="frame" x="360" y="330" width="1200" height="400"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="400" id="0Jk-Zn-PIC"/>
+                                    <constraint firstAttribute="width" constant="1200" id="qhT-KJ-r4R"/>
+                                </constraints>
+                                <connections>
+                                    <segue destination="9GC-ay-4hq" kind="embed" id="H4K-RE-nZi"/>
+                                </connections>
+                            </containerView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="hmA-3S-UeM"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -139,6 +151,8 @@
                             <constraint firstItem="y7I-17-MQx" firstAttribute="bottom" secondItem="jvz-D3-zAS" secondAttribute="bottom" constant="-60" id="36j-bc-3bt"/>
                             <constraint firstItem="3Of-kn-0qW" firstAttribute="leading" secondItem="Evl-ZH-kmo" secondAttribute="leading" id="6yY-9u-2qV"/>
                             <constraint firstItem="m5F-rn-uMR" firstAttribute="trailing" secondItem="FAM-Zq-cmh" secondAttribute="trailing" id="9ly-2F-58U"/>
+                            <constraint firstItem="kZF-Ii-1Fe" firstAttribute="centerX" secondItem="yWb-2m-1EK" secondAttribute="centerX" id="AW4-hI-0jz"/>
+                            <constraint firstItem="BMk-Lw-6I8" firstAttribute="centerX" secondItem="bg1-we-oFW" secondAttribute="centerX" id="HwK-xq-NBg"/>
                             <constraint firstItem="FAM-Zq-cmh" firstAttribute="bottom" secondItem="jvz-D3-zAS" secondAttribute="bottom" constant="-60" id="IVO-pw-cPR"/>
                             <constraint firstItem="yWb-2m-1EK" firstAttribute="trailing" secondItem="MLk-6I-4hi" secondAttribute="trailing" id="J9y-vz-zxX"/>
                             <constraint firstItem="Xf6-1D-S0x" firstAttribute="centerY" secondItem="vQQ-WZ-ohp" secondAttribute="centerY" id="MVR-0j-EP1"/>
@@ -146,8 +160,10 @@
                             <constraint firstItem="jvz-D3-zAS" firstAttribute="centerY" secondItem="hmA-3S-UeM" secondAttribute="centerY" id="RFy-ay-ira"/>
                             <constraint firstItem="gdB-ND-yVJ" firstAttribute="trailing" secondItem="adp-MJ-azI" secondAttribute="trailing" id="U8v-bv-ewL"/>
                             <constraint firstItem="Xf6-1D-S0x" firstAttribute="trailing" secondItem="jvz-D3-zAS" secondAttribute="trailing" constant="-200" id="UDY-6K-ajm"/>
+                            <constraint firstItem="kZF-Ii-1Fe" firstAttribute="centerY" secondItem="vQQ-WZ-ohp" secondAttribute="centerY" id="V3h-Jq-VlY"/>
                             <constraint firstItem="jvz-D3-zAS" firstAttribute="top" secondItem="vQQ-WZ-ohp" secondAttribute="bottom" constant="30" id="Vrf-Cg-eXe"/>
                             <constraint firstItem="vdb-bS-9QU" firstAttribute="leading" secondItem="y7I-17-MQx" secondAttribute="leading" id="Wov-uw-y7Q"/>
+                            <constraint firstItem="BMk-Lw-6I8" firstAttribute="centerY" secondItem="Xf6-1D-S0x" secondAttribute="centerY" id="bUq-nh-qlA"/>
                             <constraint firstItem="vdb-bS-9QU" firstAttribute="top" secondItem="y7I-17-MQx" secondAttribute="bottom" constant="2" id="fVq-AO-XBa"/>
                             <constraint firstItem="MLk-6I-4hi" firstAttribute="trailing" secondItem="adp-MJ-azI" secondAttribute="trailing" id="ghb-19-Kmm"/>
                             <constraint firstItem="jvz-D3-zAS" firstAttribute="leading" secondItem="adp-MJ-azI" secondAttribute="trailing" constant="10" id="hEh-MR-4Zu"/>
@@ -177,7 +193,9 @@
                         <outlet property="centerLeftDrinkWidthConstraint" destination="LSm-cY-FRd" id="QM3-Ex-QOT"/>
                         <outlet property="centerRightDrinkView" destination="3Of-kn-0qW" id="pL7-bu-uFY"/>
                         <outlet property="centerRightDrinkWidthConstraint" destination="bDS-2F-0dv" id="zYS-JO-CQm"/>
+                        <outlet property="leftBallsBackLabel" destination="kZF-Ii-1Fe" id="JgM-Yn-ach"/>
                         <outlet property="leftCupsRemainingLabel" destination="vQQ-WZ-ohp" id="sOU-2y-EFZ"/>
+                        <outlet property="rightBallsBackLabel" destination="BMk-Lw-6I8" id="T7L-ve-Ede"/>
                         <outlet property="rightCupsRemainingLabel" destination="Xf6-1D-S0x" id="Pcb-Gd-Vpv"/>
                         <outlet property="topLeftDrinkView" destination="yWb-2m-1EK" id="BpW-11-Rwy"/>
                         <outlet property="topLeftDrinkWidthConstraint" destination="VbM-9w-pR9" id="y5F-hx-fg0"/>
