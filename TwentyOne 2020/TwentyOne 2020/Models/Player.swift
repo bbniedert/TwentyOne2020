@@ -16,6 +16,7 @@ class Player {
     var shootingStyle: ShootingStyle
     var targetStrategy: TargetStrategy
     var hasBallBack = false
+    var madeCups = 0
 
     var isOnLeftSide: Bool {
         return position.rawValue < 4
