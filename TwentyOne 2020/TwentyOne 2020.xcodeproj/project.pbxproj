@@ -17,6 +17,10 @@
 		13B743A82575FE15007784B3 /* MatchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B743A72575FE15007784B3 /* MatchViewController.swift */; };
 		13B743AB2575FE25007784B3 /* HudViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B743AA2575FE25007784B3 /* HudViewController.swift */; };
 		13F0FD63255F192900A23425 /* MatchManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F0FD62255F192900A23425 /* MatchManager.swift */; };
+		BD0AE6CE2577323F00085E0F /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD0AE6CD2577323F00085E0F /* AVFoundation.framework */; };
+		BD0AE6E12577401900085E0F /* miss.wav in Resources */ = {isa = PBXBuildFile; fileRef = BD0AE6DE2577401900085E0F /* miss.wav */; };
+		BD0AE6E22577401900085E0F /* ballsBack.wav in Resources */ = {isa = PBXBuildFile; fileRef = BD0AE6DF2577401900085E0F /* ballsBack.wav */; };
+		BD0AE6E32577401900085E0F /* make.wav in Resources */ = {isa = PBXBuildFile; fileRef = BD0AE6E02577401900085E0F /* make.wav */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +37,10 @@
 		13B743A72575FE15007784B3 /* MatchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchViewController.swift; sourceTree = "<group>"; };
 		13B743AA2575FE25007784B3 /* HudViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HudViewController.swift; sourceTree = "<group>"; };
 		13F0FD62255F192900A23425 /* MatchManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchManager.swift; sourceTree = "<group>"; };
+		BD0AE6CD2577323F00085E0F /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.0.sdk/System/Library/Frameworks/AVFoundation.framework; sourceTree = DEVELOPER_DIR; };
+		BD0AE6DE2577401900085E0F /* miss.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = miss.wav; sourceTree = "<group>"; };
+		BD0AE6DF2577401900085E0F /* ballsBack.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = ballsBack.wav; sourceTree = "<group>"; };
+		BD0AE6E02577401900085E0F /* make.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = make.wav; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,6 +48,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BD0AE6CE2577323F00085E0F /* AVFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -51,6 +60,7 @@
 			children = (
 				13AB4D92255EE40100BAD620 /* TwentyOne 2020 */,
 				13AB4D91255EE40100BAD620 /* Products */,
+				BD0AE6CC2577323F00085E0F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -65,6 +75,7 @@
 		13AB4D92255EE40100BAD620 /* TwentyOne 2020 */ = {
 			isa = PBXGroup;
 			children = (
+				BD0AE6D02577389200085E0F /* Sounds */,
 				13AB4DAA255EE83B00BAD620 /* Models */,
 				13AB4DA8255EE45B00BAD620 /* TwentyOne 2020.entitlements */,
 				13AB4D93255EE40100BAD620 /* AppDelegate.swift */,
@@ -87,6 +98,24 @@
 				13AB4DAB255EE84900BAD620 /* Player.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		BD0AE6CC2577323F00085E0F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BD0AE6CD2577323F00085E0F /* AVFoundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BD0AE6D02577389200085E0F /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				BD0AE6DF2577401900085E0F /* ballsBack.wav */,
+				BD0AE6E02577401900085E0F /* make.wav */,
+				BD0AE6DE2577401900085E0F /* miss.wav */,
+			);
+			path = Sounds;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -146,7 +175,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BD0AE6E32577401900085E0F /* make.wav in Resources */,
+				BD0AE6E12577401900085E0F /* miss.wav in Resources */,
 				13AB4DA0255EE40300BAD620 /* LaunchScreen.storyboard in Resources */,
+				BD0AE6E22577401900085E0F /* ballsBack.wav in Resources */,
 				13AB4D9D255EE40300BAD620 /* Assets.xcassets in Resources */,
 				13AB4D9B255EE40100BAD620 /* Main.storyboard in Resources */,
 			);
