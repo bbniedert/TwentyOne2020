@@ -35,6 +35,13 @@ class HudViewController: UIViewController {
     @IBOutlet weak var bottomLeftDrinkView: UIView!
     @IBOutlet weak var bottomLeftDrinkWidthConstraint: NSLayoutConstraint!
 
+    @IBOutlet weak var topLeftScoreLabel: UILabel!
+    @IBOutlet weak var centerLeftScoreLabel: UILabel!
+    @IBOutlet weak var bottomLeftScoreLabel: UILabel!
+    @IBOutlet weak var topRightScoreLabel: UILabel!
+    @IBOutlet weak var centerRightScoreLabel: UILabel!
+    @IBOutlet weak var bottomRightScoreLabel: UILabel!
+    
     var leftCupsRemaining = 21
     var rightCupsRemaining = 21
     var matchViewController: MatchViewController?
@@ -59,12 +66,12 @@ class HudViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
-        player1 = Player(position: .topLeft)
-        player2 = Player(position: .centerLeft)
-        player3 = Player(position: .bottomLeft)
-        player4 = Player(position: .topRight)
-        player5 = Player(position: .centerRight)
-        player6 = Player(position: .bottomRight)
+        player1 = Player(position: .topLeft, shootingStyle: .normal, targetStrategy: .random)
+        player2 = Player(position: .centerLeft, shootingStyle: .normal, targetStrategy: .random)
+        player3 = Player(position: .bottomLeft, shootingStyle: .normal, targetStrategy: .random)
+        player4 = Player(position: .topRight, shootingStyle: .normal, targetStrategy: .random)
+        player5 = Player(position: .centerRight, shootingStyle: .normal, targetStrategy: .random)
+        player6 = Player(position: .bottomRight, shootingStyle: .normal, targetStrategy: .random)
     }
     
     @IBAction func startMatch(_ sender: UIButton) {
@@ -97,6 +104,23 @@ class HudViewController: UIViewController {
             }
         }
         return false
+    }
+
+    private func updateScoreLabel(cups: Int, position: Position) {
+        switch position {
+        case .topLeft:
+            topLeftScoreLabel.text = "\(cups)"
+        case .centerLeft:
+            centerLeftScoreLabel.text = "\(cups)"
+        case .bottomLeft:
+            bottomLeftScoreLabel.text = "\(cups)"
+        case .topRight:
+            topRightScoreLabel.text = "\(cups)"
+        case .centerRight:
+            centerRightScoreLabel.text = "\(cups)"
+        case .bottomRight:
+            bottomRightScoreLabel.text = "\(cups)"
+        }
     }
 }
 
@@ -138,6 +162,8 @@ extension HudViewController: MatchDelegate {
     }
 
     func startDrinkCountdown(player: Player, completion: @escaping () -> Void) {
+        player.madeCups += 1
+        updateScoreLabel(cups: player.madeCups, position: player.position)
         var constraintToChange: NSLayoutConstraint?
         var drinkView: UIView?
         var currentDrinker: Player?
