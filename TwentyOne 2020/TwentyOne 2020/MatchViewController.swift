@@ -91,7 +91,9 @@ class MatchViewController: UIViewController {
     func playSound(sound: String){
         switch sound {
             case "make":
-                    if let makeSound = Bundle.main.path(forResource: "make", ofType: "wav"){
+                let number = Int.random(in: 0..<3)
+                if number == 0{
+                    if let makeSound = Bundle.main.path(forResource: "make1", ofType: "wav"){
                         do{
                             audioPlayer = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: makeSound))
                         }
@@ -99,6 +101,28 @@ class MatchViewController: UIViewController {
                             print(error)
                         }
                     }
+                }
+                if number == 1{
+                    if let makeSound = Bundle.main.path(forResource: "make2", ofType: "wav"){
+                        do{
+                            audioPlayer = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: makeSound))
+                        }
+                        catch{
+                            print(error)
+                        }
+                    }
+                }
+                if number == 2{
+                    if let makeSound = Bundle.main.path(forResource: "make3", ofType: "wav"){
+                        do{
+                            audioPlayer = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: makeSound))
+                        }
+                        catch{
+                            print(error)
+                        }
+                    }
+                }
+                    
             case "miss":
                 if let missSound = Bundle.main.path(forResource: "miss", ofType: "wav"){
                     do{
@@ -112,6 +136,15 @@ class MatchViewController: UIViewController {
                 if let ballsBackSound = Bundle.main.path(forResource: "ballsBack", ofType: "wav"){
                     do{
                         audioPlayer = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: ballsBackSound))
+                    }
+                    catch{
+                        print(error)
+                    }
+                }
+            case "end":
+                if let endSound = Bundle.main.path(forResource: "EndGameJingle1", ofType: "wav"){
+                    do{
+                        audioPlayer = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: endSound))
                     }
                     catch{
                         print(error)
