@@ -19,6 +19,8 @@ class MatchViewController: UIViewController {
     @IBOutlet weak var topBall: UIImageView!
     @IBOutlet weak var centerBall: UIImageView!
     @IBOutlet weak var bottomBall: UIImageView!
+ 
+    
 
     @IBOutlet weak var leftCup1: UIImageView!
     @IBOutlet weak var leftCup2: UIImageView!

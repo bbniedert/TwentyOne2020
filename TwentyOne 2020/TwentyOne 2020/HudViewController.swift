@@ -18,8 +18,7 @@ class HudViewController: UIViewController {
 
     @IBOutlet weak var leftCupsRemainingLabel: UILabel!
     @IBOutlet weak var rightCupsRemainingLabel: UILabel!
-    @IBOutlet weak var leftBallsBackLabel: UILabel!
-    @IBOutlet weak var rightBallsBackLabel: UILabel!
+    @IBOutlet weak var ballsBackLabel: UILabel!
     
     @IBOutlet weak var topRightDrinkView: UIView!
     @IBOutlet weak var topRightDrinkWidthConstraint: NSLayoutConstraint!
@@ -88,17 +87,17 @@ class HudViewController: UIViewController {
             if currentDrinkers.contains(where: { $0.position == .topLeft }) &&
                 currentDrinkers.contains(where: { $0.position == .centerLeft }) &&
                 currentDrinkers.contains(where: { $0.position == .bottomLeft }) {
-                rightBallsBackLabel.isHidden = false
+                ballsBackLabel.isHidden = false
                 DispatchQueue.main.asyncAfter(deadline: .now() + 3.0, execute: {
-                    self.rightBallsBackLabel.isHidden = true
+                    self.ballsBackLabel.isHidden = true
                 })
                 return true
             } else if currentDrinkers.contains(where: { $0.position == .topRight }) &&
                         currentDrinkers.contains(where: { $0.position == .centerRight }) &&
                         currentDrinkers.contains(where: { $0.position == .bottomRight }) {
-                leftBallsBackLabel.isHidden = false
+                ballsBackLabel.isHidden = false
                 DispatchQueue.main.asyncAfter(deadline: .now() + 3.0, execute: {
-                    self.leftBallsBackLabel.isHidden = true
+                    self.ballsBackLabel.isHidden = true
                 })
                 return true
             }

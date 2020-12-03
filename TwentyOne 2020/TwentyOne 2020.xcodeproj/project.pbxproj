@@ -25,6 +25,7 @@
 		BD0AE6FD2577EDB600085E0F /* make1.wav in Resources */ = {isa = PBXBuildFile; fileRef = BD0AE6FA2577EDB600085E0F /* make1.wav */; };
 		BD0AE6FE2577EDB600085E0F /* make2.wav in Resources */ = {isa = PBXBuildFile; fileRef = BD0AE6FB2577EDB600085E0F /* make2.wav */; };
 		BD0AE7032578799000085E0F /* AnythingCouldHappen.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BD0AE7022578799000085E0F /* AnythingCouldHappen.mp3 */; };
+		BD0AE70725787EDE00085E0F /* upheavtt.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BD0AE70625787EB600085E0F /* upheavtt.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +50,7 @@
 		BD0AE6FA2577EDB600085E0F /* make1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = make1.wav; sourceTree = "<group>"; };
 		BD0AE6FB2577EDB600085E0F /* make2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = make2.wav; sourceTree = "<group>"; };
 		BD0AE7022578799000085E0F /* AnythingCouldHappen.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = AnythingCouldHappen.mp3; sourceTree = "<group>"; };
+		BD0AE70625787EB600085E0F /* upheavtt.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = upheavtt.ttf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +85,7 @@
 		13AB4D92255EE40100BAD620 /* TwentyOne 2020 */ = {
 			isa = PBXGroup;
 			children = (
+				BD0AE70525787DA800085E0F /* Fonts */,
 				BD0AE6D02577389200085E0F /* Sounds */,
 				13AB4DAA255EE83B00BAD620 /* Models */,
 				13AB4DA8255EE45B00BAD620 /* TwentyOne 2020.entitlements */,
@@ -128,6 +131,14 @@
 				BD0AE6DE2577401900085E0F /* miss.wav */,
 			);
 			path = Sounds;
+			sourceTree = "<group>";
+		};
+		BD0AE70525787DA800085E0F /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				BD0AE70625787EB600085E0F /* upheavtt.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -188,6 +199,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BD0AE6FE2577EDB600085E0F /* make2.wav in Resources */,
+				BD0AE70725787EDE00085E0F /* upheavtt.ttf in Resources */,
 				BD0AE6FC2577EDB600085E0F /* make3.wav in Resources */,
 				BD0AE6E32577401900085E0F /* make.wav in Resources */,
 				BD0AE6E12577401900085E0F /* miss.wav in Resources */,
