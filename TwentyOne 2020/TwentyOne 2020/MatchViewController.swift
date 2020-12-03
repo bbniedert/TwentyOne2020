@@ -70,6 +70,7 @@ class MatchViewController: UIViewController {
     var makeAudioPlayer: AVAudioPlayer?
     var missAudioPlayer: AVAudioPlayer?
     var miscAudioPlayer: AVAudioPlayer?
+    var backgroundAudioPlayer: AVAudioPlayer?
 
     
     var isPlaying = true {
@@ -87,6 +88,15 @@ class MatchViewController: UIViewController {
         for i in 1...21 {
             availableLeftCups.append(i)
             availableRightCups.append(i)
+        }
+        if let makeSound = Bundle.main.path(forResource: "AnythingCouldHappen", ofType: "mp3"){
+            do{
+                backgroundAudioPlayer = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: makeSound))
+                backgroundAudioPlayer?.play()
+            }
+            catch{
+                print(error)
+            }
         }
     }
     
@@ -142,7 +152,10 @@ class MatchViewController: UIViewController {
                 if let ballsBackSound = Bundle.main.path(forResource: "ballsBack", ofType: "wav"){
                     do{
                         miscAudioPlayer = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: ballsBackSound))
+                        backgroundAudioPlayer?.pause()
                         miscAudioPlayer?.play()
+                        sleep(3)
+                        backgroundAudioPlayer?.play()
                     }
                     catch{
                         print(error)
