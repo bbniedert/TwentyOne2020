@@ -21,6 +21,9 @@
 		BD0AE6E12577401900085E0F /* miss.wav in Resources */ = {isa = PBXBuildFile; fileRef = BD0AE6DE2577401900085E0F /* miss.wav */; };
 		BD0AE6E22577401900085E0F /* ballsBack.wav in Resources */ = {isa = PBXBuildFile; fileRef = BD0AE6DF2577401900085E0F /* ballsBack.wav */; };
 		BD0AE6E32577401900085E0F /* make.wav in Resources */ = {isa = PBXBuildFile; fileRef = BD0AE6E02577401900085E0F /* make.wav */; };
+		BD0AE6FC2577EDB600085E0F /* make3.wav in Resources */ = {isa = PBXBuildFile; fileRef = BD0AE6F92577EDB600085E0F /* make3.wav */; };
+		BD0AE6FD2577EDB600085E0F /* make1.wav in Resources */ = {isa = PBXBuildFile; fileRef = BD0AE6FA2577EDB600085E0F /* make1.wav */; };
+		BD0AE6FE2577EDB600085E0F /* make2.wav in Resources */ = {isa = PBXBuildFile; fileRef = BD0AE6FB2577EDB600085E0F /* make2.wav */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +44,9 @@
 		BD0AE6DE2577401900085E0F /* miss.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = miss.wav; sourceTree = "<group>"; };
 		BD0AE6DF2577401900085E0F /* ballsBack.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = ballsBack.wav; sourceTree = "<group>"; };
 		BD0AE6E02577401900085E0F /* make.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = make.wav; sourceTree = "<group>"; };
+		BD0AE6F92577EDB600085E0F /* make3.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = make3.wav; sourceTree = "<group>"; };
+		BD0AE6FA2577EDB600085E0F /* make1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = make1.wav; sourceTree = "<group>"; };
+		BD0AE6FB2577EDB600085E0F /* make2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = make2.wav; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +118,9 @@
 			isa = PBXGroup;
 			children = (
 				BD0AE6DF2577401900085E0F /* ballsBack.wav */,
+				BD0AE6FA2577EDB600085E0F /* make1.wav */,
+				BD0AE6FB2577EDB600085E0F /* make2.wav */,
+				BD0AE6F92577EDB600085E0F /* make3.wav */,
 				BD0AE6E02577401900085E0F /* make.wav */,
 				BD0AE6DE2577401900085E0F /* miss.wav */,
 			);
@@ -175,9 +184,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BD0AE6FE2577EDB600085E0F /* make2.wav in Resources */,
+				BD0AE6FC2577EDB600085E0F /* make3.wav in Resources */,
 				BD0AE6E32577401900085E0F /* make.wav in Resources */,
 				BD0AE6E12577401900085E0F /* miss.wav in Resources */,
 				13AB4DA0255EE40300BAD620 /* LaunchScreen.storyboard in Resources */,
+				BD0AE6FD2577EDB600085E0F /* make1.wav in Resources */,
 				BD0AE6E22577401900085E0F /* ballsBack.wav in Resources */,
 				13AB4D9D255EE40300BAD620 /* Assets.xcassets in Resources */,
 				13AB4D9B255EE40100BAD620 /* Main.storyboard in Resources */,
