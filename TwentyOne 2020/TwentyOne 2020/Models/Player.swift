@@ -22,14 +22,15 @@ class Player {
         return position.rawValue < 4
     }
 
-    init(position: Position, shootingStyle: ShootingStyle, targetStrategy: TargetStrategy) {
+    init(position: Position, shootingStyle: ShootingStyle, targetStrategy: TargetStrategy, drinkTiming: Double = 1.5) {
         self.position = position
         self.shootingStyle = shootingStyle
         self.targetStrategy = targetStrategy
+        self.drinkTiming = drinkTiming
     }
 
     func chooseTarget(availableTargets: [Int]) -> Int {
-        return availableTargets.randomElement() ?? 0
+        return self.targetStrategy.getTarget(availableCups: availableTargets)
     }
 
     func getShootingPercentage(target: Int) -> Double {

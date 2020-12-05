@@ -198,6 +198,7 @@ class MatchViewController: UIViewController {
                     } else {
                         self.missAudioPlayer?.prepareToPlay()
                         self.playSound(sound: "miss")
+
                         self.delegate?.throwNextBall(previousThrower: thrower)
                     }
                 }
@@ -251,7 +252,9 @@ class MatchViewController: UIViewController {
 
     func gotBallsBack(leftSide: Bool) {
         self.miscAudioPlayer?.prepareToPlay()
-        self.playSound(sound: "ballsBack")
+        DispatchQueue.global().async {
+            self.playSound(sound: "ballsBack")
+        }
         if leftSide {
             topBall.center = topLeftHome.center
             centerBall.center = centerLeftHome.center
