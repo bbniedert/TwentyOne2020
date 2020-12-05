@@ -18,8 +18,7 @@ class HudViewController: UIViewController {
 
     @IBOutlet weak var leftCupsRemainingLabel: UILabel!
     @IBOutlet weak var rightCupsRemainingLabel: UILabel!
-    @IBOutlet weak var leftBallsBackLabel: UILabel!
-    @IBOutlet weak var rightBallsBackLabel: UILabel!
+    @IBOutlet weak var ballsBackLabel: UILabel!
     
     @IBOutlet weak var topRightDrinkView: UIView!
     @IBOutlet weak var topRightDrinkWidthConstraint: NSLayoutConstraint!
@@ -66,12 +65,21 @@ class HudViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
-        player1 = Player(position: .topLeft, shootingStyle: .normal, targetStrategy: .random)
-        player2 = Player(position: .centerLeft, shootingStyle: .normal, targetStrategy: .random)
-        player3 = Player(position: .bottomLeft, shootingStyle: .normal, targetStrategy: .random)
-        player4 = Player(position: .topRight, shootingStyle: .normal, targetStrategy: .random)
-        player5 = Player(position: .centerRight, shootingStyle: .normal, targetStrategy: .random)
-        player6 = Player(position: .bottomRight, shootingStyle: .normal, targetStrategy: .random)
+        player1 = Player(position: .topLeft, shootingStyle: .normal, targetStrategy: .backLeftFirst)
+        player2 = Player(position: .centerLeft, shootingStyle: .normal, targetStrategy: .frontFirst, drinkTiming: 2.5)
+        player3 = Player(position: .bottomLeft, shootingStyle: .normal, targetStrategy: .backRightFirst)
+        player4 = Player(position: .topRight, shootingStyle: .normal, targetStrategy: .honeycombRight)
+        player5 = Player(position: .centerRight, shootingStyle: .normal, targetStrategy: .honeycombFront, drinkTiming: 3.5)
+        player6 = Player(position: .bottomRight, shootingStyle: .normal, targetStrategy: .honeycombLeft)
+    }
+
+    private func ballsBack() {
+        DispatchQueue.main.async() {
+            self.ballsBackLabel.isHidden = false
+            DispatchQueue.main.asyncAfter(deadline: .now() + 3.0, execute: {
+                self.ballsBackLabel.isHidden = true
+            })
+        }
     }
     
     @IBAction func startMatch(_ sender: UIButton) {
@@ -88,18 +96,12 @@ class HudViewController: UIViewController {
             if currentDrinkers.contains(where: { $0.position == .topLeft }) &&
                 currentDrinkers.contains(where: { $0.position == .centerLeft }) &&
                 currentDrinkers.contains(where: { $0.position == .bottomLeft }) {
-                rightBallsBackLabel.isHidden = false
-                DispatchQueue.main.asyncAfter(deadline: .now() + 3.0, execute: {
-                    self.rightBallsBackLabel.isHidden = true
-                })
+                ballsBack()
                 return true
             } else if currentDrinkers.contains(where: { $0.position == .topRight }) &&
                         currentDrinkers.contains(where: { $0.position == .centerRight }) &&
                         currentDrinkers.contains(where: { $0.position == .bottomRight }) {
-                leftBallsBackLabel.isHidden = false
-                DispatchQueue.main.asyncAfter(deadline: .now() + 3.0, execute: {
-                    self.leftBallsBackLabel.isHidden = true
-                })
+                ballsBack()
                 return true
             }
         }
@@ -121,6 +123,24 @@ class HudViewController: UIViewController {
         case .bottomRight:
             bottomRightScoreLabel.text = "\(cups)"
         }
+    }
+
+    private func getDrinkTiming(throwerPosition: Position) -> Double {
+        switch throwerPosition {
+        case .topLeft:
+            return player4?.drinkTiming ?? 1.5
+        case .centerLeft:
+            return player5?.drinkTiming ?? 1.5
+        case .bottomLeft:
+            return player6?.drinkTiming ?? 1.5
+        case .topRight:
+            return player1?.drinkTiming ?? 1.5
+        case .centerRight:
+            return player2?.drinkTiming ?? 1.5
+        case .bottomRight:
+            return player4?.drinkTiming ?? 1.5
+        }
+
     }
 }
 
@@ -212,7 +232,7 @@ extension HudViewController: MatchDelegate {
 
             drinkView.isHidden = false
             constraint.constant = 0
-            UIView.animate(withDuration: player.drinkTiming, animations: {
+            UIView.animate(withDuration: getDrinkTiming(throwerPosition: player.position), animations: {
                 self.view.layoutSubviews()
             }, completion: { _ in
                 constraint.constant = 200
