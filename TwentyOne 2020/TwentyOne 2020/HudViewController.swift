@@ -66,10 +66,10 @@ class HudViewController: UIViewController {
         super.viewDidAppear(animated)
 
         player1 = Player(position: .topLeft, shootingStyle: .normal, targetStrategy: .backLeftFirst)
-        player2 = Player(position: .centerLeft, shootingStyle: .normal, targetStrategy: .frontFirst, drinkTiming: 0.5)
+        player2 = Player(position: .centerLeft, shootingStyle: .normal, targetStrategy: .frontFirst, drinkTiming: 2.5)
         player3 = Player(position: .bottomLeft, shootingStyle: .normal, targetStrategy: .backRightFirst)
         player4 = Player(position: .topRight, shootingStyle: .normal, targetStrategy: .honeycombRight)
-        player5 = Player(position: .centerRight, shootingStyle: .normal, targetStrategy: .honeycombFront, drinkTiming: 2.0)
+        player5 = Player(position: .centerRight, shootingStyle: .normal, targetStrategy: .honeycombFront, drinkTiming: 3.5)
         player6 = Player(position: .bottomRight, shootingStyle: .normal, targetStrategy: .honeycombLeft)
     }
 
