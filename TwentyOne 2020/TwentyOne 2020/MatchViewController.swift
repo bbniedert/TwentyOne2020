@@ -72,7 +72,12 @@ class MatchViewController: UIViewController {
     var makeAudioPlayer: AVAudioPlayer?
     var missAudioPlayer: AVAudioPlayer?
     var miscAudioPlayer: AVAudioPlayer?
+    var makeSound1 = String()
+    var makeSound2 = String()
+    var makeSound3 = String()
     var backgroundAudioPlayer: AVAudioPlayer?
+    var songNumber: Int = 0
+
 
     
     var isPlaying = true {
@@ -91,53 +96,85 @@ class MatchViewController: UIViewController {
             availableLeftCups.append(i)
             availableRightCups.append(i)
         }
-        if let makeSound = Bundle.main.path(forResource: "AnythingCouldHappen", ofType: "mp3"){
-            do{
-                backgroundAudioPlayer = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: makeSound))
-                backgroundAudioPlayer?.play()
+        
+        let songNumber = Int.random(in: 0..<3)
+        if songNumber == 0{
+            if let gameTrack = Bundle.main.path(forResource: "AnythingCouldHappen", ofType: "mp3"){
+                do{
+                    backgroundAudioPlayer = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: gameTrack))
+                    backgroundAudioPlayer?.play()
+                }
+                catch{
+                    print(error)
+                }
+                makeSound1 = Bundle.main.path(forResource: "makeC", ofType: "wav")!
+                makeSound2 = Bundle.main.path(forResource: "makeF", ofType: "wav")!
+                makeSound3 = Bundle.main.path(forResource: "makeG", ofType: "wav")!
             }
-            catch{
-                print(error)
+        }
+        
+        if songNumber == 1{
+            if let gameTrack = Bundle.main.path(forResource: "BlindingLights", ofType: "mp3"){
+                do{
+                    backgroundAudioPlayer = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: gameTrack))
+                    backgroundAudioPlayer?.play()
+                }
+                catch{
+                    print(error)
+                }
+                makeSound1 = Bundle.main.path(forResource: "makeFminor", ofType: "wav")!
+                makeSound2 = Bundle.main.path(forResource: "makeEb", ofType: "wav")!
+                makeSound3 = Bundle.main.path(forResource: "makeBb", ofType: "wav")!
+            }
+        }
+        if songNumber == 2{
+            if let gameTrack = Bundle.main.path(forResource: "Circles", ofType: "mp3"){
+                do{
+                    backgroundAudioPlayer = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: gameTrack))
+                    backgroundAudioPlayer?.play()
+                }
+                catch{
+                    print(error)
+                }
+                makeSound1 = Bundle.main.path(forResource: "makeC", ofType: "wav")!
+                makeSound2 = Bundle.main.path(forResource: "makeF", ofType: "wav")!
+                makeSound3 = Bundle.main.path(forResource: "makeG", ofType: "wav")!
             }
         }
     }
+        
+        
     
     func playSound(sound: String){
         switch sound {
             case "make":
                 let number = Int.random(in: 0..<3)
                 if number == 0{
-                    if let makeSound = Bundle.main.path(forResource: "make1", ofType: "wav"){
                         do{
-                            makeAudioPlayer = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: makeSound))
+                            makeAudioPlayer = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: makeSound1))
                             makeAudioPlayer?.play()
                         }
                         catch{
                             print(error)
                         }
-                    }
                 }
                 if number == 1{
-                    if let makeSound = Bundle.main.path(forResource: "make2", ofType: "wav"){
                         do{
-                            makeAudioPlayer = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: makeSound))
+                            makeAudioPlayer = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: makeSound2))
                             makeAudioPlayer?.play()
                         }
                         catch{
                             print(error)
                         }
-                    }
                 }
                 if number == 2{
-                    if let makeSound = Bundle.main.path(forResource: "make3", ofType: "wav"){
                         do{
-                            makeAudioPlayer = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: makeSound))
+                            makeAudioPlayer = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: makeSound3))
                             makeAudioPlayer?.play()
                         }
                         catch{
                             print(error)
                         }
-                    }
                 }
                     
             case "miss":
