@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum Position: Int {
+enum TablePosition: Int {
     case topLeft = 1
     case centerLeft = 2
     case bottomLeft = 3
@@ -26,13 +26,13 @@ enum RowShootingPercentModifier: Double {
 }
 
 enum TargetStrategy: Int {
-    case frontFirst = 0
-    case backLeftFirst = 1
-    case backRightFirst = 2
-    case honeycombFront = 3
-    case honeycombLeft = 4
-    case honeycombRight = 5
-    case random = 6
+    case random = 0
+    case frontFirst = 1
+    case backLeftFirst = 2
+    case backRightFirst = 3
+    case honeycombFront = 4
+    case honeycombLeft = 5
+    case honeycombRight = 6
 
     func getTarget(availableCups: [Int]) -> Int {
         switch self {

@@ -16,6 +16,9 @@
 		13AB4DAC255EE84900BAD620 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13AB4DAB255EE84900BAD620 /* Player.swift */; };
 		13B743A82575FE15007784B3 /* MatchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B743A72575FE15007784B3 /* MatchViewController.swift */; };
 		13B743AB2575FE25007784B3 /* HudViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B743AA2575FE25007784B3 /* HudViewController.swift */; };
+		13B7C54C2582E873004D8924 /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B7C54B2582E873004D8924 /* Team.swift */; };
+		13E1F1F8257C290000052DA6 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E1F1F7257C290000052DA6 /* HomeViewController.swift */; };
+		13E1F1FB257C295000052DA6 /* tournamentsetup.json in Resources */ = {isa = PBXBuildFile; fileRef = 13E1F1FA257C295000052DA6 /* tournamentsetup.json */; };
 		13F0FD63255F192900A23425 /* MatchManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F0FD62255F192900A23425 /* MatchManager.swift */; };
 		BD0AE6CE2577323F00085E0F /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD0AE6CD2577323F00085E0F /* AVFoundation.framework */; };
 		BD0AE6E12577401900085E0F /* miss.wav in Resources */ = {isa = PBXBuildFile; fileRef = BD0AE6DE2577401900085E0F /* miss.wav */; };
@@ -41,6 +44,9 @@
 		13AB4DAB255EE84900BAD620 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		13B743A72575FE15007784B3 /* MatchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchViewController.swift; sourceTree = "<group>"; };
 		13B743AA2575FE25007784B3 /* HudViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HudViewController.swift; sourceTree = "<group>"; };
+		13B7C54B2582E873004D8924 /* Team.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
+		13E1F1F7257C290000052DA6 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		13E1F1FA257C295000052DA6 /* tournamentsetup.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = tournamentsetup.json; sourceTree = "<group>"; };
 		13F0FD62255F192900A23425 /* MatchManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchManager.swift; sourceTree = "<group>"; };
 		BD0AE6CD2577323F00085E0F /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.0.sdk/System/Library/Frameworks/AVFoundation.framework; sourceTree = DEVELOPER_DIR; };
 		BD0AE6DE2577401900085E0F /* miss.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = miss.wav; sourceTree = "<group>"; };
@@ -99,6 +105,8 @@
 				13AB4D9E255EE40300BAD620 /* LaunchScreen.storyboard */,
 				13AB4DA1255EE40300BAD620 /* Info.plist */,
 				13F0FD62255F192900A23425 /* MatchManager.swift */,
+				13E1F1F7257C290000052DA6 /* HomeViewController.swift */,
+				13E1F1FA257C295000052DA6 /* tournamentsetup.json */,
 			);
 			path = "TwentyOne 2020";
 			sourceTree = "<group>";
@@ -107,6 +115,7 @@
 			isa = PBXGroup;
 			children = (
 				13AB4DAB255EE84900BAD620 /* Player.swift */,
+				13B7C54B2582E873004D8924 /* Team.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -208,6 +217,7 @@
 				BD0AE6FD2577EDB600085E0F /* make1.wav in Resources */,
 				BD0AE6E22577401900085E0F /* ballsBack.wav in Resources */,
 				13AB4D9D255EE40300BAD620 /* Assets.xcassets in Resources */,
+				13E1F1FB257C295000052DA6 /* tournamentsetup.json in Resources */,
 				13AB4D9B255EE40100BAD620 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -219,9 +229,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				13B7C54C2582E873004D8924 /* Team.swift in Sources */,
 				13AB4DAC255EE84900BAD620 /* Player.swift in Sources */,
 				13AB4D94255EE40100BAD620 /* AppDelegate.swift in Sources */,
 				13B743AB2575FE25007784B3 /* HudViewController.swift in Sources */,
+				13E1F1F8257C290000052DA6 /* HomeViewController.swift in Sources */,
 				13AB4D96255EE40100BAD620 /* SceneDelegate.swift in Sources */,
 				13F0FD63255F192900A23425 /* MatchManager.swift in Sources */,
 				134448D52576FC67005EAD28 /* Attributes.swift in Sources */,

@@ -65,12 +65,12 @@ class HudViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
-        player1 = Player(position: .topLeft, shootingStyle: .normal, targetStrategy: .backLeftFirst)
-        player2 = Player(position: .centerLeft, shootingStyle: .normal, targetStrategy: .frontFirst, drinkTiming: 2.5)
-        player3 = Player(position: .bottomLeft, shootingStyle: .normal, targetStrategy: .backRightFirst)
-        player4 = Player(position: .topRight, shootingStyle: .normal, targetStrategy: .honeycombRight)
-        player5 = Player(position: .centerRight, shootingStyle: .normal, targetStrategy: .honeycombFront, drinkTiming: 3.5)
-        player6 = Player(position: .bottomRight, shootingStyle: .normal, targetStrategy: .honeycombLeft)
+        player1 = Player(name: "hello", position: .topLeft, shootingStyle: .normal, targetStrategy: .backLeftFirst)
+        player2 = Player(name: "hello", position: .centerLeft, shootingStyle: .normal, targetStrategy: .frontFirst, drinkTiming: 2.5)
+        player3 = Player(name: "hello", position: .bottomLeft, shootingStyle: .normal, targetStrategy: .backRightFirst)
+        player4 = Player(name: "hello", position: .topRight, shootingStyle: .normal, targetStrategy: .honeycombRight)
+        player5 = Player(name: "hello", position: .centerRight, shootingStyle: .normal, targetStrategy: .honeycombFront, drinkTiming: 3.5)
+        player6 = Player(name: "hello", position: .bottomRight, shootingStyle: .normal, targetStrategy: .honeycombLeft)
     }
 
     private func ballsBack() {
@@ -108,7 +108,7 @@ class HudViewController: UIViewController {
         return false
     }
 
-    private func updateScoreLabel(cups: Int, position: Position) {
+    private func updateScoreLabel(cups: Int, position: TablePosition) {
         switch position {
         case .topLeft:
             topLeftScoreLabel.text = "\(cups)"
@@ -125,7 +125,7 @@ class HudViewController: UIViewController {
         }
     }
 
-    private func getDrinkTiming(throwerPosition: Position) -> Double {
+    private func getDrinkTiming(throwerPosition: TablePosition) -> Double {
         switch throwerPosition {
         case .topLeft:
             return player4?.drinkTiming ?? 1.5

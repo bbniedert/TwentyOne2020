@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="URa-jV-sFc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="8wc-2C-LXk">
     <device id="ipad12_9rounded" orientation="portrait" layout="fullscreen" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
@@ -13,6 +13,35 @@
         </array>
     </customFonts>
     <scenes>
+        <!--Home View Controller-->
+        <scene sceneID="4Of-M9-dWX">
+            <objects>
+                <viewController id="8wc-2C-LXk" customClass="HomeViewController" customModule="TwentyOne_2020" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="GTN-5y-ouA">
+                        <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Ur-wt-iLP">
+                                <rect key="frame" x="885" y="515" width="150" height="30"/>
+                                <state key="normal" title="Generate Tournament"/>
+                                <connections>
+                                    <action selector="didTapGenerateTournament:" destination="8wc-2C-LXk" eventType="touchUpInside" id="hiU-Co-z29"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="kOl-aW-WFt"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="4Ur-wt-iLP" firstAttribute="centerX" secondItem="kOl-aW-WFt" secondAttribute="centerX" id="Wlx-yO-lAK"/>
+                            <constraint firstItem="4Ur-wt-iLP" firstAttribute="centerY" secondItem="kOl-aW-WFt" secondAttribute="centerY" id="t82-4l-tIi"/>
+                        </constraints>
+                    </view>
+                    <size key="freeformSize" width="1920" height="1080"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iW5-0p-RpH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-690" y="168"/>
+        </scene>
         <!--Hud View Controller-->
         <scene sceneID="kUK-z5-jWQ">
             <objects>

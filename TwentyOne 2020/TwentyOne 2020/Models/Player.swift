@@ -10,7 +10,8 @@ import UIKit
 
 class Player {
 
-    var position: Position
+    var position: TablePosition
+    var name: String
     var shootingPercentage = 50.0
     var drinkTiming = 3.0
     var shootingStyle: ShootingStyle
@@ -22,11 +23,12 @@ class Player {
         return position.rawValue < 4
     }
 
-    init(position: Position, shootingStyle: ShootingStyle, targetStrategy: TargetStrategy, drinkTiming: Double = 3.0) {
+    init(name: String, position: TablePosition = .centerLeft, shootingStyle: ShootingStyle, targetStrategy: TargetStrategy, drinkTiming: Double = 3.0) {
         self.position = position
         self.shootingStyle = shootingStyle
         self.targetStrategy = targetStrategy
         self.drinkTiming = drinkTiming
+        self.name = name
     }
 
     func chooseTarget(availableTargets: [Int]) -> Int {

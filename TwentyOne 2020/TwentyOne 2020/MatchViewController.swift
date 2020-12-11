@@ -233,7 +233,7 @@ class MatchViewController: UIViewController {
         }
     }
 
-    private func prepareBallForNextThrow(throwerPosition: Position) {
+    private func prepareBallForNextThrow(throwerPosition: TablePosition) {
         switch throwerPosition {
         case .topLeft:
             self.topBall.center = self.topRightHome.center
@@ -323,7 +323,7 @@ class MatchViewController: UIViewController {
         }
     }
 
-    private func getBallForPosition(_ position: Position) -> UIImageView {
+    private func getBallForPosition(_ position: TablePosition) -> UIImageView {
         switch position {
         case .topLeft, .topRight:
             return topBall
