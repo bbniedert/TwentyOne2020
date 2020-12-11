@@ -8,12 +8,12 @@
 import Foundation
 import UIKit
 
-class Player {
+class Player: Codable {
 
     var position: TablePosition
     var name: String
-    var shootingPercentage = 50.0
-    var drinkTiming = 3.0
+    var shootingPercentage: Double
+    var drinkTiming: Double
     var shootingStyle: ShootingStyle
     var targetStrategy: TargetStrategy
     var hasBallBack = false
@@ -23,12 +23,13 @@ class Player {
         return position.rawValue < 4
     }
 
-    init(name: String, position: TablePosition = .centerLeft, shootingStyle: ShootingStyle, targetStrategy: TargetStrategy, drinkTiming: Double = 3.0) {
+    init(name: String, position: TablePosition = .centerLeft, shootingStyle: ShootingStyle, targetStrategy: TargetStrategy, drinkTiming: Double = 3.0, shootingPercentage: Double = 35.0) {
         self.position = position
         self.shootingStyle = shootingStyle
         self.targetStrategy = targetStrategy
         self.drinkTiming = drinkTiming
         self.name = name
+        self.shootingPercentage = shootingPercentage
     }
 
     func chooseTarget(availableTargets: [Int]) -> Int {

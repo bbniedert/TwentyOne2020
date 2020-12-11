@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Team {
+class Team: Codable {
     let name: String
     let leftPlayer: Player
     let centerPlayer: Player

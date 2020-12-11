@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum TablePosition: Int {
+enum TablePosition: Int, Codable {
     case topLeft = 1
     case centerLeft = 2
     case bottomLeft = 3
@@ -16,7 +16,7 @@ enum TablePosition: Int {
     case bottomRight = 6
 }
 
-enum RowShootingPercentModifier: Double {
+enum RowShootingPercentModifier: Double, Codable {
     case row1 = 15
     case row2 = 10
     case row3 = 2.5
@@ -25,7 +25,7 @@ enum RowShootingPercentModifier: Double {
     case row6 = -10
 }
 
-enum TargetStrategy: Int {
+enum TargetStrategy: Int, Codable {
     case random = 0
     case frontFirst = 1
     case backLeftFirst = 2
@@ -119,7 +119,7 @@ enum TargetStrategy: Int {
     }
 }
 
-enum ShootingStyle: Int {
+enum ShootingStyle: Int, Codable {
     case normal = 0
     case laser = 1
     case loft = 2
