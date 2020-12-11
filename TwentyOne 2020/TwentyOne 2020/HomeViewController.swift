@@ -9,8 +9,33 @@ import UIKit
 
 class HomeViewController: UIViewController {
 
+    @IBOutlet weak var teamSelectionCollectionView: UICollectionView!
+    @IBOutlet weak var leftTeamLabel: UILabel!
+    @IBOutlet weak var rightTeamLabel: UILabel!
+    @IBOutlet weak var startButton: UIButton!
+    
     var teams: [Team] {
         return getTeams()
+    }
+
+    var leftTeam: Team? {
+        didSet {
+            leftTeamLabel.text = leftTeam?.name
+        }
+    }
+
+    var rightTeam: Team? {
+        didSet {
+            rightTeamLabel.text = rightTeam?.name
+            startButton.isHidden = false
+        }
+    }
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        navigationController?.navigationBar.isHidden = true
+        teamSelectionCollectionView.register(UINib(nibName: "TeamSelectionCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "teamCell")
     }
 
     @IBAction func didTapGenerateTournament(_ sender: Any) {
@@ -67,8 +92,49 @@ class HomeViewController: UIViewController {
                 print()
             }
         }
-
         return [Team]()
     }
-    
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let hudVC = segue.destination as? HudViewController, let leftTeam = leftTeam, let rightTeam = rightTeam {
+            hudVC.addTeams(leftTeam: leftTeam, rightTeam: rightTeam)
+        }
+    }
+}
+
+extension HomeViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let team = teams[indexPath.row]
+        if leftTeam == nil || rightTeam != nil {
+            leftTeam = team
+        } else {
+            rightTeam = team
+        }
+    }
+}
+
+extension HomeViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 16
+    }
+
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
+
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "teamCell", for: indexPath) as? TeamSelectionCollectionViewCell else { return UICollectionViewCell() }
+
+        let team = teams[indexPath.row]
+        cell.configure(name: team.name)
+        return cell
+    }
+}
+
+extension HomeViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let width = collectionView.frame.width / 8.0
+        let height = collectionView.frame.height / 2.0
+        return CGSize(width: width, height: height)
+    }
 }

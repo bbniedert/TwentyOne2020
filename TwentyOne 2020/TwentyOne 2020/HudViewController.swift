@@ -34,6 +34,12 @@ class HudViewController: UIViewController {
     @IBOutlet weak var bottomLeftDrinkView: UIView!
     @IBOutlet weak var bottomLeftDrinkWidthConstraint: NSLayoutConstraint!
 
+    @IBOutlet weak var player1Name: UILabel!
+    @IBOutlet weak var player2Name: UILabel!
+    @IBOutlet weak var player3Name: UILabel!
+    @IBOutlet weak var player4Name: UILabel!
+    @IBOutlet weak var player5Name: UILabel!
+    @IBOutlet weak var player6Name: UILabel!
     @IBOutlet weak var topLeftScoreLabel: UILabel!
     @IBOutlet weak var centerLeftScoreLabel: UILabel!
     @IBOutlet weak var bottomLeftScoreLabel: UILabel!
@@ -62,15 +68,35 @@ class HudViewController: UIViewController {
         }
     }
 
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
 
-        player1 = Player(name: "hello", position: .topLeft, shootingStyle: .normal, targetStrategy: .backLeftFirst)
-        player2 = Player(name: "hello", position: .centerLeft, shootingStyle: .normal, targetStrategy: .frontFirst, drinkTiming: 2.5)
-        player3 = Player(name: "hello", position: .bottomLeft, shootingStyle: .normal, targetStrategy: .backRightFirst)
-        player4 = Player(name: "hello", position: .topRight, shootingStyle: .normal, targetStrategy: .honeycombRight)
-        player5 = Player(name: "hello", position: .centerRight, shootingStyle: .normal, targetStrategy: .honeycombFront, drinkTiming: 3.5)
-        player6 = Player(name: "hello", position: .bottomRight, shootingStyle: .normal, targetStrategy: .honeycombLeft)
+        player1Name.text = player1?.name
+        player2Name.text = player2?.name
+        player3Name.text = player3?.name
+        player4Name.text = player4?.name
+        player5Name.text = player5?.name
+        player6Name.text = player6?.name
+    }
+
+    func addTeams(leftTeam: Team, rightTeam: Team) {
+        player1 = leftTeam.leftPlayer
+        player1?.position = .topLeft
+
+        player2 = leftTeam.centerPlayer
+        player2?.position = .centerLeft
+
+        player3 = leftTeam.rightPlayer
+        player3?.position = .bottomLeft
+
+        player4 = rightTeam.rightPlayer
+        player4?.position = .topRight
+
+        player5 = rightTeam.centerPlayer
+        player5?.position = .centerRight
+
+        player6 = rightTeam.leftPlayer
+        player6?.position = .bottomRight
     }
 
     private func ballsBack() {

@@ -17,6 +17,8 @@
 		13B743A82575FE15007784B3 /* MatchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B743A72575FE15007784B3 /* MatchViewController.swift */; };
 		13B743AB2575FE25007784B3 /* HudViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B743AA2575FE25007784B3 /* HudViewController.swift */; };
 		13B7C54C2582E873004D8924 /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B7C54B2582E873004D8924 /* Team.swift */; };
+		13B7C55025834485004D8924 /* TeamSelectionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B7C54E25834485004D8924 /* TeamSelectionCollectionViewCell.swift */; };
+		13B7C55125834485004D8924 /* TeamSelectionCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13B7C54F25834485004D8924 /* TeamSelectionCollectionViewCell.xib */; };
 		13E1F1F8257C290000052DA6 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E1F1F7257C290000052DA6 /* HomeViewController.swift */; };
 		13E1F1FB257C295000052DA6 /* tournamentsetup.json in Resources */ = {isa = PBXBuildFile; fileRef = 13E1F1FA257C295000052DA6 /* tournamentsetup.json */; };
 		13F0FD63255F192900A23425 /* MatchManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F0FD62255F192900A23425 /* MatchManager.swift */; };
@@ -45,6 +47,8 @@
 		13B743A72575FE15007784B3 /* MatchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchViewController.swift; sourceTree = "<group>"; };
 		13B743AA2575FE25007784B3 /* HudViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HudViewController.swift; sourceTree = "<group>"; };
 		13B7C54B2582E873004D8924 /* Team.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
+		13B7C54E25834485004D8924 /* TeamSelectionCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamSelectionCollectionViewCell.swift; sourceTree = "<group>"; };
+		13B7C54F25834485004D8924 /* TeamSelectionCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TeamSelectionCollectionViewCell.xib; sourceTree = "<group>"; };
 		13E1F1F7257C290000052DA6 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		13E1F1FA257C295000052DA6 /* tournamentsetup.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = tournamentsetup.json; sourceTree = "<group>"; };
 		13F0FD62255F192900A23425 /* MatchManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchManager.swift; sourceTree = "<group>"; };
@@ -107,6 +111,8 @@
 				13F0FD62255F192900A23425 /* MatchManager.swift */,
 				13E1F1F7257C290000052DA6 /* HomeViewController.swift */,
 				13E1F1FA257C295000052DA6 /* tournamentsetup.json */,
+				13B7C54E25834485004D8924 /* TeamSelectionCollectionViewCell.swift */,
+				13B7C54F25834485004D8924 /* TeamSelectionCollectionViewCell.xib */,
 			);
 			path = "TwentyOne 2020";
 			sourceTree = "<group>";
@@ -216,6 +222,7 @@
 				13AB4DA0255EE40300BAD620 /* LaunchScreen.storyboard in Resources */,
 				BD0AE6FD2577EDB600085E0F /* make1.wav in Resources */,
 				BD0AE6E22577401900085E0F /* ballsBack.wav in Resources */,
+				13B7C55125834485004D8924 /* TeamSelectionCollectionViewCell.xib in Resources */,
 				13AB4D9D255EE40300BAD620 /* Assets.xcassets in Resources */,
 				13E1F1FB257C295000052DA6 /* tournamentsetup.json in Resources */,
 				13AB4D9B255EE40100BAD620 /* Main.storyboard in Resources */,
@@ -229,6 +236,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				13B7C55025834485004D8924 /* TeamSelectionCollectionViewCell.swift in Sources */,
 				13B7C54C2582E873004D8924 /* Team.swift in Sources */,
 				13AB4DAC255EE84900BAD620 /* Player.swift in Sources */,
 				13AB4D94255EE40100BAD620 /* AppDelegate.swift in Sources */,
