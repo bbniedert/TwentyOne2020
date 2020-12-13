@@ -61,7 +61,7 @@ class HomeViewController: UIViewController {
 
                     saveTeams(teamList)
                 }
-            } catch {
+            } catch let error {
                 print()
             }
         }
@@ -69,11 +69,12 @@ class HomeViewController: UIViewController {
 
     private func createPlayerFrom(_ json: [String: Any]) -> Player? {
         guard let name = json["playerName"] as? String,
-              let shootingStyle = json["shootingStyle"] as? Int,
-              let targetStrategy = json["targetStrategy"] as? Int,
-              let drinkTime = json["drinkTiming"] as? Double,
-              let shootingPercentage = json["shootingPercentage"] as? Double else { return nil }
-        return Player(name: name, shootingStyle: ShootingStyle(rawValue: shootingStyle) ?? .normal, targetStrategy: TargetStrategy(rawValue: targetStrategy) ?? .random, drinkTiming: drinkTime, shootingPercentage: shootingPercentage)
+              let targetStrategy = json["targetStrategy"] as? Int else { return nil }
+        return Player(name: name,
+                      shootingStyle: .normal,
+                      targetStrategy: TargetStrategy(rawValue: targetStrategy) ?? .random,
+                      shootingPercentage: json["shootingPercentage"] as? Double ?? 30.0,
+                      tankStatus: TankStatus(rawValue: json["targetStrategy"] as? Int ?? 0) ?? .none)
     }
 
     private func saveTeams(_ teams: [Team]) {
@@ -107,6 +108,7 @@ extension HomeViewController: UICollectionViewDelegate {
         let team = teams[indexPath.row]
         if leftTeam == nil || rightTeam != nil {
             leftTeam = team
+            rightTeam = nil
         } else {
             rightTeam = team
         }
@@ -115,7 +117,7 @@ extension HomeViewController: UICollectionViewDelegate {
 
 extension HomeViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 16
+        return teams.count
     }
 
     func numberOfSections(in collectionView: UICollectionView) -> Int {

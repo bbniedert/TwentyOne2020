@@ -33,6 +33,7 @@ class HudViewController: UIViewController {
     @IBOutlet weak var centerLeftDrinkWidthConstraint: NSLayoutConstraint!
     @IBOutlet weak var bottomLeftDrinkView: UIView!
     @IBOutlet weak var bottomLeftDrinkWidthConstraint: NSLayoutConstraint!
+    @IBOutlet weak var endMatchButton: UIButton!
 
     @IBOutlet weak var player1Name: UILabel!
     @IBOutlet weak var player2Name: UILabel!
@@ -47,8 +48,16 @@ class HudViewController: UIViewController {
     @IBOutlet weak var centerRightScoreLabel: UILabel!
     @IBOutlet weak var bottomRightScoreLabel: UILabel!
     
-    var leftCupsRemaining = 21
-    var rightCupsRemaining = 21
+    var leftCupsRemaining = 21 {
+        didSet {
+            endMatchButton.isHidden = leftCupsRemaining > 0
+        }
+    }
+    var rightCupsRemaining = 21 {
+        didSet {
+            endMatchButton.isHidden = rightCupsRemaining > 0
+        }
+    }
     var matchViewController: MatchViewController?
 
     var player1: Player?
@@ -77,6 +86,14 @@ class HudViewController: UIViewController {
         player4Name.text = player4?.name
         player5Name.text = player5?.name
         player6Name.text = player6?.name
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3.0, execute: {
+            self.startMatch()
+        })
     }
 
     func addTeams(leftTeam: Team, rightTeam: Team) {
@@ -108,8 +125,7 @@ class HudViewController: UIViewController {
         }
     }
     
-    @IBAction func startMatch(_ sender: UIButton) {
-        sender.isHidden = true
+    func startMatch() {
         if let player1 = player1, let player5 = player5, let player3 = player3, let _ = player2, let _ = player4, let _ = player6, let match = matchViewController {
             match.throwBall(thrower: player1)
             match.throwBall(thrower: player5)
@@ -132,6 +148,10 @@ class HudViewController: UIViewController {
             }
         }
         return false
+    }
+
+    @IBAction func didTapEndMatch(_ sender: Any) {
+        navigationController?.popViewController(animated: false)
     }
 
     private func updateScoreLabel(cups: Int, position: TablePosition) {

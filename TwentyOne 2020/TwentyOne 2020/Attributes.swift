@@ -17,12 +17,19 @@ enum TablePosition: Int, Codable {
 }
 
 enum RowShootingPercentModifier: Double, Codable {
-    case row1 = 15
-    case row2 = 10
-    case row3 = 2.5
-    case row4 = -2.5
-    case row5 = -5
-    case row6 = -10
+    case row1 = 5
+    case row2 = 2.5
+    case row3 = 1
+    case row4 = -1
+    case row5 = -2.5
+    case row6 = -5
+}
+
+enum TankStatus: Int, Codable {
+    case none = 0
+    case pass = 1
+    case exceed = 2
+    case excel = 3
 }
 
 enum TargetStrategy: Int, Codable {

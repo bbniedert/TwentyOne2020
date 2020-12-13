@@ -18,18 +18,20 @@ class Player: Codable {
     var targetStrategy: TargetStrategy
     var hasBallBack = false
     var madeCups = 0
+    var tankStatus: TankStatus
 
     var isOnLeftSide: Bool {
         return position.rawValue < 4
     }
 
-    init(name: String, position: TablePosition = .centerLeft, shootingStyle: ShootingStyle, targetStrategy: TargetStrategy, drinkTiming: Double = 3.0, shootingPercentage: Double = 35.0) {
+    init(name: String, position: TablePosition = .centerLeft, shootingStyle: ShootingStyle, targetStrategy: TargetStrategy, drinkTiming: Double = 3.0, shootingPercentage: Double = 30.0, tankStatus: TankStatus = .none) {
         self.position = position
         self.shootingStyle = shootingStyle
         self.targetStrategy = targetStrategy
         self.drinkTiming = drinkTiming
         self.name = name
         self.shootingPercentage = shootingPercentage
+        self.tankStatus = tankStatus
     }
 
     func chooseTarget(availableTargets: [Int]) -> Int {
@@ -57,7 +59,7 @@ class Player: Codable {
     }
 
     func getThrowDelay() -> Double {
-        return Double.random(in: 0.5...1.0)
+        return Double.random(in: 0.2...1.0)
     }
 
     func getThrowDuration() -> Double {

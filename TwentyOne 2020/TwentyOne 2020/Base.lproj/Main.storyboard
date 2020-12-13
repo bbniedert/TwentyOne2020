@@ -244,11 +244,12 @@
                                     <constraint firstAttribute="height" constant="20" id="rY3-u0-aSx"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bOp-dI-Nt1">
-                                <rect key="frame" x="906" y="180" width="108" height="28"/>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bOp-dI-Nt1">
+                                <rect key="frame" x="915.5" y="180" width="89" height="28"/>
                                 <fontDescription key="fontDescription" name="UpheavalTT-BRK-" family="Upheaval TT (BRK)" pointSize="17"/>
-                                <state key="normal" title="Start Match"/>
+                                <state key="normal" title="End Match"/>
                                 <connections>
+                                    <action selector="didTapEndMatch:" destination="URa-jV-sFc" eventType="touchUpInside" id="Ue1-x4-H6B"/>
                                     <action selector="startMatch:" destination="URa-jV-sFc" eventType="touchUpInside" id="9Jp-R3-ySM"/>
                                 </connections>
                             </button>
@@ -367,6 +368,7 @@
                         <outlet property="centerRightDrinkView" destination="3Of-kn-0qW" id="pL7-bu-uFY"/>
                         <outlet property="centerRightDrinkWidthConstraint" destination="bDS-2F-0dv" id="zYS-JO-CQm"/>
                         <outlet property="centerRightScoreLabel" destination="C0T-bK-uaI" id="FkI-7N-qpA"/>
+                        <outlet property="endMatchButton" destination="bOp-dI-Nt1" id="egK-LX-JQO"/>
                         <outlet property="leftCupsRemainingLabel" destination="vQQ-WZ-ohp" id="sOU-2y-EFZ"/>
                         <outlet property="player1Name" destination="MLk-6I-4hi" id="TzM-uL-62B"/>
                         <outlet property="player2Name" destination="adp-MJ-azI" id="eVT-WQ-XnZ"/>
