@@ -122,6 +122,13 @@ class HudViewController: UIViewController {
         updateScoreLabels(for: player4)
         updateScoreLabels(for: player5)
         updateScoreLabels(for: player6)
+
+        self.player1Name.textColor = self.player1?.getColorForStreak()
+        self.player2Name.textColor = self.player2?.getColorForStreak()
+        self.player3Name.textColor = self.player3?.getColorForStreak()
+        self.player4Name.textColor = self.player4?.getColorForStreak()
+        self.player5Name.textColor = self.player5?.getColorForStreak()
+        self.player6Name.textColor = self.player6?.getColorForStreak()
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -137,21 +144,27 @@ class HudViewController: UIViewController {
         self.rightTeam = rightTeam
         player1 = leftTeam.leftPlayer
         player1?.position = .topLeft
+        player1?.rollForHotStreak()
 
         player2 = leftTeam.centerPlayer
         player2?.position = .centerLeft
+        player2?.rollForHotStreak()
 
         player3 = leftTeam.rightPlayer
         player3?.position = .bottomLeft
+        player3?.rollForHotStreak()
 
         player4 = rightTeam.rightPlayer
         player4?.position = .topRight
+        player4?.rollForHotStreak()
 
         player5 = rightTeam.centerPlayer
         player5?.position = .centerRight
+        player5?.rollForHotStreak()
 
         player6 = rightTeam.leftPlayer
         player6?.position = .bottomRight
+        player6?.rollForHotStreak()
     }
 
     private func ballsBack() {

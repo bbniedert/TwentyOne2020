@@ -8,6 +8,14 @@
 import Foundation
 import UIKit
 
+enum Streak: Double, Codable {
+    case normal = 0.0
+    case warm = 5.0
+    case hot = 10.0
+    case cool = -5.0
+    case cold = -10.0
+}
+
 class Player: Codable {
 
     var position: TablePosition
@@ -22,6 +30,7 @@ class Player: Codable {
     var shotsTaken = 0
     var cupsDrank = 0
     var currentGameCupsMade = 0
+    var streak: Streak = .normal
 
     var shotPercent: String {
         let percent = (Double(madeCups)/Double(shotsTaken)) * 100.0
@@ -63,7 +72,37 @@ class Player: Codable {
             rowModifier = RowShootingPercentModifier.row1.rawValue
         }
 
-        return shootingPercentage + rowModifier - getDrunkModifier()
+        return shootingPercentage + rowModifier - getDrunkModifier() + streak.rawValue
+    }
+
+    func rollForHotStreak() {
+        let roll = Int.random(in: 1...10)
+        if roll == 10 {
+            streak = .hot
+        } else if roll == 9 {
+            streak = .warm
+        } else if roll == 2 {
+            streak = .cool
+        } else if roll == 1 {
+            streak = .cold
+        } else {
+            streak = .normal
+        }
+    }
+
+    func getColorForStreak() -> UIColor {
+        switch streak {
+        case .normal:
+            return UIColor.white
+        case .warm:
+            return UIColor.orange
+        case .hot:
+            return UIColor.red
+        case .cool:
+            return UIColor.cyan
+        case .cold:
+            return UIColor.blue
+        }
     }
 
     func getDrunkModifier() -> Double {
@@ -77,7 +116,7 @@ class Player: Codable {
     }
 
     func getThrowDelay() -> Double {
-        return Double.random(in: 0.2...1.0)
+        return Double.random(in: 0.2...2.0)
     }
 
     func getThrowDuration() -> Double {

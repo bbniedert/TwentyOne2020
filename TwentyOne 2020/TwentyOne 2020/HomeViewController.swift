@@ -78,11 +78,10 @@ class HomeViewController: UIViewController {
     }
 
     private func createPlayerFrom(_ json: [String: Any]) -> Player? {
-        guard let name = json["playerName"] as? String,
-              let targetStrategy = json["targetStrategy"] as? Int else { return nil }
+        guard let name = json["playerName"] as? String else { return nil }
         return Player(name: name,
                       shootingStyle: .normal,
-                      targetStrategy: TargetStrategy(rawValue: targetStrategy) ?? .random,
+                      targetStrategy: .random,
                       shootingPercentage: json["shootingPercentage"] as? Double ?? 30.0,
                       tankStatus: TankStatus(rawValue: json["targetStrategy"] as? Int ?? 0) ?? .none)
     }
