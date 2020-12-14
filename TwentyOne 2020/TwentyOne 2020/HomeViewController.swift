@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol HomeDelegate: class {
+    func updateTeams(leftTeam: Team?, rightTeam: Team?)
+}
+
 class HomeViewController: UIViewController {
 
     @IBOutlet weak var teamSelectionCollectionView: UICollectionView!
@@ -99,6 +103,7 @@ class HomeViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let hudVC = segue.destination as? HudViewController, let leftTeam = leftTeam, let rightTeam = rightTeam {
             hudVC.addTeams(leftTeam: leftTeam, rightTeam: rightTeam)
+            hudVC.delegate = self
         }
     }
 }
@@ -138,5 +143,19 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
         let width = collectionView.frame.width / 8.0
         let height = collectionView.frame.height / 2.0
         return CGSize(width: width, height: height)
+    }
+}
+
+extension HomeViewController: HomeDelegate {
+    func updateTeams(leftTeam: Team?, rightTeam: Team?) {
+        guard let leftTeam = leftTeam, let rightTeam = rightTeam else { return }
+        let existingLeftTeam = teams.filter({ $0.name == leftTeam.name }).first
+        existingLeftTeam?.leftPlayer = leftTeam.leftPlayer
+        existingLeftTeam?.centerPlayer = leftTeam.centerPlayer
+        existingLeftTeam?.rightPlayer = leftTeam.rightPlayer
+        let existingRightTeam = teams.filter({ $0.name == rightTeam.name }).first
+        existingRightTeam?.leftPlayer = rightTeam.leftPlayer
+        existingRightTeam?.centerPlayer = rightTeam.centerPlayer
+        existingRightTeam?.rightPlayer = rightTeam.rightPlayer
     }
 }

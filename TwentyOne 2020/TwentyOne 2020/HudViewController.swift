@@ -16,6 +16,8 @@ protocol MatchDelegate: class {
 
 class HudViewController: UIViewController {
 
+    weak var delegate: HomeDelegate?
+
     @IBOutlet weak var leftCupsRemainingLabel: UILabel!
     @IBOutlet weak var rightCupsRemainingLabel: UILabel!
     @IBOutlet weak var ballsBackLabel: UILabel!
@@ -47,19 +49,37 @@ class HudViewController: UIViewController {
     @IBOutlet weak var topRightScoreLabel: UILabel!
     @IBOutlet weak var centerRightScoreLabel: UILabel!
     @IBOutlet weak var bottomRightScoreLabel: UILabel!
+    @IBOutlet weak var topLeftTournamentLabel: UILabel!
+    @IBOutlet weak var centerLeftTournamentLabel: UILabel!
+    @IBOutlet weak var bottomLeftTournamentLabel: UILabel!
+    @IBOutlet weak var topRightTournamentLabel: UILabel!
+    @IBOutlet weak var centerRightTournamentLabel: UILabel!
+    @IBOutlet weak var bottomRightTournamentLabel: UILabel!
     
     var leftCupsRemaining = 21 {
         didSet {
-            endMatchButton.isHidden = leftCupsRemaining > 0
+            if leftCupsRemaining == 0 {
+                endMatchButton.isHidden = leftCupsRemaining > 0
+                ballsBackLabel.text = "\(rightTeam?.name ?? "") wins!"
+                ballsBackLabel.isHidden = false
+                delegate?.updateTeams(leftTeam: leftTeam, rightTeam: rightTeam)
+            }
         }
     }
     var rightCupsRemaining = 21 {
         didSet {
-            endMatchButton.isHidden = rightCupsRemaining > 0
+            if rightCupsRemaining == 0 {
+                endMatchButton.isHidden = false
+                ballsBackLabel.text = "\(leftTeam?.name ?? "") wins!"
+                ballsBackLabel.isHidden = false
+                delegate?.updateTeams(leftTeam: leftTeam, rightTeam: rightTeam)
+            }
         }
     }
     var matchViewController: MatchViewController?
 
+    var leftTeam: Team?
+    var rightTeam: Team?
     var player1: Player?
     var player2: Player?
     var player3: Player?
@@ -86,6 +106,20 @@ class HudViewController: UIViewController {
         player4Name.text = player4?.name
         player5Name.text = player5?.name
         player6Name.text = player6?.name
+
+        player1?.currentGameCupsMade = 0
+        player2?.currentGameCupsMade = 0
+        player3?.currentGameCupsMade = 0
+        player4?.currentGameCupsMade = 0
+        player5?.currentGameCupsMade = 0
+        player6?.currentGameCupsMade = 0
+
+        updateScoreLabels(for: player1)
+        updateScoreLabels(for: player2)
+        updateScoreLabels(for: player3)
+        updateScoreLabels(for: player4)
+        updateScoreLabels(for: player5)
+        updateScoreLabels(for: player6)
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -97,6 +131,8 @@ class HudViewController: UIViewController {
     }
 
     func addTeams(leftTeam: Team, rightTeam: Team) {
+        self.leftTeam = leftTeam
+        self.rightTeam = rightTeam
         player1 = leftTeam.leftPlayer
         player1?.position = .topLeft
 
@@ -154,21 +190,32 @@ class HudViewController: UIViewController {
         navigationController?.popViewController(animated: false)
     }
 
-    private func updateScoreLabel(cups: Int, position: TablePosition) {
-        switch position {
+    private func updateScoreLabels(for player: Player?) {
+        guard let player = player else { return }
+        var gameLabel: UILabel?
+        var tournamentLabel: UILabel?
+        switch player.position {
         case .topLeft:
-            topLeftScoreLabel.text = "\(cups)"
+            gameLabel = topLeftScoreLabel
+            tournamentLabel = topLeftTournamentLabel
         case .centerLeft:
-            centerLeftScoreLabel.text = "\(cups)"
+            gameLabel = centerLeftScoreLabel
+            tournamentLabel = centerLeftTournamentLabel
         case .bottomLeft:
-            bottomLeftScoreLabel.text = "\(cups)"
+            gameLabel = bottomLeftScoreLabel
+            tournamentLabel = bottomLeftTournamentLabel
         case .topRight:
-            topRightScoreLabel.text = "\(cups)"
+            gameLabel = topRightScoreLabel
+            tournamentLabel = topRightTournamentLabel
         case .centerRight:
-            centerRightScoreLabel.text = "\(cups)"
+            gameLabel = centerRightScoreLabel
+            tournamentLabel = centerRightTournamentLabel
         case .bottomRight:
-            bottomRightScoreLabel.text = "\(cups)"
+            gameLabel = bottomRightScoreLabel
+            tournamentLabel = bottomRightTournamentLabel
         }
+        gameLabel?.text = "\(player.currentGameCupsMade)"
+        tournamentLabel?.text = "Drank: \(player.cupsDrank) Shot Percent: \(player.shotPercent)%"
     }
 
     private func getDrinkTiming(throwerPosition: TablePosition) -> Double {
@@ -202,6 +249,7 @@ extension HudViewController: MatchDelegate {
     }
 
     func throwNextBall(previousThrower: Player) {
+        updateScoreLabels(for: previousThrower)
         var nextThrower: Player?
         switch previousThrower.position {
         case .topLeft:
@@ -229,7 +277,8 @@ extension HudViewController: MatchDelegate {
 
     func startDrinkCountdown(player: Player, completion: @escaping () -> Void) {
         player.madeCups += 1
-        updateScoreLabel(cups: player.madeCups, position: player.position)
+        player.currentGameCupsMade += 1
+        updateScoreLabels(for: player)
         var constraintToChange: NSLayoutConstraint?
         var drinkView: UIView?
         var currentDrinker: Player?
@@ -261,6 +310,8 @@ extension HudViewController: MatchDelegate {
         }
 
         if let constraint = constraintToChange, let drinkView = drinkView, let currentDrinker = currentDrinker {
+            currentDrinker.cupsDrank += 1
+            updateScoreLabels(for: currentDrinker)
             currentDrinkers.append(currentDrinker)
 
             if checkForBallsBack() {

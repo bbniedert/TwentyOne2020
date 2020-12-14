@@ -9,9 +9,9 @@ import Foundation
 
 class Team: Codable {
     let name: String
-    let leftPlayer: Player
-    let centerPlayer: Player
-    let rightPlayer: Player
+    var leftPlayer: Player
+    var centerPlayer: Player
+    var rightPlayer: Player
     init(name: String, leftPlayer: Player, centerPlayer: Player, rightPlayer: Player) {
         self.name = name
         self.leftPlayer = leftPlayer

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		134448D52576FC67005EAD28 /* Attributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134448D42576FC67005EAD28 /* Attributes.swift */; };
+		1395890B2587099A004D660B /* Match.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1395890A2587099A004D660B /* Match.swift */; };
 		13AB4D94255EE40100BAD620 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13AB4D93255EE40100BAD620 /* AppDelegate.swift */; };
 		13AB4D96255EE40100BAD620 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13AB4D95255EE40100BAD620 /* SceneDelegate.swift */; };
 		13AB4D9B255EE40100BAD620 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13AB4D99255EE40100BAD620 /* Main.storyboard */; };
@@ -35,6 +36,7 @@
 
 /* Begin PBXFileReference section */
 		134448D42576FC67005EAD28 /* Attributes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Attributes.swift; sourceTree = "<group>"; };
+		1395890A2587099A004D660B /* Match.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Match.swift; sourceTree = "<group>"; };
 		13AB4D90255EE40100BAD620 /* TwentyOne 2020.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TwentyOne 2020.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		13AB4D93255EE40100BAD620 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		13AB4D95255EE40100BAD620 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -122,6 +124,7 @@
 			children = (
 				13AB4DAB255EE84900BAD620 /* Player.swift */,
 				13B7C54B2582E873004D8924 /* Team.swift */,
+				1395890A2587099A004D660B /* Match.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -244,6 +247,7 @@
 				13E1F1F8257C290000052DA6 /* HomeViewController.swift in Sources */,
 				13AB4D96255EE40100BAD620 /* SceneDelegate.swift in Sources */,
 				13F0FD63255F192900A23425 /* MatchManager.swift in Sources */,
+				1395890B2587099A004D660B /* Match.swift in Sources */,
 				134448D52576FC67005EAD28 /* Attributes.swift in Sources */,
 				13B743A82575FE15007784B3 /* MatchViewController.swift in Sources */,
 			);

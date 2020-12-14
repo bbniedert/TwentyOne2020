@@ -17,8 +17,16 @@ class Player: Codable {
     var shootingStyle: ShootingStyle
     var targetStrategy: TargetStrategy
     var hasBallBack = false
-    var madeCups = 0
     var tankStatus: TankStatus
+    var madeCups = 0
+    var shotsTaken = 0
+    var cupsDrank = 0
+    var currentGameCupsMade = 0
+
+    var shotPercent: String {
+        let percent = (Double(madeCups)/Double(shotsTaken)) * 100.0
+        return String(format: "%.2f%", percent)
+    }
 
     var isOnLeftSide: Bool {
         return position.rawValue < 4
