@@ -62,7 +62,8 @@ class HudViewController: UIViewController {
                 endMatchButton.isHidden = leftCupsRemaining > 0
                 ballsBackLabel.text = "\(rightTeam?.name ?? "") wins!"
                 ballsBackLabel.isHidden = false
-                delegate?.updateTeams(leftTeam: leftTeam, rightTeam: rightTeam)
+                rightTeam?.splitCups(cups: rightCupsRemaining)
+                delegate?.updateTeams()
             }
         }
     }
@@ -72,7 +73,8 @@ class HudViewController: UIViewController {
                 endMatchButton.isHidden = false
                 ballsBackLabel.text = "\(leftTeam?.name ?? "") wins!"
                 ballsBackLabel.isHidden = false
-                delegate?.updateTeams(leftTeam: leftTeam, rightTeam: rightTeam)
+                leftTeam?.splitCups(cups: leftCupsRemaining)
+                delegate?.updateTeams()
             }
         }
     }

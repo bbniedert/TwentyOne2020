@@ -38,8 +38,8 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Ur-wt-iLP">
-                                <rect key="frame" x="885" y="250" width="150" height="30"/>
-                                <state key="normal" title="Generate Tournament"/>
+                                <rect key="frame" x="940.5" y="250" width="39" height="30"/>
+                                <state key="normal" title="Reset"/>
                                 <connections>
                                     <action selector="didTapGenerateTournament:" destination="8wc-2C-LXk" eventType="touchUpInside" id="hiU-Co-z29"/>
                                 </connections>
@@ -93,6 +93,13 @@
                                     <segue destination="URa-jV-sFc" kind="show" identifier="" animates="NO" id="TLJ-AO-8PR"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gq0-1A-QNr">
+                                <rect key="frame" x="918.5" y="216" width="83" height="30"/>
+                                <state key="normal" title="Load Teams"/>
+                                <connections>
+                                    <action selector="didTapLoadTeams:" destination="8wc-2C-LXk" eventType="touchUpInside" id="i7T-4f-Tjt"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="kOl-aW-WFt"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -104,7 +111,9 @@
                             <constraint firstItem="4Ur-wt-iLP" firstAttribute="top" secondItem="kOl-aW-WFt" secondAttribute="top" constant="200" id="NM8-K1-Rrl"/>
                             <constraint firstItem="BXO-fr-cXX" firstAttribute="centerX" secondItem="4Ur-wt-iLP" secondAttribute="centerX" id="Oq1-Rb-GU0"/>
                             <constraint firstItem="dwo-EU-jWq" firstAttribute="centerX" secondItem="kOl-aW-WFt" secondAttribute="centerX" constant="-200" id="Ukk-Ws-74f"/>
+                            <constraint firstItem="gq0-1A-QNr" firstAttribute="centerX" secondItem="4Ur-wt-iLP" secondAttribute="centerX" id="WaW-Bb-vBN"/>
                             <constraint firstItem="4Ur-wt-iLP" firstAttribute="centerX" secondItem="kOl-aW-WFt" secondAttribute="centerX" id="Wlx-yO-lAK"/>
+                            <constraint firstItem="4Ur-wt-iLP" firstAttribute="top" secondItem="gq0-1A-QNr" secondAttribute="bottom" constant="4" id="aAy-3A-65k"/>
                             <constraint firstItem="0kG-vc-DXC" firstAttribute="top" secondItem="dwo-EU-jWq" secondAttribute="bottom" constant="10" id="aYj-U3-9X0"/>
                             <constraint firstItem="V3w-fl-sdH" firstAttribute="centerX" secondItem="sgz-1Q-NNr" secondAttribute="centerX" id="heo-ty-RJH"/>
                             <constraint firstItem="sgz-1Q-NNr" firstAttribute="centerY" secondItem="dwo-EU-jWq" secondAttribute="centerY" id="jXs-ks-o5w"/>

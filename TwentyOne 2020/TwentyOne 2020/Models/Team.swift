@@ -18,4 +18,36 @@ class Team: Codable {
         self.centerPlayer = centerPlayer
         self.rightPlayer = rightPlayer
     }
+
+    func splitCups(cups: Int) {
+        let wholeCups = cups/3
+        let remainder = cups%3
+        if remainder != 0 {
+            let num = Int.random(in: 1...3)
+            if remainder == 1 {
+                if num == 1 {
+                    leftPlayer.cupsDrank += 1
+                } else if num == 2 {
+                    centerPlayer.cupsDrank += 1
+                } else {
+                    rightPlayer.cupsDrank += 1
+                }
+            } else {
+                if num == 1 {
+                    leftPlayer.cupsDrank += 1
+                    centerPlayer.cupsDrank += 1
+                } else if num == 2 {
+                    centerPlayer.cupsDrank += 1
+                    rightPlayer.cupsDrank += 1
+                } else {
+                    leftPlayer.cupsDrank += 1
+                    rightPlayer.cupsDrank += 1
+                }
+            }
+        }
+
+        leftPlayer.cupsDrank += wholeCups
+        centerPlayer.cupsDrank += wholeCups
+        rightPlayer.cupsDrank += wholeCups
+    }
 }

@@ -8,7 +8,7 @@
 import UIKit
 
 protocol HomeDelegate: class {
-    func updateTeams(leftTeam: Team?, rightTeam: Team?)
+    func updateTeams()
 }
 
 class HomeViewController: UIViewController {
@@ -18,8 +18,10 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var rightTeamLabel: UILabel!
     @IBOutlet weak var startButton: UIButton!
     
-    var teams: [Team] {
-        return getTeams()
+    var teams = [Team]() {
+        didSet {
+            teamSelectionCollectionView.reloadData()
+        }
     }
 
     var leftTeam: Team? {
@@ -40,6 +42,10 @@ class HomeViewController: UIViewController {
 
         navigationController?.navigationBar.isHidden = true
         teamSelectionCollectionView.register(UINib(nibName: "TeamSelectionCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "teamCell")
+    }
+
+    @IBAction func didTapLoadTeams(_ sender: Any) {
+        getTeams()
     }
 
     @IBAction func didTapGenerateTournament(_ sender: Any) {
@@ -84,20 +90,20 @@ class HomeViewController: UIViewController {
     private func saveTeams(_ teams: [Team]) {
         do {
             try UserDefaults.standard.setValue(PropertyListEncoder().encode(teams), forKey: "teams")
+            getTeams()
         } catch {
             print()
         }
     }
 
-    private func getTeams() -> [Team] {
+    private func getTeams(){
         if let teamData = UserDefaults.standard.object(forKey: "teams") as? Data {
             do {
-                return try PropertyListDecoder().decode([Team].self, from: teamData)
+                teams = try PropertyListDecoder().decode([Team].self, from: teamData)
             } catch {
                 print()
             }
         }
-        return [Team]()
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -147,15 +153,7 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
 }
 
 extension HomeViewController: HomeDelegate {
-    func updateTeams(leftTeam: Team?, rightTeam: Team?) {
-        guard let leftTeam = leftTeam, let rightTeam = rightTeam else { return }
-        let existingLeftTeam = teams.filter({ $0.name == leftTeam.name }).first
-        existingLeftTeam?.leftPlayer = leftTeam.leftPlayer
-        existingLeftTeam?.centerPlayer = leftTeam.centerPlayer
-        existingLeftTeam?.rightPlayer = leftTeam.rightPlayer
-        let existingRightTeam = teams.filter({ $0.name == rightTeam.name }).first
-        existingRightTeam?.leftPlayer = rightTeam.leftPlayer
-        existingRightTeam?.centerPlayer = rightTeam.centerPlayer
-        existingRightTeam?.rightPlayer = rightTeam.rightPlayer
+    func updateTeams() {
+        saveTeams(teams)
     }
 }

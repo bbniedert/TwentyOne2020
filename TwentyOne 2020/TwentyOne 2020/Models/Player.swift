@@ -63,7 +63,17 @@ class Player: Codable {
             rowModifier = RowShootingPercentModifier.row1.rawValue
         }
 
-        return shootingPercentage + rowModifier
+        return shootingPercentage + rowModifier - getDrunkModifier()
+    }
+
+    func getDrunkModifier() -> Double {
+        let startingCount = (tankStatus.rawValue + 0) * 7
+        if cupsDrank > startingCount {
+            let effectiveCups = (cupsDrank - startingCount) / 7
+            return Double(effectiveCups)
+        } else {
+            return 0.0
+        }
     }
 
     func getThrowDelay() -> Double {
