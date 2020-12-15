@@ -97,49 +97,48 @@ class MatchViewController: UIViewController {
             availableRightCups.append(i)
         }
         
-        let songNumber = Int.random(in: 0..<3)
-        if songNumber == 0{
-            if let gameTrack = Bundle.main.path(forResource: "AnythingCouldHappen", ofType: "mp3"){
-                do{
-                    backgroundAudioPlayer = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: gameTrack))
-                    backgroundAudioPlayer?.play()
-                }
-                catch{
-                    print(error)
-                }
-                makeSound1 = Bundle.main.path(forResource: "makeC", ofType: "wav")!
-                makeSound2 = Bundle.main.path(forResource: "makeF", ofType: "wav")!
-                makeSound3 = Bundle.main.path(forResource: "makeG", ofType: "wav")!
-            }
-        }
+        var track = String()
+        var make1 = String()
+        var make2 = String()
+        var make3 = String()
         
+        let songNumber = Int.random(in: 0..<4)
+        if songNumber == 0{
+            track = "AnythingCouldHappen"
+            make1 = "makeC"
+            make2 = "makeF"
+            make3 = "makeG"
+        }
         if songNumber == 1{
-            if let gameTrack = Bundle.main.path(forResource: "BlindingLights", ofType: "mp3"){
-                do{
-                    backgroundAudioPlayer = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: gameTrack))
-                    backgroundAudioPlayer?.play()
-                }
-                catch{
-                    print(error)
-                }
-                makeSound1 = Bundle.main.path(forResource: "makeFminor", ofType: "wav")!
-                makeSound2 = Bundle.main.path(forResource: "makeEb", ofType: "wav")!
-                makeSound3 = Bundle.main.path(forResource: "makeBb", ofType: "wav")!
-            }
+            track = "BlindingLights"
+            make1 = "makeFminor"
+            make2 = "makeEb"
+            make3 = "makeBb"
         }
         if songNumber == 2{
-            if let gameTrack = Bundle.main.path(forResource: "Circles", ofType: "mp3"){
-                do{
-                    backgroundAudioPlayer = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: gameTrack))
-                    backgroundAudioPlayer?.play()
-                }
-                catch{
-                    print(error)
-                }
-                makeSound1 = Bundle.main.path(forResource: "makeC", ofType: "wav")!
-                makeSound2 = Bundle.main.path(forResource: "makeF", ofType: "wav")!
-                makeSound3 = Bundle.main.path(forResource: "makeG", ofType: "wav")!
+            track = "Circles"
+            make1 = "makeC"
+            make2 = "makeF"
+            make3 = "makeG"
+        }
+        if songNumber == 2{
+            track = "Liztomania"
+            make1 = "makeC"
+            make2 = "makeF"
+            make3 = "makeG"
+        }
+        
+        if let gameTrack = Bundle.main.path(forResource: track, ofType: "mp3"){
+            do{
+                backgroundAudioPlayer = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: gameTrack))
+                backgroundAudioPlayer?.play()
             }
+            catch{
+                print(error)
+            }
+            makeSound1 = Bundle.main.path(forResource: make1, ofType: "wav")!
+            makeSound2 = Bundle.main.path(forResource: make2, ofType: "wav")!
+            makeSound3 = Bundle.main.path(forResource: make3, ofType: "wav")!
         }
     }
         
