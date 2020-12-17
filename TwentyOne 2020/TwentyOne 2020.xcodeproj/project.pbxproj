@@ -20,12 +20,17 @@
 		BD0AE6CE2577323F00085E0F /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD0AE6CD2577323F00085E0F /* AVFoundation.framework */; };
 		BD0AE6E12577401900085E0F /* miss.wav in Resources */ = {isa = PBXBuildFile; fileRef = BD0AE6DE2577401900085E0F /* miss.wav */; };
 		BD0AE6E22577401900085E0F /* ballsBack.wav in Resources */ = {isa = PBXBuildFile; fileRef = BD0AE6DF2577401900085E0F /* ballsBack.wav */; };
-		BD0AE6E32577401900085E0F /* make.wav in Resources */ = {isa = PBXBuildFile; fileRef = BD0AE6E02577401900085E0F /* make.wav */; };
-		BD0AE6FC2577EDB600085E0F /* make3.wav in Resources */ = {isa = PBXBuildFile; fileRef = BD0AE6F92577EDB600085E0F /* make3.wav */; };
-		BD0AE6FD2577EDB600085E0F /* make1.wav in Resources */ = {isa = PBXBuildFile; fileRef = BD0AE6FA2577EDB600085E0F /* make1.wav */; };
-		BD0AE6FE2577EDB600085E0F /* make2.wav in Resources */ = {isa = PBXBuildFile; fileRef = BD0AE6FB2577EDB600085E0F /* make2.wav */; };
 		BD0AE7032578799000085E0F /* AnythingCouldHappen.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BD0AE7022578799000085E0F /* AnythingCouldHappen.mp3 */; };
 		BD0AE70725787EDE00085E0F /* upheavtt.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BD0AE70625787EB600085E0F /* upheavtt.ttf */; };
+		BD0AE715257C705600085E0F /* makeC.wav in Resources */ = {isa = PBXBuildFile; fileRef = BD0AE70E257C705500085E0F /* makeC.wav */; };
+		BD0AE716257C705600085E0F /* BlindingLights.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BD0AE70F257C705500085E0F /* BlindingLights.mp3 */; };
+		BD0AE717257C705600085E0F /* makeF.wav in Resources */ = {isa = PBXBuildFile; fileRef = BD0AE710257C705500085E0F /* makeF.wav */; };
+		BD0AE718257C705600085E0F /* makeFminor.wav in Resources */ = {isa = PBXBuildFile; fileRef = BD0AE711257C705600085E0F /* makeFminor.wav */; };
+		BD0AE719257C705600085E0F /* makeG.wav in Resources */ = {isa = PBXBuildFile; fileRef = BD0AE712257C705600085E0F /* makeG.wav */; };
+		BD0AE71A257C705600085E0F /* makeBb.wav in Resources */ = {isa = PBXBuildFile; fileRef = BD0AE713257C705600085E0F /* makeBb.wav */; };
+		BD0AE71B257C705600085E0F /* makeEb.wav in Resources */ = {isa = PBXBuildFile; fileRef = BD0AE714257C705600085E0F /* makeEb.wav */; };
+		BDC9179B2580769A001BACD9 /* Circles.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BDC9179A2580769A001BACD9 /* Circles.mp3 */; };
+		BDC9179E258860F2001BACD9 /* Liztomania.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BDC9179D258860F2001BACD9 /* Liztomania.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,12 +50,17 @@
 		BD0AE6CD2577323F00085E0F /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.0.sdk/System/Library/Frameworks/AVFoundation.framework; sourceTree = DEVELOPER_DIR; };
 		BD0AE6DE2577401900085E0F /* miss.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = miss.wav; sourceTree = "<group>"; };
 		BD0AE6DF2577401900085E0F /* ballsBack.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = ballsBack.wav; sourceTree = "<group>"; };
-		BD0AE6E02577401900085E0F /* make.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = make.wav; sourceTree = "<group>"; };
-		BD0AE6F92577EDB600085E0F /* make3.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = make3.wav; sourceTree = "<group>"; };
-		BD0AE6FA2577EDB600085E0F /* make1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = make1.wav; sourceTree = "<group>"; };
-		BD0AE6FB2577EDB600085E0F /* make2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = make2.wav; sourceTree = "<group>"; };
 		BD0AE7022578799000085E0F /* AnythingCouldHappen.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = AnythingCouldHappen.mp3; sourceTree = "<group>"; };
 		BD0AE70625787EB600085E0F /* upheavtt.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = upheavtt.ttf; sourceTree = "<group>"; };
+		BD0AE70E257C705500085E0F /* makeC.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = makeC.wav; sourceTree = "<group>"; };
+		BD0AE70F257C705500085E0F /* BlindingLights.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = BlindingLights.mp3; sourceTree = "<group>"; };
+		BD0AE710257C705500085E0F /* makeF.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = makeF.wav; sourceTree = "<group>"; };
+		BD0AE711257C705600085E0F /* makeFminor.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = makeFminor.wav; sourceTree = "<group>"; };
+		BD0AE712257C705600085E0F /* makeG.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = makeG.wav; sourceTree = "<group>"; };
+		BD0AE713257C705600085E0F /* makeBb.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = makeBb.wav; sourceTree = "<group>"; };
+		BD0AE714257C705600085E0F /* makeEb.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = makeEb.wav; sourceTree = "<group>"; };
+		BDC9179A2580769A001BACD9 /* Circles.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Circles.mp3; sourceTree = "<group>"; };
+		BDC9179D258860F2001BACD9 /* Liztomania.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Liztomania.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,11 +133,16 @@
 			isa = PBXGroup;
 			children = (
 				BD0AE6DF2577401900085E0F /* ballsBack.wav */,
-				BD0AE6FA2577EDB600085E0F /* make1.wav */,
-				BD0AE6FB2577EDB600085E0F /* make2.wav */,
-				BD0AE6F92577EDB600085E0F /* make3.wav */,
-				BD0AE6E02577401900085E0F /* make.wav */,
 				BD0AE7022578799000085E0F /* AnythingCouldHappen.mp3 */,
+				BD0AE70F257C705500085E0F /* BlindingLights.mp3 */,
+				BD0AE713257C705600085E0F /* makeBb.wav */,
+				BDC9179A2580769A001BACD9 /* Circles.mp3 */,
+				BD0AE70E257C705500085E0F /* makeC.wav */,
+				BD0AE714257C705600085E0F /* makeEb.wav */,
+				BD0AE710257C705500085E0F /* makeF.wav */,
+				BDC9179D258860F2001BACD9 /* Liztomania.mp3 */,
+				BD0AE711257C705600085E0F /* makeFminor.wav */,
+				BD0AE712257C705600085E0F /* makeG.wav */,
 				BD0AE6DE2577401900085E0F /* miss.wav */,
 			);
 			path = Sounds;
@@ -198,17 +213,22 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BD0AE6FE2577EDB600085E0F /* make2.wav in Resources */,
+				BD0AE718257C705600085E0F /* makeFminor.wav in Resources */,
+				BD0AE71B257C705600085E0F /* makeEb.wav in Resources */,
 				BD0AE70725787EDE00085E0F /* upheavtt.ttf in Resources */,
-				BD0AE6FC2577EDB600085E0F /* make3.wav in Resources */,
-				BD0AE6E32577401900085E0F /* make.wav in Resources */,
 				BD0AE6E12577401900085E0F /* miss.wav in Resources */,
+				BDC9179E258860F2001BACD9 /* Liztomania.mp3 in Resources */,
 				BD0AE7032578799000085E0F /* AnythingCouldHappen.mp3 in Resources */,
 				13AB4DA0255EE40300BAD620 /* LaunchScreen.storyboard in Resources */,
-				BD0AE6FD2577EDB600085E0F /* make1.wav in Resources */,
 				BD0AE6E22577401900085E0F /* ballsBack.wav in Resources */,
+				BD0AE719257C705600085E0F /* makeG.wav in Resources */,
+				BD0AE717257C705600085E0F /* makeF.wav in Resources */,
 				13AB4D9D255EE40300BAD620 /* Assets.xcassets in Resources */,
+				BD0AE716257C705600085E0F /* BlindingLights.mp3 in Resources */,
+				BD0AE71A257C705600085E0F /* makeBb.wav in Resources */,
+				BD0AE715257C705600085E0F /* makeC.wav in Resources */,
 				13AB4D9B255EE40100BAD620 /* Main.storyboard in Resources */,
+				BDC9179B2580769A001BACD9 /* Circles.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
