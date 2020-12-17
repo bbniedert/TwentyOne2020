@@ -8,8 +8,8 @@
 import UIKit
 
 protocol MatchDelegate: class {
-    func didMakeRightCup()
-    func didMakeLeftCup()
+    func didMakeRightCup(player: Player)
+    func didMakeLeftCup(player: Player)
     func throwNextBall(previousThrower: Player)
     func startDrinkCountdown(player: Player,  completion: @escaping () -> Void)
 }
@@ -253,13 +253,19 @@ class HudViewController: UIViewController {
 }
 
 extension HudViewController: MatchDelegate {
-    func didMakeLeftCup() {
+    func didMakeLeftCup(player: Player) {
         leftCupsRemaining -= 1
+        if leftCupsRemaining == 0 {
+            player.clutchCup += 1
+        }
         leftCupsRemainingLabel.text = "\(leftCupsRemaining)"
     }
 
-    func didMakeRightCup() {
+    func didMakeRightCup(player: Player) {
         rightCupsRemaining -= 1
+        if rightCupsRemaining == 0 {
+            player.clutchCup += 1
+        }
         rightCupsRemainingLabel.text = "\(rightCupsRemaining)"
     }
 

@@ -221,7 +221,7 @@ class MatchViewController: UIViewController {
                 let temp = availableRightCups.filter({ $0 != cupNumber })
                 if temp.count != availableRightCups.count {
                     availableRightCups = temp
-                    delegate?.didMakeRightCup()
+                    delegate?.didMakeRightCup(player: thrower)
                     isPlaying = availableRightCups.count != 0
                     cupAlreadyMade = false
                 }
@@ -229,7 +229,7 @@ class MatchViewController: UIViewController {
                 let temp = availableLeftCups.filter({ $0 != cupNumber })
                 if temp.count != availableLeftCups.count {
                     availableLeftCups = temp
-                    delegate?.didMakeLeftCup()
+                    delegate?.didMakeLeftCup(player: thrower)
                     isPlaying = availableLeftCups.count != 0
                     cupAlreadyMade = false
                 }

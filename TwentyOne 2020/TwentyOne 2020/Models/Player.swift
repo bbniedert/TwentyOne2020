@@ -30,6 +30,7 @@ class Player: Codable {
     var shotsTaken = 0
     var cupsDrank = 0
     var currentGameCupsMade = 0
+    var clutchCup = 0
     var streak: Streak = .normal
 
     var shotPercent: String {
