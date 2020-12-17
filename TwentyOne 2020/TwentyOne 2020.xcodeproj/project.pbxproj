@@ -31,6 +31,10 @@
 		BD0AE71B257C705600085E0F /* makeEb.wav in Resources */ = {isa = PBXBuildFile; fileRef = BD0AE714257C705600085E0F /* makeEb.wav */; };
 		BDC9179B2580769A001BACD9 /* Circles.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BDC9179A2580769A001BACD9 /* Circles.mp3 */; };
 		BDC9179E258860F2001BACD9 /* Liztomania.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BDC9179D258860F2001BACD9 /* Liztomania.mp3 */; };
+		BDC917A1258AFA58001BACD9 /* GenghisKhan.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BDC917A0258AFA58001BACD9 /* GenghisKhan.mp3 */; };
+		BDC917A6258AFA66001BACD9 /* makeFC.wav in Resources */ = {isa = PBXBuildFile; fileRef = BDC917A3258AFA66001BACD9 /* makeFC.wav */; };
+		BDC917A7258AFA66001BACD9 /* makeGD.wav in Resources */ = {isa = PBXBuildFile; fileRef = BDC917A4258AFA66001BACD9 /* makeGD.wav */; };
+		BDC917A8258AFA66001BACD9 /* makeDminor.wav in Resources */ = {isa = PBXBuildFile; fileRef = BDC917A5258AFA66001BACD9 /* makeDminor.wav */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,6 +65,10 @@
 		BD0AE714257C705600085E0F /* makeEb.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = makeEb.wav; sourceTree = "<group>"; };
 		BDC9179A2580769A001BACD9 /* Circles.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Circles.mp3; sourceTree = "<group>"; };
 		BDC9179D258860F2001BACD9 /* Liztomania.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Liztomania.mp3; sourceTree = "<group>"; };
+		BDC917A0258AFA58001BACD9 /* GenghisKhan.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = GenghisKhan.mp3; sourceTree = "<group>"; };
+		BDC917A3258AFA66001BACD9 /* makeFC.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = makeFC.wav; sourceTree = "<group>"; };
+		BDC917A4258AFA66001BACD9 /* makeGD.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = makeGD.wav; sourceTree = "<group>"; };
+		BDC917A5258AFA66001BACD9 /* makeDminor.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = makeDminor.wav; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +148,10 @@
 				BD0AE70E257C705500085E0F /* makeC.wav */,
 				BD0AE714257C705600085E0F /* makeEb.wav */,
 				BD0AE710257C705500085E0F /* makeF.wav */,
+				BDC917A0258AFA58001BACD9 /* GenghisKhan.mp3 */,
+				BDC917A5258AFA66001BACD9 /* makeDminor.wav */,
+				BDC917A3258AFA66001BACD9 /* makeFC.wav */,
+				BDC917A4258AFA66001BACD9 /* makeGD.wav */,
 				BDC9179D258860F2001BACD9 /* Liztomania.mp3 */,
 				BD0AE711257C705600085E0F /* makeFminor.wav */,
 				BD0AE712257C705600085E0F /* makeG.wav */,
@@ -220,11 +232,15 @@
 				BDC9179E258860F2001BACD9 /* Liztomania.mp3 in Resources */,
 				BD0AE7032578799000085E0F /* AnythingCouldHappen.mp3 in Resources */,
 				13AB4DA0255EE40300BAD620 /* LaunchScreen.storyboard in Resources */,
+				BDC917A6258AFA66001BACD9 /* makeFC.wav in Resources */,
 				BD0AE6E22577401900085E0F /* ballsBack.wav in Resources */,
+				BDC917A8258AFA66001BACD9 /* makeDminor.wav in Resources */,
 				BD0AE719257C705600085E0F /* makeG.wav in Resources */,
 				BD0AE717257C705600085E0F /* makeF.wav in Resources */,
 				13AB4D9D255EE40300BAD620 /* Assets.xcassets in Resources */,
+				BDC917A7258AFA66001BACD9 /* makeGD.wav in Resources */,
 				BD0AE716257C705600085E0F /* BlindingLights.mp3 in Resources */,
+				BDC917A1258AFA58001BACD9 /* GenghisKhan.mp3 in Resources */,
 				BD0AE71A257C705600085E0F /* makeBb.wav in Resources */,
 				BD0AE715257C705600085E0F /* makeC.wav in Resources */,
 				13AB4D9B255EE40100BAD620 /* Main.storyboard in Resources */,
