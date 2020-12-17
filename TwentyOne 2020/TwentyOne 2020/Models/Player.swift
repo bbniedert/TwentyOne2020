@@ -33,9 +33,11 @@ class Player: Codable {
     var clutchCup = 0
     var streak: Streak = .normal
 
-    var shotPercent: String {
-        let percent = (Double(madeCups)/Double(shotsTaken)) * 100.0
-        return String(format: "%.2f%", percent)
+    var shotPercent: Double {
+        if shotsTaken > 0 {
+            return (Double(madeCups)/Double(shotsTaken)) * 100.0
+        }
+        return 0.0
     }
 
     var isOnLeftSide: Bool {

@@ -12,6 +12,9 @@ class Team: Codable {
     var leftPlayer: Player
     var centerPlayer: Player
     var rightPlayer: Player
+    var wins = 0
+    var losses = 0
+    var cd = 0
     init(name: String, leftPlayer: Player, centerPlayer: Player, rightPlayer: Player) {
         self.name = name
         self.leftPlayer = leftPlayer

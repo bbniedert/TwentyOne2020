@@ -13,10 +13,11 @@ protocol HomeDelegate: class {
 
 class HomeViewController: UIViewController {
 
+    @IBOutlet weak var standingsTableView: UITableView!
+    @IBOutlet weak var cupsDrankTableView: UITableView!
+    @IBOutlet weak var shootingTableView: UITableView!
+    @IBOutlet weak var clutchCupsTableView: UITableView!
     @IBOutlet weak var teamSelectionCollectionView: UICollectionView!
-    @IBOutlet weak var leftTeamLabel: UILabel!
-    @IBOutlet weak var rightTeamLabel: UILabel!
-    @IBOutlet weak var startButton: UIButton!
     
     var teams = [Team]() {
         didSet {
@@ -24,17 +25,38 @@ class HomeViewController: UIViewController {
         }
     }
 
-    var leftTeam: Team? {
-        didSet {
-            leftTeamLabel.text = leftTeam?.name
-        }
+    var sortedTeams: [Team] {
+        return teams.sorted(by: { t1, t2 in
+            (t1.wins, t1.cd) > (t2.wins, t2.cd)
+        })
     }
 
-    var rightTeam: Team? {
-        didSet {
-            rightTeamLabel.text = rightTeam?.name
-            startButton.isHidden = false
+    var players: [Player] {
+        var list = [Player]()
+        for team in teams {
+            list.append(team.leftPlayer)
+            list.append(team.centerPlayer)
+            list.append(team.rightPlayer)
         }
+        return list
+    }
+
+    var drankPlayers: [Player] {
+        return players.sorted(by: { p1, p2 in
+            p1.cupsDrank > p2.cupsDrank
+        })
+    }
+
+    var percentPlayers: [Player] {
+        return players.sorted(by: { p1, p2 in
+            Double(p1.shotPercent) > Double(p2.shotPercent)
+        })
+    }
+
+    var clutchPlayers: [Player] {
+        return players.sorted(by: { p1, p2 in
+            p1.clutchCup > p2.clutchCup
+        })
     }
 
     override func viewDidLoad() {
@@ -42,10 +64,21 @@ class HomeViewController: UIViewController {
 
         navigationController?.navigationBar.isHidden = true
         teamSelectionCollectionView.register(UINib(nibName: "TeamSelectionCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "teamCell")
+        standingsTableView.register(UINib(nibName: "StandingTableViewCell", bundle: nil), forCellReuseIdentifier: "standings")
+        cupsDrankTableView.register(UINib(nibName: "LeaderTableViewCell", bundle: nil), forCellReuseIdentifier: "drank")
+        shootingTableView.register(UINib(nibName: "LeaderTableViewCell", bundle: nil), forCellReuseIdentifier: "shot")
+        clutchCupsTableView.register(UINib(nibName: "LeaderTableViewCell", bundle: nil), forCellReuseIdentifier: "clutch")
+
+        getTeams()
     }
 
-    @IBAction func didTapLoadTeams(_ sender: Any) {
-        getTeams()
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        standingsTableView.reloadData()
+        cupsDrankTableView.reloadData()
+        shootingTableView.reloadData()
+        clutchCupsTableView.reloadData()
     }
 
     @IBAction func didTapGenerateTournament(_ sender: Any) {
@@ -106,23 +139,15 @@ class HomeViewController: UIViewController {
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let hudVC = segue.destination as? HudViewController, let leftTeam = leftTeam, let rightTeam = rightTeam {
-            hudVC.addTeams(leftTeam: leftTeam, rightTeam: rightTeam)
+        if let hudVC = segue.destination as? HudViewController {
+            hudVC.addTeams(leftTeam: teams.randomElement()!, rightTeam: teams.randomElement()!)
             hudVC.delegate = self
         }
     }
 }
 
 extension HomeViewController: UICollectionViewDelegate {
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let team = teams[indexPath.row]
-        if leftTeam == nil || rightTeam != nil {
-            leftTeam = team
-            rightTeam = nil
-        } else {
-            rightTeam = team
-        }
-    }
+
 }
 
 extension HomeViewController: UICollectionViewDataSource {
@@ -154,5 +179,44 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
 extension HomeViewController: HomeDelegate {
     func updateTeams() {
         saveTeams(teams)
+    }
+}
+
+extension HomeViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if tableView == standingsTableView {
+            return teams.count
+        } else {
+            return 5
+        }
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if tableView == standingsTableView {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "standings") as? StandingTableViewCell else { return UITableViewCell() }
+            cell.configure(team: sortedTeams[indexPath.row], place: indexPath.row + 1)
+            return cell
+        } else if tableView == cupsDrankTableView {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "drank") as? LeaderTableViewCell else { return UITableViewCell() }
+            let player = drankPlayers[indexPath.row]
+            cell.configure(name: player.name, stat: "\(player.cupsDrank)", rank: indexPath.row + 1)
+            return cell
+        } else if tableView == shootingTableView {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "shot") as? LeaderTableViewCell else { return UITableViewCell() }
+            let player = percentPlayers[indexPath.row]
+            cell.configure(name: player.name, stat: "\(Int(player.shotPercent))%", rank: indexPath.row + 1)
+            return cell
+        } else {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "clutch") as? LeaderTableViewCell else { return UITableViewCell() }
+            let player = clutchPlayers[indexPath.row]
+            cell.configure(name: player.name, stat: "\(player.clutchCup)", rank: indexPath.row + 1)
+            return cell
+        }
+    }
+}
+
+extension HomeViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return tableView.frame.height / CGFloat(tableView.numberOfRows(inSection: 0))
     }
 }

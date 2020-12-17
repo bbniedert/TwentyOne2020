@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		134448D52576FC67005EAD28 /* Attributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134448D42576FC67005EAD28 /* Attributes.swift */; };
+		135E4438258AFEAC00B58DB5 /* LeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135E4436258AFEAC00B58DB5 /* LeaderTableViewCell.swift */; };
+		135E4439258AFEAC00B58DB5 /* LeaderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 135E4437258AFEAC00B58DB5 /* LeaderTableViewCell.xib */; };
+		135E4441258AFF1A00B58DB5 /* StandingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135E443F258AFF1900B58DB5 /* StandingTableViewCell.swift */; };
+		135E4442258AFF1A00B58DB5 /* StandingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 135E4440258AFF1900B58DB5 /* StandingTableViewCell.xib */; };
 		1395890B2587099A004D660B /* Match.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1395890A2587099A004D660B /* Match.swift */; };
 		13AB4D94255EE40100BAD620 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13AB4D93255EE40100BAD620 /* AppDelegate.swift */; };
 		13AB4D96255EE40100BAD620 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13AB4D95255EE40100BAD620 /* SceneDelegate.swift */; };
@@ -36,6 +40,10 @@
 
 /* Begin PBXFileReference section */
 		134448D42576FC67005EAD28 /* Attributes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Attributes.swift; sourceTree = "<group>"; };
+		135E4436258AFEAC00B58DB5 /* LeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderTableViewCell.swift; sourceTree = "<group>"; };
+		135E4437258AFEAC00B58DB5 /* LeaderTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LeaderTableViewCell.xib; sourceTree = "<group>"; };
+		135E443F258AFF1900B58DB5 /* StandingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandingTableViewCell.swift; sourceTree = "<group>"; };
+		135E4440258AFF1900B58DB5 /* StandingTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StandingTableViewCell.xib; sourceTree = "<group>"; };
 		1395890A2587099A004D660B /* Match.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Match.swift; sourceTree = "<group>"; };
 		13AB4D90255EE40100BAD620 /* TwentyOne 2020.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TwentyOne 2020.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		13AB4D93255EE40100BAD620 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -104,8 +112,12 @@
 				13AB4D93255EE40100BAD620 /* AppDelegate.swift */,
 				13AB4D95255EE40100BAD620 /* SceneDelegate.swift */,
 				13AB4D99255EE40100BAD620 /* Main.storyboard */,
+				135E4436258AFEAC00B58DB5 /* LeaderTableViewCell.swift */,
+				135E4437258AFEAC00B58DB5 /* LeaderTableViewCell.xib */,
 				13B743AA2575FE25007784B3 /* HudViewController.swift */,
 				134448D42576FC67005EAD28 /* Attributes.swift */,
+				135E443F258AFF1900B58DB5 /* StandingTableViewCell.swift */,
+				135E4440258AFF1900B58DB5 /* StandingTableViewCell.xib */,
 				13B743A72575FE15007784B3 /* MatchViewController.swift */,
 				13AB4D9C255EE40300BAD620 /* Assets.xcassets */,
 				13AB4D9E255EE40300BAD620 /* LaunchScreen.storyboard */,
@@ -224,10 +236,12 @@
 				BD0AE7032578799000085E0F /* AnythingCouldHappen.mp3 in Resources */,
 				13AB4DA0255EE40300BAD620 /* LaunchScreen.storyboard in Resources */,
 				BD0AE6FD2577EDB600085E0F /* make1.wav in Resources */,
+				135E4442258AFF1A00B58DB5 /* StandingTableViewCell.xib in Resources */,
 				BD0AE6E22577401900085E0F /* ballsBack.wav in Resources */,
 				13B7C55125834485004D8924 /* TeamSelectionCollectionViewCell.xib in Resources */,
 				13AB4D9D255EE40300BAD620 /* Assets.xcassets in Resources */,
 				13E1F1FB257C295000052DA6 /* tournamentsetup.json in Resources */,
+				135E4439258AFEAC00B58DB5 /* LeaderTableViewCell.xib in Resources */,
 				13AB4D9B255EE40100BAD620 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -239,10 +253,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				135E4441258AFF1A00B58DB5 /* StandingTableViewCell.swift in Sources */,
 				13B7C55025834485004D8924 /* TeamSelectionCollectionViewCell.swift in Sources */,
 				13B7C54C2582E873004D8924 /* Team.swift in Sources */,
 				13AB4DAC255EE84900BAD620 /* Player.swift in Sources */,
 				13AB4D94255EE40100BAD620 /* AppDelegate.swift in Sources */,
+				135E4438258AFEAC00B58DB5 /* LeaderTableViewCell.swift in Sources */,
 				13B743AB2575FE25007784B3 /* HudViewController.swift in Sources */,
 				13E1F1F8257C290000052DA6 /* HomeViewController.swift in Sources */,
 				13AB4D96255EE40100BAD620 /* SceneDelegate.swift in Sources */,

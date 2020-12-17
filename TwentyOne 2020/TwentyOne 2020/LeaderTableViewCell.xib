@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="upheavtt.ttf">
+            <string>UpheavalTT-BRK-</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="LeaderTableViewCell" customModule="TwentyOne_2020" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xNE-GS-gQU">
+                        <rect key="frame" x="16" y="13" width="36" height="18"/>
+                        <fontDescription key="fontDescription" name="UpheavalTT-BRK-" family="Upheaval TT (BRK)" pointSize="20"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PLAYER" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZGF-XN-Kng">
+                        <rect key="frame" x="62" y="8.5" width="110" height="27"/>
+                        <fontDescription key="fontDescription" name="UpheavalTT-BRK-" family="Upheaval TT (BRK)" pointSize="30"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="XXX" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zOn-k9-n72">
+                        <rect key="frame" x="279" y="14" width="31" height="16"/>
+                        <fontDescription key="fontDescription" name="UpheavalTT-BRK-" family="Upheaval TT (BRK)" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="zOn-k9-n72" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Aes-o6-ELM"/>
+                    <constraint firstItem="xNE-GS-gQU" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="HzC-8Y-wyH"/>
+                    <constraint firstItem="xNE-GS-gQU" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="HzN-ae-jCJ"/>
+                    <constraint firstItem="ZGF-XN-Kng" firstAttribute="centerY" secondItem="xNE-GS-gQU" secondAttribute="centerY" id="RU5-6w-IHx"/>
+                    <constraint firstAttribute="trailing" secondItem="zOn-k9-n72" secondAttribute="trailing" constant="10" id="kez-Xl-l6j"/>
+                    <constraint firstItem="ZGF-XN-Kng" firstAttribute="leading" secondItem="xNE-GS-gQU" secondAttribute="trailing" constant="10" id="zlF-sV-xY8"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="playerLabel" destination="ZGF-XN-Kng" id="NZX-Ow-O4U"/>
+                <outlet property="rankLabel" destination="xNE-GS-gQU" id="gDb-CN-YkS"/>
+                <outlet property="valueLabel" destination="zOn-k9-n72" id="Aj1-hb-Rix"/>
+            </connections>
+            <point key="canvasLocation" x="122" y="90"/>
+        </tableViewCell>
+    </objects>
+</document>

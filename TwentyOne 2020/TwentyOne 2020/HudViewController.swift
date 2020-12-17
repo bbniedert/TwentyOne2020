@@ -56,28 +56,8 @@ class HudViewController: UIViewController {
     @IBOutlet weak var centerRightTournamentLabel: UILabel!
     @IBOutlet weak var bottomRightTournamentLabel: UILabel!
     
-    var leftCupsRemaining = 21 {
-        didSet {
-            if leftCupsRemaining == 0 {
-                endMatchButton.isHidden = leftCupsRemaining > 0
-                ballsBackLabel.text = "\(rightTeam?.name ?? "") wins!"
-                ballsBackLabel.isHidden = false
-                rightTeam?.splitCups(cups: rightCupsRemaining)
-                delegate?.updateTeams()
-            }
-        }
-    }
-    var rightCupsRemaining = 21 {
-        didSet {
-            if rightCupsRemaining == 0 {
-                endMatchButton.isHidden = false
-                ballsBackLabel.text = "\(leftTeam?.name ?? "") wins!"
-                ballsBackLabel.isHidden = false
-                leftTeam?.splitCups(cups: leftCupsRemaining)
-                delegate?.updateTeams()
-            }
-        }
-    }
+    var leftCupsRemaining = 21
+    var rightCupsRemaining = 21
     var matchViewController: MatchViewController?
 
     var leftTeam: Team?
@@ -175,6 +155,30 @@ class HudViewController: UIViewController {
             })
         }
     }
+
+    private func rightWins() {
+        endMatchButton.isHidden = leftCupsRemaining > 0
+        ballsBackLabel.text = "\(rightTeam?.name ?? "") wins!"
+        ballsBackLabel.isHidden = false
+        rightTeam?.splitCups(cups: rightCupsRemaining)
+        leftTeam?.losses += 1
+        leftTeam?.cd -= rightCupsRemaining
+        rightTeam?.wins += 1
+        rightTeam?.cd += rightCupsRemaining
+        delegate?.updateTeams()
+    }
+
+    private func leftWins() {
+        endMatchButton.isHidden = false
+        ballsBackLabel.text = "\(leftTeam?.name ?? "") wins!"
+        ballsBackLabel.isHidden = false
+        leftTeam?.splitCups(cups: leftCupsRemaining)
+        rightTeam?.losses += 1
+        rightTeam?.cd -= leftCupsRemaining
+        leftTeam?.wins += 1
+        leftTeam?.cd += leftCupsRemaining
+        delegate?.updateTeams()
+    }
     
     func startMatch() {
         if let player1 = player1, let player5 = player5, let player3 = player3, let _ = player2, let _ = player4, let _ = player6, let match = matchViewController {
@@ -230,7 +234,7 @@ class HudViewController: UIViewController {
             tournamentLabel = bottomRightTournamentLabel
         }
         gameLabel?.text = "\(player.currentGameCupsMade)"
-        tournamentLabel?.text = "Drank: \(player.cupsDrank) Shot Percent: \(player.shotPercent)%"
+        tournamentLabel?.text = "Drank: \(player.cupsDrank) Shot Percent: \(Int(player.shotPercent))%"
     }
 
     private func getDrinkTiming(throwerPosition: TablePosition) -> Double {
@@ -257,6 +261,7 @@ extension HudViewController: MatchDelegate {
         leftCupsRemaining -= 1
         if leftCupsRemaining == 0 {
             player.clutchCup += 1
+            rightWins()
         }
         leftCupsRemainingLabel.text = "\(leftCupsRemaining)"
     }
@@ -265,6 +270,7 @@ extension HudViewController: MatchDelegate {
         rightCupsRemaining -= 1
         if rightCupsRemaining == 0 {
             player.clutchCup += 1
+            leftWins()
         }
         rightCupsRemainingLabel.text = "\(rightCupsRemaining)"
     }
