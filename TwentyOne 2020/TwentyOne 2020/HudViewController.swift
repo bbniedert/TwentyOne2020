@@ -340,6 +340,7 @@ extension HudViewController: MatchDelegate {
                     player5?.hasBallBack = true
                     player6?.hasBallBack = true
                 }
+                self.currentDrinkers.removeAll()
             }
 
             drinkView.isHidden = false
