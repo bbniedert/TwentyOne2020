@@ -25,6 +25,8 @@ class HomeViewController: UIViewController {
         }
     }
 
+    var matches = [Match]()
+
     var sortedTeams: [Team] {
         return teams.sorted(by: { t1, t2 in
             (t1.wins, t1.cd) > (t2.wins, t2.cd)
@@ -70,6 +72,7 @@ class HomeViewController: UIViewController {
         clutchCupsTableView.register(UINib(nibName: "LeaderTableViewCell", bundle: nil), forCellReuseIdentifier: "clutch")
 
         getTeams()
+        getMatches()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -104,10 +107,39 @@ class HomeViewController: UIViewController {
 
                     saveTeams(teamList)
                 }
+
+                generateSchedule()
             } catch let error {
                 print()
             }
         }
+    }
+
+    private func generateSchedule() {
+        let teamSplits = teams.split()
+        var firstTeams = teamSplits.left
+        var secondTeams = teamSplits.right
+        var matches = [Match]()
+
+        for _ in 1...15 {
+            for index in 0..<8 {
+                let team1 = firstTeams[index]
+                let team2 = secondTeams[index]
+                matches.append(Match(leftTeam: team1, rightTeam: team2))
+            }
+            guard let teamFromTop = firstTeams.popLast() else { return }
+            let teamFromBottom = secondTeams.removeFirst()
+
+            firstTeams.insert(teamFromBottom, at: 1)
+            secondTeams.append(teamFromTop)
+        }
+
+        if let firstMatch = matches.filter({ ($0.leftTeam.name == "Salisbury" || $0.leftTeam.name == "Morehead") && ($0.rightTeam.name == "Salisbury" || $0.rightTeam.name == "Morehead")}).first {
+            matches.removeAll(where: { $0.leftTeam.name == firstMatch.leftTeam.name && $0.rightTeam.name == firstMatch.rightTeam.name })
+            matches.insert(firstMatch, at: 0)
+        }
+
+        saveMatches(matches)
     }
 
     private func createPlayerFrom(_ json: [String: Any]) -> Player? {
@@ -138,9 +170,29 @@ class HomeViewController: UIViewController {
         }
     }
 
+    private func saveMatches(_ matches: [Match]) {
+        do {
+            try UserDefaults.standard.setValue(PropertyListEncoder().encode(matches), forKey: "matches")
+            getMatches()
+        } catch {
+            print()
+        }
+    }
+
+    private func getMatches() {
+        if let matchData = UserDefaults.standard.object(forKey: "matches") as? Data {
+            do {
+                matches = try PropertyListDecoder().decode([Match].self, from: matchData)
+            } catch {
+                print()
+            }
+        }
+    }
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let hudVC = segue.destination as? HudViewController {
-            hudVC.addTeams(leftTeam: teams.randomElement()!, rightTeam: teams.randomElement()!)
+            guard let match = matches.randomElement() else { return }
+            hudVC.addTeams(leftTeam: match.leftTeam, rightTeam: match.rightTeam)
             hudVC.delegate = self
         }
     }
@@ -218,5 +270,15 @@ extension HomeViewController: UITableViewDataSource {
 extension HomeViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return tableView.frame.height / CGFloat(tableView.numberOfRows(inSection: 0))
+    }
+}
+
+extension Array {
+    func split() -> (left: [Element], right: [Element]) {
+        let ct = self.count
+        let half = ct / 2
+        let leftSplit = self[0 ..< half]
+        let rightSplit = self[half ..< ct]
+        return (left: Array(leftSplit), right: Array(rightSplit))
     }
 }

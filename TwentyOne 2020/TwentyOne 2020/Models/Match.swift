@@ -7,13 +7,13 @@
 
 import Foundation
 
-enum Winner {
+enum Winner: Int, Codable {
     case left
     case right
     case none
 }
 
-class Match {
+class Match: Codable {
 
     let leftTeam: Team
     let rightTeam: Team
