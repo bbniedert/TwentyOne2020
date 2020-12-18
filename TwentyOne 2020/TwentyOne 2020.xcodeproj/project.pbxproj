@@ -35,6 +35,7 @@
 		BDC917A6258AFA66001BACD9 /* makeFC.wav in Resources */ = {isa = PBXBuildFile; fileRef = BDC917A3258AFA66001BACD9 /* makeFC.wav */; };
 		BDC917A7258AFA66001BACD9 /* makeGD.wav in Resources */ = {isa = PBXBuildFile; fileRef = BDC917A4258AFA66001BACD9 /* makeGD.wav */; };
 		BDC917A8258AFA66001BACD9 /* makeDminor.wav in Resources */ = {isa = PBXBuildFile; fileRef = BDC917A5258AFA66001BACD9 /* makeDminor.wav */; };
+		BDC917AB258C429C001BACD9 /* StayinAlive.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BDC917AA258C429C001BACD9 /* StayinAlive.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -69,6 +70,7 @@
 		BDC917A3258AFA66001BACD9 /* makeFC.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = makeFC.wav; sourceTree = "<group>"; };
 		BDC917A4258AFA66001BACD9 /* makeGD.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = makeGD.wav; sourceTree = "<group>"; };
 		BDC917A5258AFA66001BACD9 /* makeDminor.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = makeDminor.wav; sourceTree = "<group>"; };
+		BDC917AA258C429C001BACD9 /* StayinAlive.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = StayinAlive.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,6 +150,7 @@
 				BD0AE70E257C705500085E0F /* makeC.wav */,
 				BD0AE714257C705600085E0F /* makeEb.wav */,
 				BD0AE710257C705500085E0F /* makeF.wav */,
+				BDC917AA258C429C001BACD9 /* StayinAlive.mp3 */,
 				BDC917A0258AFA58001BACD9 /* GenghisKhan.mp3 */,
 				BDC917A5258AFA66001BACD9 /* makeDminor.wav */,
 				BDC917A3258AFA66001BACD9 /* makeFC.wav */,
@@ -243,6 +246,7 @@
 				BDC917A1258AFA58001BACD9 /* GenghisKhan.mp3 in Resources */,
 				BD0AE71A257C705600085E0F /* makeBb.wav in Resources */,
 				BD0AE715257C705600085E0F /* makeC.wav in Resources */,
+				BDC917AB258C429C001BACD9 /* StayinAlive.mp3 in Resources */,
 				13AB4D9B255EE40100BAD620 /* Main.storyboard in Resources */,
 				BDC9179B2580769A001BACD9 /* Circles.mp3 in Resources */,
 			);
