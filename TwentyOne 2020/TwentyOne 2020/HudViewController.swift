@@ -60,6 +60,7 @@ class HudViewController: UIViewController {
     var rightCupsRemaining = 21
     var matchViewController: MatchViewController?
 
+    var match: Match?
     var leftTeam: Team?
     var rightTeam: Team?
     var player1: Player?
@@ -119,9 +120,12 @@ class HudViewController: UIViewController {
         })
     }
 
-    func addTeams(leftTeam: Team, rightTeam: Team) {
+    func addMatch(_ match: Match, leftTeam: Team, rightTeam: Team) {
+        self.match = match
+
         self.leftTeam = leftTeam
         self.rightTeam = rightTeam
+
         player1 = leftTeam.leftPlayer
         player1?.position = .topLeft
         player1?.rollForHotStreak()
@@ -165,7 +169,10 @@ class HudViewController: UIViewController {
         leftTeam?.cd -= rightCupsRemaining
         rightTeam?.wins += 1
         rightTeam?.cd += rightCupsRemaining
+        match?.winner = .right
+        match?.cupDifferential = rightCupsRemaining
         delegate?.updateTeams()
+        goBack()
     }
 
     private func leftWins() {
@@ -177,7 +184,16 @@ class HudViewController: UIViewController {
         rightTeam?.cd -= leftCupsRemaining
         leftTeam?.wins += 1
         leftTeam?.cd += leftCupsRemaining
+        match?.winner = .left
+        match?.cupDifferential = leftCupsRemaining
         delegate?.updateTeams()
+        goBack()
+    }
+
+    private func goBack() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5.0, execute: {
+            self.navigationController?.popViewController(animated: false)
+        })
     }
     
     func startMatch() {

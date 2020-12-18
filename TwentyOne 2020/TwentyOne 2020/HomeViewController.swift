@@ -17,11 +17,11 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var cupsDrankTableView: UITableView!
     @IBOutlet weak var shootingTableView: UITableView!
     @IBOutlet weak var clutchCupsTableView: UITableView!
-    @IBOutlet weak var teamSelectionCollectionView: UICollectionView!
+    @IBOutlet weak var matchCollectionView: UICollectionView!
     
     var teams = [Team]() {
         didSet {
-            teamSelectionCollectionView.reloadData()
+            matchCollectionView.reloadData()
         }
     }
 
@@ -65,7 +65,7 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
 
         navigationController?.navigationBar.isHidden = true
-        teamSelectionCollectionView.register(UINib(nibName: "TeamSelectionCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "teamCell")
+        matchCollectionView.register(UINib(nibName: "MatchCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "match")
         standingsTableView.register(UINib(nibName: "StandingTableViewCell", bundle: nil), forCellReuseIdentifier: "standings")
         cupsDrankTableView.register(UINib(nibName: "LeaderTableViewCell", bundle: nil), forCellReuseIdentifier: "drank")
         shootingTableView.register(UINib(nibName: "LeaderTableViewCell", bundle: nil), forCellReuseIdentifier: "shot")
@@ -82,6 +82,14 @@ class HomeViewController: UIViewController {
         cupsDrankTableView.reloadData()
         shootingTableView.reloadData()
         clutchCupsTableView.reloadData()
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5.0, execute: {
+            self.performSegue(withIdentifier: "startMatch", sender: nil)
+        })
     }
 
     @IBAction func didTapGenerateTournament(_ sender: Any) {
@@ -133,6 +141,8 @@ class HomeViewController: UIViewController {
             firstTeams.insert(teamFromBottom, at: 1)
             secondTeams.append(teamFromTop)
         }
+
+        matches.shuffle()
 
         if let firstMatch = matches.filter({ ($0.leftTeam.name == "Salisbury" || $0.leftTeam.name == "Morehead") && ($0.rightTeam.name == "Salisbury" || $0.rightTeam.name == "Morehead")}).first {
             matches.removeAll(where: { $0.leftTeam.name == firstMatch.leftTeam.name && $0.rightTeam.name == firstMatch.rightTeam.name })
@@ -191,10 +201,16 @@ class HomeViewController: UIViewController {
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let hudVC = segue.destination as? HudViewController {
-            guard let match = matches.randomElement() else { return }
-            hudVC.addTeams(leftTeam: match.leftTeam, rightTeam: match.rightTeam)
+            guard let match = getNextMatch(),
+                  let leftTeam = teams.filter({ $0.name == match.leftTeam.name }).first,
+                  let rightTeam = teams.filter({ $0.name == match.rightTeam.name }).first else { return }
+            hudVC.addMatch(match, leftTeam: leftTeam, rightTeam: rightTeam)
             hudVC.delegate = self
         }
+    }
+
+    private func getNextMatch() -> Match? {
+        return matches.filter({ $0.winner == .none }).first
     }
 }
 
@@ -204,7 +220,7 @@ extension HomeViewController: UICollectionViewDelegate {
 
 extension HomeViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return teams.count
+        return matches.count
     }
 
     func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -212,18 +228,16 @@ extension HomeViewController: UICollectionViewDataSource {
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "teamCell", for: indexPath) as? TeamSelectionCollectionViewCell else { return UICollectionViewCell() }
-
-        let team = teams[indexPath.row]
-        cell.configure(name: team.name)
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "match", for: indexPath) as? MatchCollectionViewCell else { return UICollectionViewCell() }
+        cell.configure(matches[indexPath.row])
         return cell
     }
 }
 
 extension HomeViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let width = collectionView.frame.width / 8.0
-        let height = collectionView.frame.height / 2.0
+        let width = collectionView.frame.width / 12.0
+        let height = collectionView.frame.height / 10.0
         return CGSize(width: width, height: height)
     }
 }
@@ -231,6 +245,7 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
 extension HomeViewController: HomeDelegate {
     func updateTeams() {
         saveTeams(teams)
+        saveMatches(matches)
     }
 }
 

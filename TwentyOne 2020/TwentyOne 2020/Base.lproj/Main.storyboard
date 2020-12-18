@@ -37,7 +37,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="912-T8-ZO5">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="912-T8-ZO5">
                                 <rect key="frame" x="340" y="260" width="1580" height="800"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
@@ -55,13 +55,7 @@
                                     <outlet property="delegate" destination="8wc-2C-LXk" id="1ca-TI-pvo"/>
                                 </connections>
                             </collectionView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is where matches will go" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7gE-HN-087">
-                                <rect key="frame" x="829.5" y="631" width="601.5" height="58.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="49"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <tableView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="soO-mw-iwR">
+                            <tableView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="soO-mw-iwR">
                                 <rect key="frame" x="0.0" y="150" width="300" height="910"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
@@ -78,7 +72,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <tableView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="3Y8-5d-PD5">
+                            <tableView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="3Y8-5d-PD5">
                                 <rect key="frame" x="810" y="150" width="300" height="110"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <connections>
@@ -86,7 +80,7 @@
                                     <outlet property="delegate" destination="8wc-2C-LXk" id="yj4-hB-0MC"/>
                                 </connections>
                             </tableView>
-                            <tableView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="eFP-3q-g6w">
+                            <tableView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="eFP-3q-g6w">
                                 <rect key="frame" x="460" y="150" width="300" height="110"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <connections>
@@ -94,7 +88,7 @@
                                     <outlet property="delegate" destination="8wc-2C-LXk" id="2ZJ-VQ-FSX"/>
                                 </connections>
                             </tableView>
-                            <tableView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="DyX-KE-ZXq">
+                            <tableView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="DyX-KE-ZXq">
                                 <rect key="frame" x="1160" y="150" width="300" height="110"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <connections>
@@ -131,7 +125,7 @@
                                 <rect key="frame" x="1650.5" y="190" width="79" height="30"/>
                                 <state key="normal" title="Next Match"/>
                                 <connections>
-                                    <segue destination="URa-jV-sFc" kind="show" id="KC8-ou-AKW"/>
+                                    <segue destination="URa-jV-sFc" kind="show" identifier="startMatch" id="KC8-ou-AKW"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -142,7 +136,6 @@
                             <constraint firstItem="DyX-KE-ZXq" firstAttribute="leading" secondItem="3Y8-5d-PD5" secondAttribute="trailing" constant="50" id="2Cz-5F-AwP"/>
                             <constraint firstItem="eFP-3q-g6w" firstAttribute="width" secondItem="3Y8-5d-PD5" secondAttribute="width" id="5sM-6u-V8m"/>
                             <constraint firstItem="DyX-KE-ZXq" firstAttribute="centerY" secondItem="3Y8-5d-PD5" secondAttribute="centerY" id="7Fc-AZ-dOY"/>
-                            <constraint firstItem="7gE-HN-087" firstAttribute="centerY" secondItem="912-T8-ZO5" secondAttribute="centerY" id="804-CD-AZl"/>
                             <constraint firstItem="gX3-YF-5pd" firstAttribute="centerX" secondItem="DyX-KE-ZXq" secondAttribute="centerX" id="8CW-9P-1x9"/>
                             <constraint firstItem="kOl-aW-WFt" firstAttribute="trailing" secondItem="912-T8-ZO5" secondAttribute="trailing" id="ATU-0S-Hyf"/>
                             <constraint firstItem="3Y8-5d-PD5" firstAttribute="centerX" secondItem="kOl-aW-WFt" secondAttribute="centerX" id="DsG-gL-3cI"/>
@@ -165,7 +158,6 @@
                             <constraint firstItem="soO-mw-iwR" firstAttribute="leading" secondItem="kOl-aW-WFt" secondAttribute="leading" id="fOs-WU-AYF"/>
                             <constraint firstItem="eFP-3q-g6w" firstAttribute="height" secondItem="3Y8-5d-PD5" secondAttribute="height" id="gJP-h0-Ghv"/>
                             <constraint firstItem="gX3-YF-5pd" firstAttribute="centerY" secondItem="m8j-Iz-Vpn" secondAttribute="centerY" id="hZj-h0-kzO"/>
-                            <constraint firstItem="7gE-HN-087" firstAttribute="centerX" secondItem="912-T8-ZO5" secondAttribute="centerX" id="lYn-QC-4jY"/>
                             <constraint firstItem="912-T8-ZO5" firstAttribute="top" secondItem="3Y8-5d-PD5" secondAttribute="bottom" id="lwg-F9-LCK"/>
                             <constraint firstItem="m8j-Iz-Vpn" firstAttribute="centerX" secondItem="3Y8-5d-PD5" secondAttribute="centerX" id="ouS-IP-U8f"/>
                             <constraint firstItem="eFP-3q-g6w" firstAttribute="centerY" secondItem="3Y8-5d-PD5" secondAttribute="centerY" id="pay-z6-fRc"/>
@@ -178,9 +170,9 @@
                     <connections>
                         <outlet property="clutchCupsTableView" destination="DyX-KE-ZXq" id="mdH-C4-c8i"/>
                         <outlet property="cupsDrankTableView" destination="eFP-3q-g6w" id="4ae-PT-5oE"/>
+                        <outlet property="matchCollectionView" destination="912-T8-ZO5" id="rE5-IJ-LGE"/>
                         <outlet property="shootingTableView" destination="3Y8-5d-PD5" id="g1x-Qw-8aD"/>
                         <outlet property="standingsTableView" destination="soO-mw-iwR" id="Que-zH-DAz"/>
-                        <outlet property="teamSelectionCollectionView" destination="912-T8-ZO5" id="rE5-IJ-LGE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iW5-0p-RpH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
