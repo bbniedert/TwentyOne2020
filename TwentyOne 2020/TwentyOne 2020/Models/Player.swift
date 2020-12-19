@@ -93,21 +93,6 @@ class Player: Codable {
         }
     }
 
-    func getColorForStreak() -> UIColor {
-        switch streak {
-        case .normal:
-            return UIColor.white
-        case .warm:
-            return UIColor.orange
-        case .hot:
-            return UIColor.red
-        case .cool:
-            return UIColor.cyan
-        case .cold:
-            return UIColor.blue
-        }
-    }
-
     func getDrunkModifier() -> Double {
         let startingCount = tankStatus.rawValue * 7
         if cupsDrank > startingCount {

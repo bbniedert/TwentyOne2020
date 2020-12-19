@@ -88,7 +88,6 @@ class MatchViewController: UIViewController {
                 bottomBall.isHidden = true
                 makeAudioPlayer = nil
                 missAudioPlayer = nil
-                miscAudioPlayer = nil
                 backgroundAudioPlayer = nil
             }
         }
@@ -158,6 +157,12 @@ class MatchViewController: UIViewController {
         }
     }
 
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+
+        miscAudioPlayer = nil
+    }
+
     func playSound(sound: String){
         switch sound {
         case "make":
@@ -214,6 +219,16 @@ class MatchViewController: UIViewController {
                 }
             }
         case "end":
+            if let endSound = Bundle.main.path(forResource: "EndGameJingle2", ofType: "wav"){
+                do{
+                    miscAudioPlayer = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: endSound))
+                    miscAudioPlayer?.play()
+                }
+                catch{
+                    print(error)
+                }
+            }
+        case "endPlayoff":
             if let endSound = Bundle.main.path(forResource: "EndGameJingle1", ofType: "wav"){
                 do{
                     miscAudioPlayer = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: endSound))

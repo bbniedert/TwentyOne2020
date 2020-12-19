@@ -103,13 +103,6 @@ class HudViewController: UIViewController {
         updateScoreLabels(for: player4)
         updateScoreLabels(for: player5)
         updateScoreLabels(for: player6)
-
-        self.player1Name.textColor = self.player1?.getColorForStreak()
-        self.player2Name.textColor = self.player2?.getColorForStreak()
-        self.player3Name.textColor = self.player3?.getColorForStreak()
-        self.player4Name.textColor = self.player4?.getColorForStreak()
-        self.player5Name.textColor = self.player5?.getColorForStreak()
-        self.player6Name.textColor = self.player6?.getColorForStreak()
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -211,7 +204,7 @@ class HudViewController: UIViewController {
     }
 
     private func goBack() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 5.0, execute: {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 8.0, execute: {
             self.navigationController?.popViewController(animated: false)
         })
     }
