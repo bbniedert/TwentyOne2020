@@ -109,9 +109,9 @@ class Player: Codable {
     }
 
     func getDrunkModifier() -> Double {
-        let startingCount = (tankStatus.rawValue + 0) * 7
+        let startingCount = tankStatus.rawValue * 7
         if cupsDrank > startingCount {
-            let effectiveCups = (cupsDrank - startingCount) / 7
+            let effectiveCups = (cupsDrank - startingCount) / 21
             return Double(effectiveCups)
         } else {
             return 0.0
@@ -119,7 +119,7 @@ class Player: Codable {
     }
 
     func getThrowDelay() -> Double {
-        return Double.random(in: 0.2...2.0)
+        return Double.random(in: 0.2...1.5)
     }
 
     func getThrowDuration() -> Double {

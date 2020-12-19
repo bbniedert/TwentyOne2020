@@ -117,7 +117,7 @@ class HomeViewController: UIViewController {
                 }
 
                 generateSchedule()
-            } catch let error {
+            } catch {
                 print()
             }
         }
@@ -130,11 +130,14 @@ class HomeViewController: UIViewController {
         var matches = [Match]()
 
         for _ in 1...15 {
+            var roundList = [Match]()
             for index in 0..<8 {
                 let team1 = firstTeams[index]
                 let team2 = secondTeams[index]
-                matches.append(Match(leftTeam: team1, rightTeam: team2))
+                roundList.append(Match(leftTeam: team1, rightTeam: team2))
             }
+            roundList.shuffle()
+            matches.append(contentsOf: roundList)
             guard let teamFromTop = firstTeams.popLast() else { return }
             let teamFromBottom = secondTeams.removeFirst()
 
@@ -236,8 +239,8 @@ extension HomeViewController: UICollectionViewDataSource {
 
 extension HomeViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let width = collectionView.frame.width / 12.0
-        let height = collectionView.frame.height / 10.0
+        let width = collectionView.frame.width / 15.0
+        let height = collectionView.frame.height / 8.0
         return CGSize(width: width, height: height)
     }
 }

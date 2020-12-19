@@ -5,7 +5,7 @@
             "playerName": "Brandon",
             "position": "center",
             "shootingPercentage": 42.3,
-            "drinkTiming": 3.0,
+            "drinkTiming": 2.0,
             "tankStatus": 3,
             "shootingStyle": null,
             "targetStrategy": 1
@@ -13,7 +13,7 @@
             "playerName": "Logan",
             "position": "left",
             "shootingPercentage": 42.7,
-            "drinkTiming": 3.0,
+            "drinkTiming": 2.0,
             "tankStatus": 3,
             "shootingStyle": null,
             "targetStrategy": 2
@@ -21,7 +21,7 @@
             "playerName": "Jared",
             "position": "right",
             "shootingPercentage": 38,
-            "drinkTiming": 3.0,
+            "drinkTiming": 2.0,
             "tankStatus": null,
             "shootingStyle": null,
             "targetStrategy": 3
@@ -33,7 +33,7 @@
             "playerName": "Marcus",
             "position": "center",
             "shootingPercentage": null,
-            "drinkTiming": 3.0,
+            "drinkTiming": 2.0,
             "tankStatus": null,
             "shootingStyle": null,
             "targetStrategy": 4
@@ -41,7 +41,7 @@
             "playerName": "Ryan",
             "position": "left",
             "shootingPercentage": 47.9,
-            "drinkTiming": 3.0,
+            "drinkTiming": 2.0,
             "tankStatus": 3,
             "shootingStyle": null,
             "targetStrategy": 5
@@ -49,7 +49,7 @@
             "playerName": "Pat",
             "position": "right",
             "shootingPercentage": 38.9,
-            "drinkTiming": 3.0,
+            "drinkTiming": 2.0,
             "tankStatus": 2,
             "shootingStyle": null,
             "targetStrategy": 6
@@ -61,7 +61,7 @@
             "playerName": "Abby",
             "position": "center",
             "shootingPercentage": 30.4,
-            "drinkTiming": 3.0,
+            "drinkTiming": 2.0,
             "tankStatus": 1,
             "shootingStyle": null,
             "targetStrategy": 0
@@ -69,7 +69,7 @@
             "playerName": "David",
             "position": "left",
             "shootingPercentage": null,
-            "drinkTiming": 3.0,
+            "drinkTiming": 2.0,
             "tankStatus": null,
             "shootingStyle": null,
             "targetStrategy": 0
@@ -77,7 +77,7 @@
             "playerName": "Natalie",
             "position": "right",
             "shootingPercentage": null,
-            "drinkTiming": 3.0,
+            "drinkTiming": 2.0,
             "tankStatus": null,
             "shootingStyle": null,
             "targetStrategy": 0
@@ -89,7 +89,7 @@
             "playerName": "Blake",
             "position": "center",
             "shootingPercentage": null,
-            "drinkTiming": 3.0,
+            "drinkTiming": 2.0,
             "tankStatus": null,
             "shootingStyle": null,
             "targetStrategy": 0
@@ -97,7 +97,7 @@
             "playerName": "Jon",
             "position": "left",
             "shootingPercentage": null,
-            "drinkTiming": 3.0,
+            "drinkTiming": 2.0,
             "tankStatus": null,
             "shootingStyle": null,
             "targetStrategy": 0
@@ -105,7 +105,7 @@
             "playerName": "Danny",
             "position": "right",
             "shootingPercentage": null,
-            "drinkTiming": 3.0,
+            "drinkTiming": 2.0,
             "tankStatus": null,
             "shootingStyle": null,
             "targetStrategy": 0
@@ -117,7 +117,7 @@
             "playerName": "Greg",
             "position": "center",
             "shootingPercentage": null,
-            "drinkTiming": 3.0,
+            "drinkTiming": 2.0,
             "tankStatus": null,
             "shootingStyle": null,
             "targetStrategy": 0
@@ -125,7 +125,7 @@
             "playerName": "Nomitch",
             "position": "left",
             "shootingPercentage": null,
-            "drinkTiming": 3.0,
+            "drinkTiming": 2.0,
             "tankStatus": null,
             "shootingStyle": null,
             "targetStrategy": 0
@@ -133,7 +133,7 @@
             "playerName": "Croll",
             "position": "right",
             "shootingPercentage": null,
-            "drinkTiming": 3.0,
+            "drinkTiming": 2.0,
             "tankStatus": null,
             "shootingStyle": null,
             "targetStrategy": 0
@@ -145,7 +145,7 @@
             "playerName": "David",
             "position": "center",
             "shootingPercentage": null,
-            "drinkTiming": 3.0,
+            "drinkTiming": 2.0,
             "tankStatus": null,
             "shootingStyle": null,
             "targetStrategy": 0
@@ -153,7 +153,7 @@
             "playerName": "Jared",
             "position": "left",
             "shootingPercentage": null,
-            "drinkTiming": 3.0,
+            "drinkTiming": 2.0,
             "tankStatus": null,
             "shootingStyle": null,
             "targetStrategy": 0
@@ -161,7 +161,7 @@
             "playerName": "Carson",
             "position": "right",
             "shootingPercentage": 50.9,
-            "drinkTiming": 3.0,
+            "drinkTiming": 2.0,
             "tankStatus": 3,
             "shootingStyle": null,
             "targetStrategy": 0
@@ -173,7 +173,7 @@
             "playerName": "Mike",
             "position": "center",
             "shootingPercentage": 51.7,
-            "drinkTiming": 3.0,
+            "drinkTiming": 2.0,
             "tankStatus": 3,
             "shootingStyle": null,
             "targetStrategy": 0
@@ -181,7 +181,7 @@
             "playerName": "Joe",
             "position": "left",
             "shootingPercentage": null,
-            "drinkTiming": 3.0,
+            "drinkTiming": 2.0,
             "tankStatus": null,
             "shootingStyle": null,
             "targetStrategy": 0
@@ -189,7 +189,7 @@
             "playerName": "Brennan",
             "position": "right",
             "shootingPercentage": null,
-            "drinkTiming": 3.0,
+            "drinkTiming": 2.0,
             "tankStatus": null,
             "shootingStyle": null,
             "targetStrategy": 0
@@ -201,7 +201,7 @@
             "playerName": "Martin",
             "position": "center",
             "shootingPercentage": null,
-            "drinkTiming": 3.0,
+            "drinkTiming": 2.0,
             "tankStatus": null,
             "shootingStyle": null,
             "targetStrategy": 0
@@ -209,7 +209,7 @@
             "playerName": "Tom",
             "position": "left",
             "shootingPercentage": null,
-            "drinkTiming": 3.0,
+            "drinkTiming": 2.0,
             "tankStatus": null,
             "shootingStyle": null,
             "targetStrategy": 0
@@ -217,7 +217,7 @@
             "playerName": "Phil",
             "position": "right",
             "shootingPercentage": null,
-            "drinkTiming": 3.0,
+            "drinkTiming": 2.0,
             "tankStatus": null,
             "shootingStyle": null,
             "targetStrategy": 0
@@ -229,7 +229,7 @@
             "playerName": "Kane",
             "position": "center",
             "shootingPercentage": 35,
-            "drinkTiming": 3.0,
+            "drinkTiming": 2.0,
             "tankStatus": 2,
             "shootingStyle": null,
             "targetStrategy": 0
@@ -237,7 +237,7 @@
             "playerName": "Nick",
             "position": "left",
             "shootingPercentage": null,
-            "drinkTiming": 3.0,
+            "drinkTiming": 2.0,
             "tankStatus": null,
             "shootingStyle": null,
             "targetStrategy": 0
@@ -245,7 +245,7 @@
             "playerName": "Garrett",
             "position": "right",
             "shootingPercentage": null,
-            "drinkTiming": 3.0,
+            "drinkTiming": 2.0,
             "tankStatus": null,
             "shootingStyle": null,
             "targetStrategy": 0
@@ -257,7 +257,7 @@
             "playerName": "Eric",
             "position": "center",
             "shootingPercentage": 60,
-            "drinkTiming": 3.0,
+            "drinkTiming": 2.0,
             "tankStatus": 1,
             "shootingStyle": null,
             "targetStrategy": 0
@@ -265,7 +265,7 @@
             "playerName": "Mallory",
             "position": "left",
             "shootingPercentage": null,
-            "drinkTiming": 3.0,
+            "drinkTiming": 2.0,
             "tankStatus": null,
             "shootingStyle": null,
             "targetStrategy": 0
@@ -273,7 +273,7 @@
             "playerName": "Kelsey",
             "position": "right",
             "shootingPercentage": null,
-            "drinkTiming": 3.0,
+            "drinkTiming": 2.0,
             "tankStatus": null,
             "shootingStyle": null,
             "targetStrategy": 0
@@ -285,7 +285,7 @@
             "playerName": "Ben",
             "position": "center",
             "shootingPercentage": null,
-            "drinkTiming": 3.0,
+            "drinkTiming": 2.0,
             "tankStatus": null,
             "shootingStyle": null,
             "targetStrategy": 0
@@ -293,7 +293,7 @@
             "playerName": "Andrew",
             "position": "left",
             "shootingPercentage": null,
-            "drinkTiming": 3.0,
+            "drinkTiming": 2.0,
             "tankStatus": null,
             "shootingStyle": null,
             "targetStrategy": 0
@@ -301,7 +301,7 @@
             "playerName": "Alex",
             "position": "right",
             "shootingPercentage": null,
-            "drinkTiming": 3.0,
+            "drinkTiming": 2.0,
             "tankStatus": null,
             "shootingStyle": null,
             "targetStrategy": 0
@@ -313,7 +313,7 @@
             "playerName": "Aaron",
             "position": "center",
             "shootingPercentage": 29.8,
-            "drinkTiming": 3.0,
+            "drinkTiming": 2.0,
             "tankStatus": 3,
             "shootingStyle": null,
             "targetStrategy": 0
@@ -321,7 +321,7 @@
             "playerName": "Dave",
             "position": "left",
             "shootingPercentage": null,
-            "drinkTiming": 3.0,
+            "drinkTiming": 2.0,
             "tankStatus": null,
             "shootingStyle": null,
             "targetStrategy": 0
@@ -329,7 +329,7 @@
             "playerName": "James",
             "position": "right",
             "shootingPercentage": null,
-            "drinkTiming": 3.0,
+            "drinkTiming": 2.0,
             "tankStatus": null,
             "shootingStyle": null,
             "targetStrategy": 0
@@ -341,7 +341,7 @@
             "playerName": "Wade",
             "position": "center",
             "shootingPercentage": null,
-            "drinkTiming": 3.0,
+            "drinkTiming": 2.0,
             "tankStatus": null,
             "shootingStyle": null,
             "targetStrategy": 0
@@ -349,7 +349,7 @@
             "playerName": "Nic",
             "position": "left",
             "shootingPercentage": null,
-            "drinkTiming": 3.0,
+            "drinkTiming": 2.0,
             "tankStatus": null,
             "shootingStyle": null,
             "targetStrategy": 0
@@ -357,7 +357,7 @@
             "playerName": "Sam",
             "position": "right",
             "shootingPercentage": null,
-            "drinkTiming": 3.0,
+            "drinkTiming": 2.0,
             "tankStatus": null,
             "shootingStyle": null,
             "targetStrategy": 0
@@ -369,7 +369,7 @@
             "playerName": "Alex",
             "position": "center",
             "shootingPercentage": null,
-            "drinkTiming": 3.0,
+            "drinkTiming": 2.0,
             "tankStatus": null,
             "shootingStyle": null,
             "targetStrategy": 0
@@ -377,7 +377,7 @@
             "playerName": "Kate",
             "position": "left",
             "shootingPercentage": null,
-            "drinkTiming": 3.0,
+            "drinkTiming": 2.0,
             "tankStatus": null,
             "shootingStyle": null,
             "targetStrategy": 0
@@ -385,7 +385,7 @@
             "playerName": "Meg",
             "position": "right",
             "shootingPercentage": null,
-            "drinkTiming": 3.0,
+            "drinkTiming": 2.0,
             "tankStatus": null,
             "shootingStyle": null,
             "targetStrategy": 0
@@ -397,7 +397,7 @@
             "playerName": "Cole",
             "position": "center",
             "shootingPercentage": null,
-            "drinkTiming": 3.0,
+            "drinkTiming": 2.0,
             "tankStatus": null,
             "shootingStyle": null,
             "targetStrategy": 0
@@ -405,7 +405,7 @@
             "playerName": "Jim",
             "position": "left",
             "shootingPercentage": null,
-            "drinkTiming": 3.0,
+            "drinkTiming": 2.0,
             "tankStatus": null,
             "shootingStyle": null,
             "targetStrategy": 0
@@ -413,7 +413,7 @@
             "playerName": "Aaron",
             "position": "right",
             "shootingPercentage": null,
-            "drinkTiming": 3.0,
+            "drinkTiming": 2.0,
             "tankStatus": null,
             "shootingStyle": null,
             "targetStrategy": 0
@@ -425,7 +425,7 @@
             "playerName": "Jen",
             "position": "center",
             "shootingPercentage": 33,
-            "drinkTiming": 3.0,
+            "drinkTiming": 2.0,
             "tankStatus": 1,
             "shootingStyle": null,
             "targetStrategy": 0
@@ -433,7 +433,7 @@
             "playerName": "Danielle",
             "position": "left",
             "shootingPercentage": null,
-            "drinkTiming": 3.0,
+            "drinkTiming": 2.0,
             "tankStatus": null,
             "shootingStyle": null,
             "targetStrategy": 0
@@ -441,7 +441,7 @@
             "playerName": "Emily",
             "position": "right",
             "shootingPercentage": null,
-            "drinkTiming": 3.0,
+            "drinkTiming": 2.0,
             "tankStatus": null,
             "shootingStyle": null,
             "targetStrategy": 0

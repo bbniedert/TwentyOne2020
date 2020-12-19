@@ -115,8 +115,25 @@ class HudViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3.0, execute: {
-            self.startMatch()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0, execute: {
+            self.ballsBackLabel.isHidden = false
+            self.ballsBackLabel.text = "3"
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0, execute: {
+                self.ballsBackLabel.isHidden = false
+                self.ballsBackLabel.text = "2"
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1.0, execute: {
+                    self.ballsBackLabel.isHidden = false
+                    self.ballsBackLabel.text = "1"
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1.0, execute: {
+                        self.ballsBackLabel.isHidden = false
+                        self.ballsBackLabel.text = "21!!!"
+                        self.startMatch()
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0, execute: {
+                            self.ballsBackLabel.isHidden = true
+                        })
+                    })
+                })
+            })
         })
     }
 
