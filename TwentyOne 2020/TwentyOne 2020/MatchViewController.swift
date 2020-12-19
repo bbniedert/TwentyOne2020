@@ -102,7 +102,7 @@ class MatchViewController: UIViewController {
         var make2 = String()
         var make3 = String()
         
-        let songNumber = Int.random(in: 0..<6)
+        let songNumber = Int.random(in: 0..<7)
         if songNumber == 0{
             track = "AnythingCouldHappen"
             make1 = "makeC"
@@ -138,6 +138,12 @@ class MatchViewController: UIViewController {
             make1 = "makeEb"
             make2 = "makeEb"
             make3 = "makeBb"
+        }
+        if songNumber == 6{
+            track = "TheRunandGo"
+            make1 = "makeB"
+            make2 = "makeF#"
+            make3 = "makeEbminor"
         }
         
         if let gameTrack = Bundle.main.path(forResource: track, ofType: "mp3"){
