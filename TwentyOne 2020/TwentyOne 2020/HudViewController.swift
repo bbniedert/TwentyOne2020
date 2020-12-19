@@ -129,6 +129,7 @@ class HudViewController: UIViewController {
                         self.ballsBackLabel.text = "21!!!"
                         self.startMatch()
                         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0, execute: {
+                            self.ballsBackLabel.text = "Balls Back!"
                             self.ballsBackLabel.isHidden = true
                         })
                     })
@@ -188,6 +189,7 @@ class HudViewController: UIViewController {
         rightTeam?.cd += rightCupsRemaining
         match?.winner = .right
         match?.cupDifferential = rightCupsRemaining
+        matchViewController?.playSound(sound: "end")
         delegate?.updateTeams()
         goBack()
     }
@@ -203,6 +205,7 @@ class HudViewController: UIViewController {
         leftTeam?.cd += leftCupsRemaining
         match?.winner = .left
         match?.cupDifferential = leftCupsRemaining
+        matchViewController?.playSound(sound: "end")
         delegate?.updateTeams()
         goBack()
     }
