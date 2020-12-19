@@ -18,6 +18,9 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var shootingTableView: UITableView!
     @IBOutlet weak var clutchCupsTableView: UITableView!
     @IBOutlet weak var matchCollectionView: UICollectionView!
+
+    var startTime = Date()
+    var endTime: Date?
     
     var teams = [Team]() {
         didSet {
@@ -88,7 +91,12 @@ class HomeViewController: UIViewController {
         super.viewDidAppear(animated)
 
         DispatchQueue.main.asyncAfter(deadline: .now() + 5.0, execute: {
-            self.performSegue(withIdentifier: "startMatch", sender: nil)
+            if self.getNextMatch() != nil {
+                self.performSegue(withIdentifier: "startMatch", sender: nil)
+            } else {
+                self.endTime = Date()
+                print()
+            }
         })
     }
 
