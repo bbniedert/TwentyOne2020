@@ -29,6 +29,10 @@
 		BD0AE719257C705600085E0F /* makeG.wav in Resources */ = {isa = PBXBuildFile; fileRef = BD0AE712257C705600085E0F /* makeG.wav */; };
 		BD0AE71A257C705600085E0F /* makeBb.wav in Resources */ = {isa = PBXBuildFile; fileRef = BD0AE713257C705600085E0F /* makeBb.wav */; };
 		BD0AE71B257C705600085E0F /* makeEb.wav in Resources */ = {isa = PBXBuildFile; fileRef = BD0AE714257C705600085E0F /* makeEb.wav */; };
+		BD6D7F48258E54FC00D84E11 /* TheRunandGo.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BD6D7F47258E54FC00D84E11 /* TheRunandGo.mp3 */; };
+		BD6D7F4B258E552400D84E11 /* makeB.wav in Resources */ = {isa = PBXBuildFile; fileRef = BD6D7F4A258E552400D84E11 /* makeB.wav */; };
+		BD6D7F4E258E552E00D84E11 /* makeF#.wav in Resources */ = {isa = PBXBuildFile; fileRef = BD6D7F4D258E552E00D84E11 /* makeF#.wav */; };
+		BD6D7F51258E553900D84E11 /* makeEbminor.wav in Resources */ = {isa = PBXBuildFile; fileRef = BD6D7F50258E553900D84E11 /* makeEbminor.wav */; };
 		BDC9179B2580769A001BACD9 /* Circles.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BDC9179A2580769A001BACD9 /* Circles.mp3 */; };
 		BDC9179E258860F2001BACD9 /* Liztomania.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BDC9179D258860F2001BACD9 /* Liztomania.mp3 */; };
 		BDC917A1258AFA58001BACD9 /* GenghisKhan.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BDC917A0258AFA58001BACD9 /* GenghisKhan.mp3 */; };
@@ -64,6 +68,10 @@
 		BD0AE712257C705600085E0F /* makeG.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = makeG.wav; sourceTree = "<group>"; };
 		BD0AE713257C705600085E0F /* makeBb.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = makeBb.wav; sourceTree = "<group>"; };
 		BD0AE714257C705600085E0F /* makeEb.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = makeEb.wav; sourceTree = "<group>"; };
+		BD6D7F47258E54FC00D84E11 /* TheRunandGo.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = TheRunandGo.mp3; sourceTree = "<group>"; };
+		BD6D7F4A258E552400D84E11 /* makeB.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = makeB.wav; sourceTree = "<group>"; };
+		BD6D7F4D258E552E00D84E11 /* makeF#.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "makeF#.wav"; sourceTree = "<group>"; };
+		BD6D7F50258E553900D84E11 /* makeEbminor.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = makeEbminor.wav; sourceTree = "<group>"; };
 		BDC9179A2580769A001BACD9 /* Circles.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Circles.mp3; sourceTree = "<group>"; };
 		BDC9179D258860F2001BACD9 /* Liztomania.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Liztomania.mp3; sourceTree = "<group>"; };
 		BDC917A0258AFA58001BACD9 /* GenghisKhan.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = GenghisKhan.mp3; sourceTree = "<group>"; };
@@ -152,6 +160,10 @@
 				BD0AE710257C705500085E0F /* makeF.wav */,
 				BDC917AA258C429C001BACD9 /* StayinAlive.mp3 */,
 				BDC917A0258AFA58001BACD9 /* GenghisKhan.mp3 */,
+				BD6D7F47258E54FC00D84E11 /* TheRunandGo.mp3 */,
+				BD6D7F4A258E552400D84E11 /* makeB.wav */,
+				BD6D7F4D258E552E00D84E11 /* makeF#.wav */,
+				BD6D7F50258E553900D84E11 /* makeEbminor.wav */,
 				BDC917A5258AFA66001BACD9 /* makeDminor.wav */,
 				BDC917A3258AFA66001BACD9 /* makeFC.wav */,
 				BDC917A4258AFA66001BACD9 /* makeGD.wav */,
@@ -230,6 +242,7 @@
 			files = (
 				BD0AE718257C705600085E0F /* makeFminor.wav in Resources */,
 				BD0AE71B257C705600085E0F /* makeEb.wav in Resources */,
+				BD6D7F4B258E552400D84E11 /* makeB.wav in Resources */,
 				BD0AE70725787EDE00085E0F /* upheavtt.ttf in Resources */,
 				BD0AE6E12577401900085E0F /* miss.wav in Resources */,
 				BDC9179E258860F2001BACD9 /* Liztomania.mp3 in Resources */,
@@ -239,14 +252,17 @@
 				BD0AE6E22577401900085E0F /* ballsBack.wav in Resources */,
 				BDC917A8258AFA66001BACD9 /* makeDminor.wav in Resources */,
 				BD0AE719257C705600085E0F /* makeG.wav in Resources */,
+				BD6D7F51258E553900D84E11 /* makeEbminor.wav in Resources */,
 				BD0AE717257C705600085E0F /* makeF.wav in Resources */,
 				13AB4D9D255EE40300BAD620 /* Assets.xcassets in Resources */,
 				BDC917A7258AFA66001BACD9 /* makeGD.wav in Resources */,
 				BD0AE716257C705600085E0F /* BlindingLights.mp3 in Resources */,
 				BDC917A1258AFA58001BACD9 /* GenghisKhan.mp3 in Resources */,
+				BD6D7F48258E54FC00D84E11 /* TheRunandGo.mp3 in Resources */,
 				BD0AE71A257C705600085E0F /* makeBb.wav in Resources */,
 				BD0AE715257C705600085E0F /* makeC.wav in Resources */,
 				BDC917AB258C429C001BACD9 /* StayinAlive.mp3 in Resources */,
+				BD6D7F4E258E552E00D84E11 /* makeF#.wav in Resources */,
 				13AB4D9B255EE40100BAD620 /* Main.storyboard in Resources */,
 				BDC9179B2580769A001BACD9 /* Circles.mp3 in Resources */,
 			);
